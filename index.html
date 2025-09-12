@@ -1,33 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Principal</title>
-  <link rel="stylesheet" href="/JobPath/index.css" />
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
   <header class="header">
     <div class="logo">
-      <img src="/JobPath/logo-anima.png" alt="Anima logo" />
+      <img src="logo-anima.png" alt="Anima logo" />
       Anima
     </div>
-    
-    <nav>
-      <a href="/JobPath/Principal/Principal.html" class="active">PRINCIPAL</a> |
-      <a href="/JobPath/home/home.html">HOME</a> |
-      <a href="/JobPath/About%20Us/about.html">ABOUT US</a> |
-      <a href="/JobPath/Capacitaciones/Capacitaciones.html">CAPACITACIONES</a> |
-      <a href="/JobPath/companias/companias.html">COMPAÑÍAS</a> |
-      <a href="/JobPath/jovenes/jovenes.html">JÓVENES</a> |
-      <a href="/JobPath/perfil/perfil.html">PERFIL</a> |
-      <a href="/JobPath/suscripciones/suscripciones.html">SUSCRIPCIONES</a>
+      <nav>
+      <a href="file:///C:/Users/Alumno/Desktop/OpenHOUSE/Principal/Principal.html"class="active">PRINCIPAL</a>
+     
+       
     </nav>
 
-    <!-- Botones idioma -->
-    <button onclick="cambiarIdioma('es')">Español</button>
-    <button onclick="cambiarIdioma('en')">English</button>
-    <div id="google_translate_element" style="display:none;"></div>
+     <button onclick="cambiarIdioma('es')">Español</button>
+  <button onclick="cambiarIdioma('en')">English</button>
+
+  <div id="google_translate_element" style="display:none;"></div>
   </header>
 
   <div class="container">
@@ -36,26 +30,27 @@
   </div>
 
   <script>
-    // Redirección con scroll
-    const GO = () => location.href = "/JobPath/home/home.html";
+  
+  const GO = () => location.href = "../home/home.html";
 
-    let done = false;
-    function fireOnce() {
-      if (done) return;
-      done = true;
-      GO();
-    }
+  let done = false;
+  function fireOnce() {
+    if (done) return;
+    done = true;
+    GO();
+  }
 
-    window.addEventListener("scroll", fireOnce, { passive: true });
-    window.addEventListener("wheel", fireOnce, { passive: true });
-    window.addEventListener("touchmove", fireOnce, { passive: true });
-    window.addEventListener("keydown", (e) => {
-      if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
-    });
-  </script>
-
-  <div class="arrow" onclick="location.href='/JobPath/home/home.html'">&#8595;</div>
-
-  <script src="/JobPath/js/translate.js"></script>
+  
+  window.addEventListener("scroll", fireOnce, { passive: true });
+  window.addEventListener("wheel", fireOnce, { passive: true });
+  window.addEventListener("touchmove", fireOnce, { passive: true });
+  window.addEventListener("keydown", (e) => {
+    if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
+  });
+</script>
+<div class="arrow" onclick="location.href='../home/home.html'">&#8595;</div>
+<script src="../js/translate.js"></script>
 </body>
+
+  
 </html>

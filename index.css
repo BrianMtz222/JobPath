@@ -12,41 +12,44 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-}
 
-.header .logo {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  font-size: 14px;
-  gap: 8px;
-}
+  .logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    gap: 8px;
 
-.header .logo img {
-  width: 20px;
-  height: 20px;
-}
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
 
-.header nav {
-  display: flex;
-}
+  nav {
+    display: flex;
 
-.header nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-  padding-bottom: 2px;
-  transition: border-bottom 0.3s ease;
-}
+    a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      padding-bottom: 2px;
+      transition: border-bottom 0.3s ease;
 
-.header nav a:hover,
-.header nav a.active {
-  border-bottom: 2px solid white;
+      &:hover {
+        border-bottom: 2px solid white;
+      }
+
+      &.active {
+        border-bottom: 2px solid white;
+      }
+    }
+  }
 }
 
 .container {
-  height: calc(100vh - 80px); /* restar altura del header */
+  height: calc(100vh - 80px); // restar altura del header
   border-radius: 16px;
   display: flex;
   flex-direction: column;
