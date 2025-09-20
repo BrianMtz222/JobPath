@@ -28,7 +28,7 @@ img {
 
 nav {
   display: flex;
-  gap: 10px; /* Añade un espacio entre los enlaces */
+  gap: 10px; 
 }
 .nav-and-buttons {
   display: flex;
@@ -40,9 +40,9 @@ nav {
 
 .navbar {
   display: flex;
-  justify-content: center; 
+  justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, #2d2d3f, #4f4fcf);
+   background: linear-gradient(to right, #2d2d3f, #4f4fcf);
   padding: 15px 40px;
 }
 
