@@ -55,7 +55,7 @@ body {
   gap: 40px;
   background-color: #ffffff;
 }
-  
+
 .text-section {
   max-width: 400px;
 }
@@ -121,7 +121,7 @@ body {
       }
     }
 
-    .language-nav {
+.language-nav {
   display: flex;
   gap: 10px;
   margin-left: auto;
