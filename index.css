@@ -100,12 +100,13 @@ transform: translateY(8px);
 }
 .language-nav button {
   background: none;
-  border: 1px solid white;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 5px;
+  border: 2px solid white; 
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  padding: 8px 18px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 .language-nav button:hover {
   background: white;
