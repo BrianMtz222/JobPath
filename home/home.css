@@ -107,6 +107,7 @@ body {
 }
  nav {
     display: flex;
+    position: c;
  }
     a {
       color: white;
