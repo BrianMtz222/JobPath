@@ -2,7 +2,8 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #2d2d3f, #ffffff);
+  /* Cambia el fondo del body a blanco */
+  background: #ffffff;
   color: #222;
 }
 
@@ -11,7 +12,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-   background: linear-gradient(to right, #2d2d3f, #4f4fcf);
+  /* Mantén este fondo degradado para la navbar */
+  background: linear-gradient(to right, #2d2d3f, #4f4fcf);
   padding: 15px 40px;
 }
 
