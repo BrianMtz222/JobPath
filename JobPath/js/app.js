@@ -27,7 +27,7 @@ if (currentPath.includes('login.html')) {
                 localStorage.setItem('loggedInUser', JSON.stringify(userData));
 
                 // Redirigir a la página de perfil
-                window.location.href = '../perfil/perfil.html';
+                window.location.href = '/JobPath/perfil/perfil.html';
             } else {
                 alert('Por favor, completa todos los campos.');
             }
@@ -55,11 +55,11 @@ if (currentPath.includes('login.html')) {
             } catch (e) {
                 console.error("Error al parsear los datos de localStorage", e);
                 // Si hay un error, redirigir al login
-                window.location.href = '../login/login.html';
+                window.location.href = '/JobPath/perfil/perfil.html';
             }
         } else {
             // Si no hay datos, redirigir al login
-            window.location.href = '../login/login.html';
+            window.location.href = '/JobPath/perfil/perfil.html';
         }
     });
 }
