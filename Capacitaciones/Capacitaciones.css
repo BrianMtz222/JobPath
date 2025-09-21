@@ -4,6 +4,9 @@ body {
       background: #ffffff;
       background: linear-gradient(to right, #000000, #4b29d0);
     }
+    &.active {
+  border-bottom: 2px solid white;
+}
 
     header {
        background: linear-gradient(to right, #2d2d3f, #4f4fcf);

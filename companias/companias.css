@@ -13,6 +13,9 @@ body, html {
     min-height: 100vh;
     overflow-x: hidden;
 }
+&.active {
+  border-bottom: 2px solid white;
+}
 
 .language-nav button {
   background: none;

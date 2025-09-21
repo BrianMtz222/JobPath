@@ -18,6 +18,9 @@ body {
   background: white;
   color: #2d2d3f;
 }
+&.active {
+  border-bottom: 2px solid white;
+}
 
 
 .header {
