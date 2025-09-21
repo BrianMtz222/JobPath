@@ -23,7 +23,7 @@ if (window.location.href.includes('login.html')) {
             localStorage.setItem('loggedInUser', JSON.stringify(userData));
 
             // Redirigir a la página de perfil
-            window.location.href = '../perfil/perfil.html';
+            window.location.href = "/JobPath/perfil/perfil.html";
         } else {
             alert('Por favor, completa todos los campos.');
         }
@@ -48,6 +48,6 @@ if (window.location.href.includes('login.html')) {
         userEmailDisplay.textContent = userData.email;
     } else {
         // Si no hay datos, redirigir al login
-        window.location.href = '../login/login.html';
+        window.location.href = "/JobPath/login/login.html";
     }
 }
