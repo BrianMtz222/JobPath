@@ -1,7 +1,8 @@
 body, html {
 margin: 0;
 padding: 0;
-height: 90%;
+overflow: hidden;
+height: 100%;
 font-family: 'Segoe UI', sans-serif;
 background: linear-gradient(to right, #2d2d3f, #4f4fcf);
 color: white;
