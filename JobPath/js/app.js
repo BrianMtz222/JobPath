@@ -23,7 +23,7 @@ if (window.location.href.includes('login.html')) {
             localStorage.setItem('loggedInUser', JSON.stringify(userData));
 
             // Redirigir a la página de perfil
-            window.location.href = "/JobPath/perfil/perfil.html";
+            window.location.href = "https://brianmtz222.github.io//JobPath/perfil/perfil.html";
         } else {
             alert('Por favor, completa todos los campos.');
         }
