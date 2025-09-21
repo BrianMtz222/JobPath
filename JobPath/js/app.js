@@ -27,7 +27,8 @@ if (currentPath.includes('login.html')) {
                 localStorage.setItem('loggedInUser', JSON.stringify(userData));
 
                 // Redirigir a la página de perfil
-                window.location.href = 'https://brianmtz222.github.io/JobPath/perfil/perfil.html';
+                // Usamos una ruta relativa, que funciona en cualquier servidor
+                window.location.href = '../perfil/perfil.html';
             } else {
                 alert('Por favor, completa todos los campos.');
             }
