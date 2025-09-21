@@ -80,8 +80,8 @@ font-weight: 700;
 
 .arrow {
 position: absolute;
-bottom: 20px;
-font-size: 24px;
+bottom: 50px;
+font-size: 40px;
 animation: bounce 2s infinite;
 }
 
