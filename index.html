@@ -15,7 +15,7 @@
         </div>
         <nav>
             <a href="home/home.html" class="active">PRINCIPAL</a> 
-            <a href="../perfil/perfil.html" id="perfilLink" style="display:none;">Perfil</a> |
+           <a href="https://brianmtz222.github.io/JobPath/perfil/perfil.html" id="perfil-link">Perfil</a>
              
         </nav>
         
@@ -41,21 +41,19 @@
             if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
         });
     </script>
-
-      <script>
-  // Al cargar la página revisamos si hay usuario logueado
-  document.addEventListener("DOMContentLoaded", () => {
-    const perfilLink = document.getElementById("https://brianmtz222.github.io/JobPath/perfil/perfil.html");
+<script>
+      documsent.addEventListener("DOMContentLoaded", () => {
+    const perfilLink = document.querySelector('a[href="https://brianmtz222.github.io/JobPath/perfil/perfil.html"]');
     const storedUserData = localStorage.getItem("loggedInUser");
 
-    if (storedUserData) {
-      // Si hay usuario → mostrar el link
-      perfilLink.style.display = "inline";
-    } else {
-      // Si NO hay usuario → ocultar el link
-      perfilLink.style.display = "none";
+    if (perfilLink) {
+        if (storedUserData) {
+            perfilLink.style.display = "inline";
+        } else {
+            perfilLink.style.display = "none";
+        }
     }
-  });
+});
 </script>
     
   
