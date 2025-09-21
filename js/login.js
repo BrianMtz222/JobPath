@@ -1,7 +1,7 @@
 // Este código maneja la lógica de las páginas de login y perfil
 
 // Lógica para la página de login
-if (window.location.pathname.endsWith('login.html')) {
+if (window.location.pathname.includes('login.html')) {
     const loginForm = document.getElementById('loginForm');
 
     loginForm.addEventListener('submit', (event) => {
@@ -13,11 +13,11 @@ if (window.location.pathname.endsWith('login.html')) {
         localStorage.setItem('loggedInUser', username);
         
         // Redirigimos al usuario a la página de perfil
-        window.location.href = 'https://brianmtz222.github.io/JobPath/perfil/perfil.html';
+        window.location.href = '/perfil/perfil.html';
     });
 
 // Lógica para la página de perfil
-} else if (window.location.pathname.endsWith('perfil.html')) {
+} else if (window.location.pathname.includes('perfil.html')) {
     const userNameDisplay = document.getElementById('userNameDisplay');
 
     // Obtenemos el nombre de usuario del almacenamiento local
@@ -29,7 +29,6 @@ if (window.location.pathname.endsWith('login.html')) {
         userNameDisplay.textContent = loggedInUser;
     } else {
         // Si no hay un usuario guardado, lo redirigimos a la página de login
-        // CORRECCIÓN: La ruta debe ser la de tu página de inicio de sesión
-        window.location.href = 'https://brianmtz222.github.io/JobPath/login/login.html';
+        window.location.href = '/registro/login.html';
     }
 }
