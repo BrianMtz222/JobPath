@@ -2,18 +2,12 @@
 
 // Lógica para la página de login
 if (window.location.pathname.includes('login.html')) {
-    const loginForm = document.getElementById('loginForm');
+    const usernameInput = document.getElementById('username');
 
-    loginForm.addEventListener('submit', (event) => {
-        event.preventDefault(); 
-
-        const username = document.getElementById('username').value;
-        
-        // Guardamos el nombre de usuario en el almacenamiento local
-        localStorage.setItem('loggedInUser', username);
-        
-        // Redirigimos al usuario a la página de perfil
-        window.location.href = '/perfil/perfil.html';
+    // Escucha cada vez que el valor del campo de texto cambia
+    usernameInput.addEventListener('input', (event) => {
+        // Guarda el nombre de usuario en el almacenamiento local en tiempo real
+        localStorage.setItem('loggedInUser', event.target.value);
     });
 
 // Lógica para la página de perfil
@@ -28,7 +22,7 @@ if (window.location.pathname.includes('login.html')) {
         // Si hay un usuario, lo mostramos en el encabezado
         userNameDisplay.textContent = loggedInUser;
     } else {
-        // Si no hay un usuario guardado, lo redirigimos a la página de login
-        window.location.href = '/registro/login.html';
+        // Si no hay un usuario, lo redirigimos a la página de login
+        window.location.href = '../login/login.html'; 
     }
 }
