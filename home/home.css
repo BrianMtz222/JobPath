@@ -107,8 +107,9 @@ body {
 }
 nav {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; 
+  width: 600px;
+  margin: 0 auto; 
 }
     a {
       color: white;
