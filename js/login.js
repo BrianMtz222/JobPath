@@ -30,6 +30,6 @@ if (window.location.pathname.endsWith('login.html')) {
     } else {
         // Si no hay un usuario guardado (ej. la persona entró directamente), 
         // la redirigimos de vuelta a la página de login
-        window.location.href = '/JobPath/login.html'; // Asegúrate de que esta ruta sea la correcta para tu login
+        window.location.href = 'https://brianmtz222.github.io/JobPath/perfil/perfil.html'; // Asegúrate de que esta ruta sea la correcta para tu login
     }
 }
