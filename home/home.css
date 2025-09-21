@@ -12,9 +12,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, #2d2d3f, #4f4fcf);
+   background: linear-gradient(to right, #2d2d3f, #4f4fcf);
   padding: 15px 40px;
- 
 }
 
 .logo {
