@@ -41,6 +41,22 @@
             if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
         });
     </script>
+
+      <script>
+  // Al cargar la página revisamos si hay usuario logueado
+  document.addEventListener("DOMContentLoaded", () => {
+    const perfilLink = document.getElementById("perfilLink");
+    const storedUserData = localStorage.getItem("loggedInUser");
+
+    if (storedUserData) {
+      // Si hay usuario → mostrar el link
+      perfilLink.style.display = "inline";
+    } else {
+      // Si NO hay usuario → ocultar el link
+      perfilLink.style.display = "none";
+    }
+  });
+</script>
     
   
 </body>

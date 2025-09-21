@@ -52,19 +52,3 @@ if (window.location.href.includes('login.html')) {
     }
 }
 
-// Mostrar el link de Perfil solo si hay usuario logueado
-document.addEventListener("DOMContentLoaded", () => {
-    const perfilLink = document.getElementById("perfilLink");
-    const storedUserData = localStorage.getItem("loggedInUser");
-
-    console.log("Perfil link:", perfilLink);
-    console.log("Usuario guardado:", storedUserData);
-
-    if (perfilLink) {
-        if (storedUserData) {
-            perfilLink.style.display = "inline"; // mostrar link
-        } else {
-            perfilLink.style.display = "none";   // ocultar link
-        }
-    }
-});
