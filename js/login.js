@@ -2,9 +2,12 @@
 
 // Lógica para la página de login
 if (window.location.pathname.includes('login.html')) {
-    const loginButton = document.getElementById('loginButton');
+    const loginForm = document.getElementById('loginForm');
 
-    loginButton.addEventListener('click', () => {
+    loginForm.addEventListener('submit', (event) => {
+        // Previene la recarga de la página para que el script pueda actuar
+        event.preventDefault(); 
+
         const username = document.getElementById('username').value;
         const lastname = document.getElementById('lastname').value;
         const email = document.getElementById('email').value;
@@ -18,6 +21,9 @@ if (window.location.pathname.includes('login.html')) {
 
         // Convertir el objeto a una cadena JSON y guardarlo en localStorage
         localStorage.setItem('loggedInUser', JSON.stringify(userData));
+        
+        // Redirigimos al usuario a la página de perfil
+        window.location.href = '/JobPath/perfil/perfil.html';
     });
 
 // Lógica para la página de perfil
@@ -40,6 +46,6 @@ if (window.location.pathname.includes('login.html')) {
         userEmailDisplay.textContent = userData.email;
     } else {
         // Si no hay datos, redirigir al login
-        window.location.href = '../login/login.html'; 
+        window.location.href = '/JobPath/login.html'; 
     }
 }
