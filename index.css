@@ -14,7 +14,7 @@ align-items: center;
 padding: 20px 40px;
 
 .logo {
-display: no;
+display: flex;
 align-items: center;
 font-weight: bold;
 font-size: 14px;
@@ -32,12 +32,8 @@ align-items: center;
 gap: 20px;
 }
 
-.navbar {
-  display: flex;
-  justify-content: center; /* Centra horizontalmente todo el contenido del header */
-  align-items: center;
-  background: linear-gradient(to right, #2d2d3f, #4f4fcf);
-  padding: 15px 40px;
+nav {
+display: flex;
 }
 
 a {
@@ -97,22 +93,3 @@ transform: translateY(8px);
 }
 }
 
-.language-nav {
-  display: flex;
-  gap: 10px;
-  margin-left: auto;
-}
-.language-nav button {
-  background: none;
-  border: 2px solid white; 
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.language-nav button:hover {
-  background: white;
-  color: #2d2d3f;
-}
