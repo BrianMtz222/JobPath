@@ -13,7 +13,7 @@ if (window.location.pathname.endsWith('login.html')) {
         localStorage.setItem('loggedInUser', username);
         
         // Redirigimos al usuario a la ruta especificada
-        window.location.href = '/JobPath/perfil/perfil.html';
+        window.location.href = 'https://brianmtz222.github.io/JobPath/perfil/perfil.html';
     });
 
 // Lógica para la página de perfil
