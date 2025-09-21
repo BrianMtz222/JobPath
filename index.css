@@ -57,12 +57,12 @@ transition: border-bottom 0.3s ease;
 
 .language-buttons {
 display: flex;
-gap: 10px;
+gap: 8px;
 }
 }
 
 .container {
-height: calc(100vh - 80px); /* restar altura del header */
+height: calc(100vh - 80px);
 border-radius: 16px;
 display: flex;
 flex-direction: column;
