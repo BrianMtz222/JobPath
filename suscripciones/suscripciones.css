@@ -3,7 +3,7 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #2d2d3f, #4f4fcf);
+    background:white;
     color: #03032b;
 }
 
