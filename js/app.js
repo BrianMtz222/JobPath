@@ -51,3 +51,17 @@ if (window.location.href.includes('login.html')) {
         window.location.href = "https://brianmtz222.github.io/JobPath/registro/login.html";
     }
 }
+
+// --- Mostrar el link de perfil solo si hay usuario logueado ---
+document.addEventListener("DOMContentLoaded", () => {
+    const perfilLink = document.getElementById("perfilLink");
+    const storedUserData = localStorage.getItem("loggedInUser");
+
+    if (perfilLink) {
+        if (storedUserData) {
+            perfilLink.style.display = "inline"; // mostrar link
+        } else {
+            perfilLink.style.display = "none";   // ocultar link
+        }
+    }
+});
