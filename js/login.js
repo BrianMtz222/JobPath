@@ -1,22 +1,35 @@
-// Este código maneja el formulario de login.html
-const loginForm = document.getElementById('loginForm');
+// Este código maneja la lógica de las páginas de login y perfil
 
-// Escuchamos el evento de "submit" (cuando el usuario hace clic en el botón de Entrar)
-loginForm.addEventListener('submit', (event) => {
-    // Evitamos que la página se recargue, que es el comportamiento por defecto de un formulario
-    event.preventDefault(); 
+// Lógica para la página de login
+if (window.location.pathname.endsWith('login.html')) {
+    const loginForm = document.getElementById('loginForm');
 
-    // Obtenemos los valores de los campos de usuario y contraseña
-    const username = document.getElementById('username').value;
-    
-    // NOTA: En un caso real, nunca guardarías la contraseña en el navegador.
-    // Aquí solo la leemos para fines de demostración.
-    const password = document.getElementById('password').value; 
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault(); 
 
-    // Usamos el almacenamiento local del navegador para guardar el nombre del usuario
-    // La clave es 'loggedInUser' y el valor es el nombre que se ingresó
-    localStorage.setItem('loggedInUser', username);
-    
-    // Redirigimos al usuario a la página de perfil
-    window.location.href = 'perfil.html';
-});
+        const username = document.getElementById('username').value;
+        
+        // Guardamos el nombre de usuario en el almacenamiento local
+        localStorage.setItem('loggedInUser', username);
+        
+        // Redirigimos al usuario a la ruta especificada
+        window.location.href = '/JobPath/perfil/perfil.html';
+    });
+
+// Lógica para la página de perfil
+} else if (window.location.pathname.endsWith('perfil.html')) {
+    const userNameDisplay = document.getElementById('userNameDisplay');
+
+    // Obtenemos el nombre de usuario del almacenamiento local
+    const loggedInUser = localStorage.getItem('loggedInUser');
+
+    // Verificamos si hay un nombre de usuario guardado
+    if (loggedInUser) {
+        // Si hay un usuario, lo mostramos en el encabezado
+        userNameDisplay.textContent = loggedInUser;
+    } else {
+        // Si no hay un usuario guardado (ej. la persona entró directamente), 
+        // la redirigimos de vuelta a la página de login
+        window.location.href = '/JobPath/login.html'; // Asegúrate de que esta ruta sea la correcta para tu login
+    }
+}
