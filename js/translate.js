@@ -26,3 +26,7 @@ function cambiarIdioma(lang) {
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
         }
+
+        function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es'}, 'google_translate_element');
+}
