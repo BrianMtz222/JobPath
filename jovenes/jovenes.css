@@ -135,6 +135,10 @@ body {
   color: #2d2d3f;
 }
 
-&.active {
+.active {
   border-bottom: 2px solid white;
+}
+
+.header nav a {
+  text-decoration: underline;
 }

@@ -121,7 +121,7 @@ body {
         border-bottom: 2px solid white;
       }
     }
-&.active {
+.active {
   border-bottom: 2px solid white;
 }
 
