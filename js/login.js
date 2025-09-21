@@ -12,7 +12,7 @@ if (window.location.pathname.endsWith('login.html')) {
         // Guardamos el nombre de usuario en el almacenamiento local
         localStorage.setItem('loggedInUser', username);
         
-        // Redirigimos al usuario a la ruta especificada
+        // Redirigimos al usuario a la página de perfil
         window.location.href = 'https://brianmtz222.github.io/JobPath/perfil/perfil.html';
     });
 
@@ -28,8 +28,8 @@ if (window.location.pathname.endsWith('login.html')) {
         // Si hay un usuario, lo mostramos en el encabezado
         userNameDisplay.textContent = loggedInUser;
     } else {
-        // Si no hay un usuario guardado (ej. la persona entró directamente), 
-        // la redirigimos de vuelta a la página de login
-        window.location.href = 'https://brianmtz222.github.io/JobPath/perfil/perfil.html'; // Asegúrate de que esta ruta sea la correcta para tu login
+        // Si no hay un usuario guardado, lo redirigimos a la página de login
+        // CORRECCIÓN: La ruta debe ser la de tu página de inicio de sesión
+        window.location.href = 'https://brianmtz222.github.io/JobPath/login/login.html';
     }
 }
