@@ -52,10 +52,13 @@ if (window.location.href.includes('login.html')) {
     }
 }
 
-// --- Mostrar el link de perfil solo si hay usuario logueado ---
+// Mostrar el link de Perfil solo si hay usuario logueado
 document.addEventListener("DOMContentLoaded", () => {
     const perfilLink = document.getElementById("perfilLink");
     const storedUserData = localStorage.getItem("loggedInUser");
+
+    console.log("Perfil link:", perfilLink);
+    console.log("Usuario guardado:", storedUserData);
 
     if (perfilLink) {
         if (storedUserData) {
