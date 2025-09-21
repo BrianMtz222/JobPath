@@ -14,6 +14,7 @@ body {
   align-items: center;
   background: linear-gradient(to right, #2d2d3f, #4f4fcf);
   padding: 15px 40px;
+  text-decoration: underline;
 }
 
 .logo {
@@ -124,6 +125,9 @@ body {
 .active {
   border-bottom: 2px solid white;
 }
+
+
+
 
 .language-nav {
   display: flex;
