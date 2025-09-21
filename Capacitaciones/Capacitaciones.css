@@ -4,7 +4,7 @@ body {
       background: #ffffff;
       background: linear-gradient(to right, #000000, #4b29d0);
     }
-    &.active {
+  .active {
   border-bottom: 2px solid white;
 }
 
@@ -49,7 +49,6 @@ body {
       text-decoration: underline;
     }
 
-    /* Main layout */
     .container {
       display: grid;
       grid-template-columns: 3fr 1fr;
@@ -57,7 +56,6 @@ body {
       gap: 20px;
     }
 
-    /* Cards Grid */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

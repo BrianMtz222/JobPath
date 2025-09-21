@@ -162,6 +162,6 @@ nav a:hover {
 .edit-btn:hover, .settings-btn:hover {
   background: #0056b3;
 }
-&.active {
+.active {
   border-bottom: 2px solid white;
 }
