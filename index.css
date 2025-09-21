@@ -12,10 +12,9 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 20px 40px;
-}
 
 .logo {
-display: none;
+display: no;
 align-items: center;
 font-weight: bold;
 font-size: 14px;
@@ -25,24 +24,19 @@ img {
   width: 20px;
   height: 20px;
 }
-
-nav {
-  display: flex;
-  gap: 10px; 
 }
+
 .nav-and-buttons {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  width: 100%; 
-  justify-content: center; 
+display: flex;
+align-items: center;
+gap: 20px;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centra horizontalmente todo el contenido del header */
   align-items: center;
-   background: linear-gradient(to right, #2d2d3f, #4f4fcf);
+  background: linear-gradient(to right, #2d2d3f, #4f4fcf);
   padding: 15px 40px;
 }
 
@@ -106,6 +100,7 @@ transform: translateY(8px);
 .language-nav {
   display: flex;
   gap: 10px;
+  margin-left: auto;
 }
 .language-nav button {
   background: none;
