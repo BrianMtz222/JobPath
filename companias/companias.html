@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compañías</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Companias</title>
     <link rel="stylesheet" href="companias.css" />
 </head>
-
 <body>
 
     <header class="header">
@@ -19,72 +17,50 @@
             <a href="/JobPath/Capacitaciones/Capacitaciones.html">Capacitaciones</a> |
             <a href="/JobPath/companias/companias.html" class="active">Compañías</a> |
             <a href="/JobPath/About%20Us/about.html">Hacerca De..</a> |
+            
+            
+            
         </nav>
-        <nav class="language-nav">
-            <button onclick="cambiarIdioma('es')">Español</button>
-            <button onclick="cambiarIdioma('en')">English</button>
-            <div id="google_translate_element" style="display:none;"></div>
-        </nav>
+         <nav class="language-nav">
+  <button onclick="cambiarIdioma('es')">Español</button>
+  <button onclick="cambiarIdioma('en')">English</button>
+  <div id="google_translate_element" style="display:none;"></div>
+</nav>
+
     </header>
 
     <section class="cards-wrapper">
-        <!-- Botón anterior -->
-        <button class="nav-arrow prev-arrow">&#8249;</button>
+        <button class="nav-arrow">&#8249;</button>
 
-        <!-- Tarjetas visibles -->
-        <div class="card-container visible-cards">
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s" alt="Ship">
-                <p>La programación es el proceso de crear instrucciones que una computadora sigue para
-                    realizar tareas específicas.</p>
-                <div class="icons"><span>🤍</span><span>📄</span><span>📘</span></div>
-                <button class="show-more">Show more ▼</button>
+         <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s" alt="Ship">
+            <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y desarrollan software.</p>
+            <div class="icons">
+                <span>🤍</span><span>📄</span><span>📘</span>
             </div>
-
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s" alt="Ship">
-                <p>Al escribir código, los programadores crean aplicaciones, automatizan procesos y desarrollan software.</p>
-                <div class="icons"><span>🤍</span><span>📄</span><span>📘</span></div>
-                <button class="show-more">Show more ▼</button>
-            </div>
-
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s" alt="Office">
-                <p>Los programadores desarrollan soluciones para distintos sectores.</p>
-                <div class="icons"><span>🤍</span><span>📄</span><span>📘</span></div>
-                <button class="show-more">Show more ▼</button>
-            </div>
+            <button class="show-more">Show more ▼</button>
         </div>
 
-        <!-- Tarjetas ocultas -->
-        <div class="card-container hidden-cards">
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s" alt="Another ship">
-                <p>Esto es una nueva tarjeta. Puedes cambiar el contenido de los párrafos e imágenes.</p>
-                <div class="icons"><span>🤍</span><span>📄</span><span>📘</span></div>
-                <button class="show-more">Show more ▼</button>
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s" alt="Ship">
+            <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y desarrollan software.</p>
+            <div class="icons">
+                <span>🤍</span><span>📄</span><span>📘</span>
             </div>
-
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s" alt="Office building">
-                <p>Esta es otra tarjeta. ¡Agrega el texto que necesites aquí!</p>
-                <div class="icons"><span>🤍</span><span>📄</span><span>📘</span></div>
-                <button class="show-more">Show more ▼</button>
-            </div>
-
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s" alt="A different office">
-                <p>Y esta es la tercera tarjeta nueva. ¡Personalízala!</p>
-                <div class="icons"><span>🤍</span><span>📄</span><span>📘</span></div>
-                <button class="show-more">Show more ▼</button>
-            </div>
+            <button class="show-more">Show more ▼</button>
         </div>
 
-        <!-- Botón siguiente -->
-        <button class="nav-arrow next-arrow">&#8250;</button>
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s" alt="Office">
+            <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y desarrollan software.</p>
+            <div class="icons">
+                <span>🤍</span><span>📄</span><span>📘</span>
+            </div>
+            <button class="show-more">Show more ▼</button>
+        </div>
+
+        <button class="nav-arrow">&#8250;</button>
     </section>
-
     <script src="../js/translate.js"></script>
-    <script src="/js/carrusel.js"></script>
 </body>
 </html>
