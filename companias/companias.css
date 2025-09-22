@@ -75,15 +75,15 @@ nav a.active, nav a:hover {
 }
 
 .cards-wrapper {
+    position: relative; /* 👈 IMPORTANTE */
     display: flex;
-    gap: 20px;
     align-items: center;
+    justify-content: center;
+    overflow: hidden;
     padding: 40px 20px;
     flex-wrap: wrap;
-    justify-content: center;
     flex-grow: 1;
 }
-
 .card {
     background: white;
     color: black;
@@ -148,4 +148,14 @@ nav a.active, nav a:hover {
     border-radius: 50%;
     z-index: 10;
     transition: background-color 0.3s;
+}
+.nav-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.prev-arrow {
+    left: 10px;  /* 👈 se pega al lado izquierdo */
+}
+
+.next-arrow {
+    right: 10px; /* 👈 se pega al lado derecho */
 }
