@@ -1,4 +1,3 @@
-
 body, html {
     margin: 0;
     padding: 0;
@@ -13,21 +12,26 @@ body, html {
     min-height: 100vh;
     overflow-x: hidden;
 }
+
+/* link activo */
 &.active {
   border-bottom: 2px solid white;
 }
+
+/* Contenedores de tarjetas */
 .card-container.hidden-cards {
-    display: none; /* Oculta el contenedor de las nuevas tarjetas */
+    display: none;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
 .card-container.visible-cards {
-    display: flex; /* Muestra el contenedor de las tarjetas originales */
+    display: flex;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
 
+/* Botones de idioma */
 .language-nav button {
   background: none;
   border: 2px solid white; 
@@ -43,6 +47,7 @@ body, html {
   color: #2d2d3f;
 }
 
+/* Header */
 .header {
     background: linear-gradient(to right, #000000, #4b29d0);
     color: white;
@@ -63,6 +68,7 @@ body, html {
     font-weight: bold;
 }
 
+/* Links de navegación */
 nav a {
     color: white;
     text-decoration: none;
@@ -74,16 +80,18 @@ nav a.active, nav a:hover {
     border-bottom: 2px solid white;
 }
 
+/* Wrapper de cards */
 .cards-wrapper {
-    position: relative; /* 👈 IMPORTANTE */
+    position: relative; /* NECESARIO para posicionar flechas */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     padding: 40px 20px;
-    flex-wrap: wrap;
     flex-grow: 1;
 }
+
+/* Tarjeta */
 .card {
     background: white;
     color: black;
@@ -135,8 +143,9 @@ nav a.active, nav a:hover {
     color: black;
 }
 
+/* Flechas */
 .nav-arrow {
-    position: relative;
+    position: absolute; /* 👈 ahora sí absoluto */
     top: 50%;
     transform: translateY(-50%);
     background: linear-gradient(to right, #2d2d3f, #4f4fcf);    
@@ -149,6 +158,15 @@ nav a.active, nav a:hover {
     z-index: 10;
     transition: background-color 0.3s;
 }
+
 .nav-arrow:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-arrow {
+    left: 10px;
+}
+
+.next-arrow {
+    right: 10px;
 }
