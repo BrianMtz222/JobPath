@@ -1,3 +1,4 @@
+
 body, html {
     margin: 0;
     padding: 0;
@@ -12,26 +13,10 @@ body, html {
     min-height: 100vh;
     overflow-x: hidden;
 }
-
-/* link activo */
 &.active {
   border-bottom: 2px solid white;
 }
 
-/* Contenedores de tarjetas */
-.card-container.hidden-cards {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.card-container.visible-cards {
-    display: flex;
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* Botones de idioma */
 .language-nav button {
   background: none;
   border: 2px solid white; 
@@ -47,7 +32,6 @@ body, html {
   color: #2d2d3f;
 }
 
-/* Header */
 .header {
     background: linear-gradient(to right, #000000, #4b29d0);
     color: white;
@@ -68,7 +52,6 @@ body, html {
     font-weight: bold;
 }
 
-/* Links de navegación */
 nav a {
     color: white;
     text-decoration: none;
@@ -81,13 +64,15 @@ nav a.active, nav a:hover {
 }
 
 .cards-wrapper {
-    position: relative;
     display: flex;
+    gap: 20px;
     align-items: center;
+    padding: 40px 20px;
+    flex-wrap: wrap;
     justify-content: center;
+    flex-grow: 1;
 }
 
-/* Tarjeta */
 .card {
     background: white;
     color: black;
@@ -139,30 +124,13 @@ nav a.active, nav a:hover {
     color: black;
 }
 
-
 .nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: white;
+    background: #4b29d0;
+    color: white;
     border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 10;
+    font-size: 24px;
     border-radius: 50%;
-    padding: 5px 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: background-color 0.3s;
-}
-
-.nav-arrow:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.prev-arrow {
-    left: -50px; 
-}
-
-.next-arrow {
-    right: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 }
