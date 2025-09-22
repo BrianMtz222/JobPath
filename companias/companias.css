@@ -139,7 +139,7 @@ nav a.active, nav a:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
+    background: linear-gradient(to right, #2d2d3f, #4f4fcf);
     border: none;
     color: white;
     font-size: 2rem;
@@ -151,11 +151,4 @@ nav a.active, nav a:hover {
 }
 .nav-arrow:hover {
     background-color: rgba(0, 0, 0, 0.8);
-}
-.prev-arrow {
-    left: 10px;  /* 👈 se pega al lado izquierdo */
-}
-
-.next-arrow {
-    right: 10px; /* 👈 se pega al lado derecho */
 }
