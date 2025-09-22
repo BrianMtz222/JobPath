@@ -16,6 +16,17 @@ body, html {
 &.active {
   border-bottom: 2px solid white;
 }
+.card-container.hidden-cards {
+    display: none; /* Oculta el contenedor de las nuevas tarjetas */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.card-container.visible-cards {
+    display: flex; /* Muestra el contenedor de las tarjetas originales */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
 
 .language-nav button {
   background: none;
