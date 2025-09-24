@@ -15,7 +15,7 @@
         </div>
         <nav>
             <a href="home/home.html" class="active">PRINCIPAL</a> 
-           <a href="https://brianmtz222.github.io/JobPath/perfil/perfil.html" id="perfil-link">Perfil</a>
+           <a href="../registro/login.html" class="login-btn">
              
         </nav>
         
@@ -41,20 +41,7 @@
             if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
         });
     </script>
-<script>
-      documsent.addEventListener("DOMContentLoaded", () => {
-    const perfilLink = document.querySelector('a[href="https://brianmtz222.github.io/JobPath/perfil/perfil.html"]');
-    const storedUserData = localStorage.getItem("loggedInUser");
 
-    if (perfilLink) {
-        if (storedUserData) {
-            perfilLink.style.display = "inline";
-        } else {
-            perfilLink.style.display = "none";
-        }
-    }
-});
-</script>
     
   
 </body>
