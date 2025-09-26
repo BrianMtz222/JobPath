@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f0f2f5; /* Un fondo claro y suave */
+    background-color: linear-gradient(to right, #2d2d3f, #4f4fcf);
     color: #333;
     display: flex;
     justify-content: center;
