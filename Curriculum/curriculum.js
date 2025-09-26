@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cvContentElement.focus();
             // Opcional: podrías agregar una clase CSS para visualmente indicar que es editable
             // cvContentElement.classList.add('editing');
-            alert('YA PUEDES MODIFICAR TU CURRÍCULUM !!!.');
+            alert('YA PUEDES MODIFICAR TU CURRÍCULUM !!!');
         } else {
             // Al salir del modo edición, guardamos el contenido con la clave única
             saveCV();
