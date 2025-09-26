@@ -19,7 +19,6 @@ if (window.location.href.includes('login.html')) {
                 email: email
             };
 
-            // Guardar los datos del usuario en localStorage
             localStorage.setItem('loggedInUser', JSON.stringify(userData));
 
             // Redirigir a la página de perfil
@@ -29,7 +28,7 @@ if (window.location.href.includes('login.html')) {
         }
     });
 
-// Verificar si estamos en la página de perfil
+    // Verificar si estamos en la página de perfil
 } else if (window.location.href.includes('perfil.html')) {
     const userNameDisplay = document.getElementById('userNameDisplay');
     const userLastnameDisplay = document.getElementById('userLastnameDisplay');
