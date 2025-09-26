@@ -1,0 +1,92 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.profile-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#editToggleBtn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#editToggleBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos del Contenedor del CV */
+.cv-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.cv-content h1 {
+    color: #007bff;
+    margin-bottom: 5px;
+    font-size: 2em;
+}
+
+.cv-content h2 {
+    color: #444;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+.cv-content h3 {
+    margin-top: 15px;
+    margin-bottom: 0;
+    color: #222;
+}
+
+.cv-content p, .cv-content ul {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.contact-info span {
+    margin-right: 15px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Estilo para los elementos editables (cuando contenteditable es true) */
+.cv-content[contenteditable="true"] {
+    border: 2px dashed #ff9800; /* Borde naranja para indicar modo edición */
+    padding: 10px;
+    min-height: 400px; /* Asegura un área visible para editar */
+    background-color: #fffbe6; /* Fondo ligero para indicar edición */
+}
+
+.cv-content[contenteditable="true"] * {
+    /* Resaltar ligeramente los elementos al pasar el ratón para guiar la edición */
+    outline: none;
+    transition: background-color 0.1s;
+}
+
+.cv-content[contenteditable="true"] *:hover {
+    background-color: rgba(255, 255, 0, 0.1);
+}
+
+.date-range {
+    font-style: italic;
+    color: #777;
+    font-size: 0.9em;
+}
