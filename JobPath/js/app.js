@@ -73,7 +73,7 @@ if (window.location.href.includes('login.html')) {
             userEmailDisplay.classList.add('is-editing');
 
             editBtn.textContent = 'Guardar Cambios';
-            alert('Modo edición activado. Haz clic en tu nombre, apellido o email para modificar.');
+            alert(' Haz clic en tu nombre, apellido o email para modificar.');
 
         } else {
             // 2. Salir del modo edición y guardar

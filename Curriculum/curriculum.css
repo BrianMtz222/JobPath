@@ -138,24 +138,38 @@ body {
     font-weight: 500;
 }
 
+/* Estilos para el Navegador (nav) */
 nav {
-    align-items: center;
+    /* 1. Usamos Flexbox para centrar los elementos internos */
+    display: flex;
+    
+    /* 2. Centra los enlaces horizontalmente dentro de la barra de navegación */
+    justify-content: center; 
+    
+    /* Centrado Vertical del contenido (si nav tiene altura) */
+    align-items: center; 
 
-    a {
-        color: white;
-        text-decoration: none;
-        margin-left: 20px;
-        font-weight: bold;
-        align-items: center;
-        padding-bottom: 2px;
-        transition: border-bottom 0.3s ease;
+    /* Asegura que el nav tome todo el ancho para que el 'justify-content: center' funcione a nivel de página */
+    width: 100%; 
+    padding: 10px 0; /* Espacio superior e inferior */
+    
+    /* Las propiedades anidadas deben ser planas en CSS estándar */
+    /* Aquí la versión plana de los estilos de los enlaces (a) */
+}
 
-        &:hover {
-            border-bottom: 2px solid white;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px; /* Ajuste el margen izquierdo para un espaciado uniforme */
+    font-weight: bold;
+    padding-bottom: 2px;
+    transition: border-bottom 0.3s ease;
+}
 
-        &.active {
-            border-bottom: 2px solid white;
-        }
-    }
+nav a:hover {
+    border-bottom: 2px solid white;
+}
+
+nav a.active {
+    border-bottom: 2px solid white;
 }
