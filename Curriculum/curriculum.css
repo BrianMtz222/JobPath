@@ -1,92 +1,120 @@
+/* Estilos Globales: Fondo Oscuro y Tipografía Moderna */
 body {
-    font-family: 'Arial', sans-serif;
+    /* Fondo con degradado moderno */
+    background: linear-gradient(to right, #2d2d3f, #4f4fcf); 
+    color: white; /* Color de texto principal claro */
+    font-family: 'Segoe UI', sans-serif; /* Tipografía moderna y limpia */
     margin: 0;
-    padding: 20px;
-    background-color: #f4f4f9;
-    color: #333;
+    padding: 40px 20px; /* Más padding para un mejor respiro */
+    min-height: 100vh; /* Asegura que el degradado cubra toda la altura */
 }
 
+/* Estilos de la Sección de Perfil */
 .profile-section {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
+    padding-top: 20px;
 }
 
+/* Estilos del Botón de Edición */
 #editToggleBtn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    padding: 12px 25px;
+    /* Color de botón que resalte sobre el fondo oscuro */
+    background-color: #ff9800; /* Naranja vibrante para acción */
+    color: #2d2d3f; /* Texto oscuro para contraste */
     border: none;
-    border-radius: 5px;
+    border-radius: 25px; /* Bordes más redondeados (pastilla) */
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #editToggleBtn:hover {
-    background-color: #0056b3;
+    background-color: #e68900; /* Un tono más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Efecto de elevación sutil */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* Estilos del Contenedor del CV */
 .cv-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    background: white;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    /* Contenedor del CV con un fondo semitransparente o claro sobre el degradado */
+    background: rgba(255, 255, 255, 0.95); 
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra más profunda */
+    border-radius: 16px;
+    color: #333; /* Texto dentro del contenedor vuelve a ser oscuro para legibilidad */
 }
 
+/* Estilos de Contenido General */
 .cv-content h1 {
-    color: #007bff;
-    margin-bottom: 5px;
-    font-size: 2em;
+    color: #4f4fcf; /* El color secundario del degradado */
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    font-weight: 700;
 }
 
 .cv-content h2 {
-    color: #444;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
-    margin-top: 20px;
-    font-size: 1.5em;
+    color: #2d2d3f; /* El color principal del degradado */
+    border-bottom: 3px solid #ff9800; /* Subrayado con el color de acento */
+    padding-bottom: 8px;
+    margin-top: 30px;
+    font-size: 1.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .cv-content h3 {
-    margin-top: 15px;
-    margin-bottom: 0;
-    color: #222;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: #444;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .cv-content p, .cv-content ul {
-    line-height: 1.6;
-    margin-bottom: 10px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1em;
 }
 
+/* Estilos de la Información de Contacto */
 .contact-info span {
-    margin-right: 15px;
-    font-size: 0.9em;
+    margin-right: 20px;
+    font-size: 1em;
     color: #666;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
-/* Estilo para los elementos editables (cuando contenteditable es true) */
+/* Estilos de Edición (Mejorados) */
 .cv-content[contenteditable="true"] {
-    border: 2px dashed #ff9800; /* Borde naranja para indicar modo edición */
-    padding: 10px;
-    min-height: 400px; /* Asegura un área visible para editar */
-    background-color: #fffbe6; /* Fondo ligero para indicar edición */
+    border: 3px dashed #ff9800; /* Borde naranja vibrante para indicar edición */
+    padding: 15px;
+    min-height: 400px;
+    background-color: #f7f7f7; /* Fondo más claro para edición */
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 .cv-content[contenteditable="true"] * {
-    /* Resaltar ligeramente los elementos al pasar el ratón para guiar la edición */
     outline: none;
     transition: background-color 0.1s;
 }
 
 .cv-content[contenteditable="true"] *:hover {
-    background-color: rgba(255, 255, 0, 0.1);
+    background-color: rgba(79, 79, 207, 0.1); /* Sutil resaltado con el color secundario */
 }
 
+/* Estilos de los Rangos de Fecha */
 .date-range {
     font-style: italic;
-    color: #777;
-    font-size: 0.9em;
+    color: #4f4fcf; /* Usamos el color de acento para las fechas */
+    font-size: 0.95em;
+    font-weight: 500;
 }

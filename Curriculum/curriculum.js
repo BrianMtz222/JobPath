@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isEditing) {
             editToggleBtn.textContent = 'Guardar CV';
             cvContent.focus(); // Pone el foco para empezar a editar
-            alert('¡Modo de edición activado! Haz clic en cualquier texto para modificarlo.');
+            alert('YA PUEDES MODIFICAR TU CURRÍCULUM !!!.');
         } else {
             // Guarda el contenido cuando se sale del modo edición
             localStorage.setItem(storageKey, cvContent.innerHTML);
             editToggleBtn.textContent = 'Editar Currículum';
-            alert('¡Contenido guardado localmente y modo de visualización activado!');
+            alert('¡SE GUARDO TU CURRÍCULUM CORRECTAMT!');
         }
     }
 
