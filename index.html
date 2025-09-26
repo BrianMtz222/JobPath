@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Principal</title>
     <link rel="stylesheet" href="index.css" />
 </head>
-
 <body>
     <script src="/js/translate.js"></script>
     <header class="header">
@@ -15,24 +13,21 @@
             <img src="/img/logo.png" alt="Anima logo" />
             Anima
         </div>
-
         <nav>
-            <a href="home/home.html" class="active">PRINCIPAL</a>
-            <a href="/JobPath/registro/login.html" id="login-link" style="display:none;">Log In</a>
-            <a href="https://brianmtz222.github.io/JobPath/perfil/perfil.html" id="perfil-link">Perfil</a>
+            <a href="home/home.html" class="active">PRINCIPAL</a> 
+           <a href="https://brianmtz222.github.io/JobPath/registro/login.html" id="perfil-link">Loguin</a>
+             
         </nav>
-
-
-
-    </header>
+        
+      </header>
     <div class="container">
         <h1 class="title">JobPath</h1>
         <div class="arrow">&#8595;</div>
     </div>
-    <script>
+    <script>    
         const GO = () => {
-            location.href = 'https://brianmtz222.github.io/JobPath/home/home.html';
-        };
+  location.href = 'https://brianmtz222.github.io/JobPath/home/home.html';
+};
         let done = false;
         function fireOnce() {
             if (done) return;
@@ -46,29 +41,22 @@
             if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
         });
     </script>
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const perfilLink = document.getElementById("perfil-link");
-        const loginLink = document.getElementById("login-link"); // Nuevo
+<script>
+      documsent.addEventListener("DOMContentLoaded", () => {
+    const perfilLink = document.querySelector('a[href="https://brianmtz222.github.io/JobPath/perfil/perfil.html"]');
+    const storedUserData = localStorage.getItem("loggedInUser");
 
-        const storedUserData = localStorage.getItem("loggedInUser");
-
-        if (perfilLink && loginLink) {
-            if (storedUserData) {
-                // Usuario logeado: Muestra Perfil, Oculta Log In
-                perfilLink.style.display = "inline";
-                loginLink.style.display = "none";
-            } else {
-                // Usuario no logeado: Oculta Perfil, Muestra Log In
-                perfilLink.style.display = "none";
-                loginLink.style.display = "inline";
-            }
+    if (perfilLink) {
+        if (storedUserData) {
+            perfilLink.style.display = "inline";
+        } else {
+            perfilLink.style.display = "none";
         }
-    });
+    }
+});
 </script>
-
-
+    
+  
 </body>
-
 </html>
 &#8595;
