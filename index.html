@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Principal</title>
     <link rel="stylesheet" href="index.css" />
 </head>
+
 <body>
     <script src="/js/translate.js"></script>
     <header class="header">
@@ -14,20 +16,20 @@
             Anima
         </div>
         <nav>
-            <a href="home/home.html" class="active">PRINCIPAL</a> 
-           <a href="https://brianmtz222.github.io/JobPath/registro/login.html" id="perfil-link">NICIAR SESIÓN</a>
-             
+            <a href="home/home.html" class="active">PRINCIPAL</a>
+            <a href="https://brianmtz222.github.io/JobPath/registro/login.html" id="perfil-link">NICIAR SESIÓN</a>
+
         </nav>
-        
-      </header>
+
+    </header>
     <div class="container">
         <h1 class="title">JobPath</h1>
         <div class="arrow">&#8595;</div>
     </div>
-    <script>    
+    <script>
         const GO = () => {
-  location.href = 'https://brianmtz222.github.io/JobPath/home/home.html';
-};
+            location.href = 'https://brianmtz222.github.io/JobPath/home/home.html';
+        };
         let done = false;
         function fireOnce() {
             if (done) return;
@@ -41,22 +43,23 @@
             if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
         });
     </script>
-<script>
-      documsent.addEventListener("DOMContentLoaded", () => {
-    const perfilLink = document.querySelector('a[href="https://brianmtz222.github.io/JobPath/registro/login.html"]');
-    const storedUserData = localStorage.getItem("loggedInUser");
+    <script>
+        documsent.addEventListener("DOMContentLoaded", () => {
+            const perfilLink = document.querySelector('a[href="https://brianmtz222.github.io/JobPath/registro/login.html"]');
+            const storedUserData = localStorage.getItem("loggedInUser");
 
-    if (perfilLink) {
-        if (storedUserData) {
-            perfilLink.style.display = "inline";
-        } else {
-            perfilLink.style.display = "none";
-        }
-    }
-});
-</script>
-    
-  
+            if (perfilLink) {
+                if (storedUserData) {
+                    perfilLink.style.display = "inline";
+                } else {
+                    perfilLink.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+
 </body>
+
 </html>
 &#8595;

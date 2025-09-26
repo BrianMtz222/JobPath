@@ -1,9 +1,10 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', sans-serif;
-    background:white;
+    background: white;
     color: #03032b;
 }
 
@@ -16,18 +17,19 @@ header {
 }
 
 .language-nav button {
-  background: none;
-  border: 2px solid white; 
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    background: none;
+    border: 2px solid white;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
+
 .language-nav button:hover {
-  background: white;
-  color: #2d2d3f;
+    background: white;
+    color: #2d2d3f;
 }
 
 header h1 {
@@ -39,13 +41,15 @@ header h1 {
 .header-nav-container {
     display: flex;
     align-items: center;
-    gap: 30px; /* Ajusta el espacio entre el nav y los botones */
+    gap: 30px;
+    /* Ajusta el espacio entre el nav y los botones */
 }
 
 nav.main-nav a {
     margin: 0 10px;
     text-decoration: none;
-    color: white; /* Cambiado a blanco */
+    color: white;
+    /* Cambiado a blanco */
     font-weight: 500;
 }
 
@@ -86,7 +90,7 @@ nav.main-nav a:hover {
 .plan {
     background: rgb(255, 255, 255);
     border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     padding: 25px 20px;
     width: 280px;
     text-align: center;
@@ -140,6 +144,7 @@ nav.main-nav a:hover {
 body {
     top: 0 !important;
 }
+
 nav a {
     color: white;
     font-family: 'Segoe UI', sans-serif;

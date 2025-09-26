@@ -6,7 +6,7 @@ body {
 
 .language-nav button {
   background: none;
-  border: 2px solid white; 
+  border: 2px solid white;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
   padding: 8px 18px;
@@ -14,10 +14,12 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .language-nav button:hover {
   background: white;
   color: #2d2d3f;
 }
+
 &.active {
   border-bottom: 2px solid white;
 }

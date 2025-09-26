@@ -1,75 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Job Path</title>
   <link rel="stylesheet" href="home.css">
 </head>
+
 <body>
-  
+
   <header class="navbar">
     <h1 class="logo">Job Path</h1>
-      <nav class="navrrr">
-    <a href="/JobPath/index.html">Principal</a> |
-        <a href="/JobPath/home/home.html" class="active">Inicio</a> |
-        <a href="/JobPath/jovenes/jovenes.html">Jóvenes</a> |
-        <a href="/JobPath/Capacitaciones/Capacitaciones.html">Capacitaciones</a> |
-        <a href="/JobPath/companias/companias.html">Compañías</a> |
-        <a href="/JobPath/About%20Us/about.html">Hacerca De..</a> 
-        
-      
-  
-  </nav>
-  <nav class="language-nav">
-  <button onclick="cambiarIdioma('es')">Español</button>
-  <button onclick="cambiarIdioma('en')">English</button>
-   <div id="google_translate_element" style="display:none;"></div>
-</nav>
+    <nav class="navrrr">
+      <a href="/JobPath/index.html">Principal</a> |
+      <a href="/JobPath/home/home.html" class="active">Inicio</a> |
+      <a href="/JobPath/jovenes/jovenes.html">Jóvenes</a> |
+      <a href="/JobPath/Capacitaciones/Capacitaciones.html">Capacitaciones</a> |
+      <a href="/JobPath/companias/companias.html">Compañías</a> |
+      <a href="/JobPath/About%20Us/about.html">Hacerca De..</a>
 
- 
+
+
+    </nav>
+    <nav class="language-nav">
+      <button onclick="cambiarIdioma('es')">Español</button>
+      <button onclick="cambiarIdioma('en')">English</button>
+      <div id="google_translate_element" style="display:none;"></div>
+    </nav>
+
+
   </header>
 
-  
+
   <main class="main-content">
     <section class="text-section">
       <h2>✨ Conozca el futuro de los jóvenes</h2>
       <p>
-        A través de experiencias laborales desafiantes, los jóvenes aprenden a innovar y a crecer. Cada proyecto y cada meta alcanzada les enseña a prosperar en un entorno dinámico, forjando el camino hacia una carrera exitosa y llena de oportunidades.
+        A través de experiencias laborales desafiantes, los jóvenes aprenden a innovar y a crecer. Cada proyecto y cada
+        meta alcanzada les enseña a prosperar en un entorno dinámico, forjando el camino hacia una carrera exitosa y
+        llena de oportunidades.
       </p>
-   <br>
-   <br>
-<button onclick="window.location.href='https://brianmtz222.github.io/JobPath/suscripciones/suscripciones.html'" class="subscribe-btn">
-  Ir a Suscripciones
-</button>
+      <br>
+      <br>
+      <button onclick="window.location.href='https://brianmtz222.github.io/JobPath/suscripciones/suscripciones.html'"
+        class="subscribe-btn">
+        Ir a Suscripciones
+      </button>
 
     </section>
 
-   
+
 
     <section class="image-section">
       <img src="../img/img1.png" alt="futuro de los jóvenes" class="img-large">
 
-    <script>
-  const GO = () => location.href = "https://brianmtz222.github.io/JobPath/jovenes/jovenes.html";
+      <script>
+        const GO = () => location.href = "https://brianmtz222.github.io/JobPath/jovenes/jovenes.html";
 
-  let done = false;
-  function fireOnce() {
-    if (done) return;
-    done = true;
-    GO();
-  }
+        let done = false;
+        function fireOnce() {
+          if (done) return;
+          done = true;
+          GO();
+        }
 
-  window.addEventListener("scroll", fireOnce, { passive: true });
-  window.addEventListener("wheel", fireOnce, { passive: true });
-  window.addEventListener("touchmove", fireOnce, { passive: true });
-  window.addEventListener("keydown", (e) => {
-    if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
-  });
-</script>
+        window.addEventListener("scroll", fireOnce, { passive: true });
+        window.addEventListener("wheel", fireOnce, { passive: true });
+        window.addEventListener("touchmove", fireOnce, { passive: true });
+        window.addEventListener("keydown", (e) => {
+          if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
+        });
+      </script>
 
   </main>
-  
+
   <script src="../js/translate.js"></script>
 </body>
+
 </html>

@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. FUNCIÓN PARA CARGAR EL CV
     function loadCV() {
         const savedCV = localStorage.getItem(cvStorageKey);
-        
+
         if (savedCV) {
             // Carga el CV guardado para este usuario
             cvContentElement.innerHTML = savedCV;
@@ -110,10 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('YA PUEDES MODIFICAR TU CURRÍCULUM !!!.');
         } else {
             // Al salir del modo edición, guardamos el contenido con la clave única
-            saveCV(); 
+            saveCV();
             editToggleBtn.textContent = 'Editar Currículum';
             // cvContentElement.classList.remove('editing');
-            alert('¡SE GUARDO TU CURRÍCULUM CORRECTAMT!');
+            alert('¡SE GUARDO TU CURRÍCULUM CORRECTAMTE!');
         }
     }
 
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // *Opcional: Controlar el 'Enter' para no romper la estructura*
     cvContentElement.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && e.target.tagName !== 'LI') {
-            e.preventDefault(); 
+            e.preventDefault();
             document.execCommand('insertLineBreak');
         }
     });
