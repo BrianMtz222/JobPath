@@ -6,12 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>COMPANIAS</title>
     <link rel="stylesheet" href="companias.css" />
+    <style>
+        /* Estilos Mínimos para que el carrusel se vea */
+        .main-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .nav-arrow {
+            font-size: 2em;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .cards-container {
+            width: 900px; /* Ancho fijo para el contenedor del carrusel */
+            overflow: hidden;
+        }
+        
+        .visible-cards,
+        .hidden-cards {
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+            /* transiciones ya definidas en JS, pero es bueno tener la base */
+        }
+        
+        .hidden-cards {
+            display: none; /* Inicialmente oculto para el JS */
+            opacity: 0;
+        }
+
+        .card {
+            width: 280px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
 
     <header class="header">
-        <div class="about-title">Companies</div>
+        <div class="about-title">COMPANIAS</div>
         <nav>
             <a href="/JobPath/index.html">Principal</a> |
             <a href="/JobPath/home/home.html">Inicio</a> |
@@ -28,46 +70,87 @@
     </header>
 
     <section class="main-content">
-        <button class="nav-arrow">&#8249;</button>
-        <div class="cards-wrapper">
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s"
-                    alt="Ship">
-                <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas
-                    específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y
-                    desarrollan software.</p>
-                <div class="icons">
-                    <span>🤍</span><span>📄</span><span>📘</span>
+        <button class="nav-arrow prev-arrow">&#8249;</button> 
+
+        <div class="cards-container">
+            <div class="visible-cards">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s"
+                        alt="Ship">
+                    <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas
+                        específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y
+                        desarrollan software.</p>
+                    <div class="icons">
+                        <span class="like-button">🤍</span><span>📄</span><span>📘</span>
+                    </div>
+                    <button class="show-more">Show more ▼</button>
                 </div>
-                <button class="show-more">Show more ▼</button>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s"
+                        alt="Ship">
+                    <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas
+                        específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y
+                        desarrollan software.</p>
+                    <div class="icons">
+                        <span class="like-button">🤍</span><span>📄</span><span>📘</span>
+                    </div>
+                    <button class="show-more">Show more ▼</button>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s"
+                        alt="Office">
+                    <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas
+                        específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y
+                        desarrollan software.</p>
+                    <div class="icons">
+                        <span class="like-button">🤍</span><span>📄</span><span>📘</span>
+                    </div>
+                    <button class="show-more">Show more ▼</button>
+                </div>
             </div>
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s"
-                    alt="Ship">
-                <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas
-                    específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y
-                    desarrollan software.</p>
-                <div class="icons">
-                    <span>🤍</span><span>📄</span><span>📘</span>
+
+            <div class="hidden-cards">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s"
+                        alt="Office">
+                    <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas
+                        específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y
+                        desarrollan software.</p>
+                    <div class="icons">
+                        <span class="like-button">🤍</span><span>📄</span><span>📘</span>
+                    </div>
+                    <button class="show-more">Show more ▼</button>
                 </div>
-                <button class="show-more">Show more ▼</button>
-            </div>
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s"
-                    alt="Office">
-                <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas
-                    específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y
-                    desarrollan software.</p>
-                <div class="icons">
-                    <span>🤍</span><span>📄</span><span>📘</span>
+               <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s"
+                        alt="Office">
+                    <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas
+                        específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y
+                        desarrollan software.</p>
+                    <div class="icons">
+                        <span  class="like-button">🤍</span><span>📄</span><span>📘</span>
+                    </div>
+                    <button class="show-more">Show more ▼</button>
                 </div>
-                <button class="show-more">Show more ▼</button>
+               <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMm62vrS931eATbzAI83K30SQceQwsnoOFg&s"
+                        alt="Office">
+                    <p>La programación es el proceso de crear instrucciones que una computadora sigue para realizar tareas
+                        específicas. Al escribir código, los programadores crean aplicaciones, automatizan procesos y
+                        desarrollan software.</p>
+                    <div class="icons">
+                        <span class="like-button">🤍</span><span>📄</span><span>📘</span>
+                    </div>
+                    <button class="show-more">Show more ▼</button>
+                </div>
             </div>
         </div>
-        <button class="nav-arrow">&#8250;</button>
+
+        <button class="nav-arrow next-arrow">&#8250;</button>
     </section>
 
     <script src="../js/translate.js"></script>
+    <script src="../js/carrusel.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevArrow = document.querySelector('.prev-arrow');
     const nextArrow = document.querySelector('.next-arrow');
 
-    let isVisible = true; // control de estado
+    let isVisible = true; 
 
     const showNext = () => {
         if (isVisible) {
@@ -35,4 +35,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextArrow.addEventListener('click', showNext);
     prevArrow.addEventListener('click', showPrev);
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+  
+    const likeButtons = document.querySelectorAll('.like-button');
+
+    likeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+           
+            button.classList.toggle('liked');
+
+            
+            if (button.classList.contains('liked')) {
+                button.innerHTML = '❤️'; 
+            } else {
+                button.innerHTML = '🤍'; 
+            }
+        });
+    });
 });
