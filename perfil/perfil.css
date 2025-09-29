@@ -171,4 +171,5 @@ nav a:hover {
     padding: 2px 5px;
     cursor: text; /* Cambia el cursor para indicar que se puede escribir */
     background-color: #ffffe0; /* Fondo ligeramente amarillo */
+    userNameDisplay.classList.add('is-editing');
 }
