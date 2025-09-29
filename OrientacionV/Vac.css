@@ -20,16 +20,15 @@ body {
     color: var(--text-light);
 }
 
-/* --- Estilos de la Barra de Navegación (Header) --- */
-/* Cambiamos .navbar a .header para coincidir con la convención del segundo CSS */
+
 .navbar { 
-    background-color: transparent; /* El fondo lo da el body */
+    background-color: transparent; 
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px; /* Ajuste de padding para que se parezca al segundo ejemplo */
-    box-shadow: none; /* Quitamos la sombra del navbar */
+    padding: 20px 40px; 
+    box-shadow: none; 
 }
 
 .logo {
@@ -37,42 +36,42 @@ body {
     font-weight: bold;
 }
 
-/* Estilo de los enlaces en la navegación (Tomado del segundo ejemplo) */
+
 .navbar a {
     color: white;
     text-decoration: none;
     margin-left: 30px;
-    padding-bottom: 3px; /* Espacio para el borde inferior */
-    border-bottom: 2px solid transparent; /* Inicialmente transparente */
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent; 
     transition: border-bottom 0.3s ease;
-    border-radius: 0; /* Quitamos bordes redondeados */
-    padding-top: 5px; /* Ajuste visual */
+    border-radius: 0; 
+    padding-top: 5px;
 }
 
 .navbar a:hover {
-    background-color: transparent; /* No queremos fondo al hacer hover */
-    border-bottom: 2px solid white; /* Línea blanca al hacer hover */
+    background-color: transparent; 
+    border-bottom: 2px solid white;
 }
 
 .navbar .active {
-    /* Estilo del botón "About" activo */
+    
     background-color: transparent; 
-    border-bottom: 2px solid white; /* Línea blanca para el activo */
+    border-bottom: 2px solid white;
 }
 
 .navbar .last-link {
     background-color: transparent;
-    border: 2px solid white; /* Borde más grueso para el botón */
-    border-radius: 20px; /* Bordes redondeados como en el segundo ejemplo */
+    border: 2px solid white;
+    border-radius: 20px; 
     padding: 8px 18px;
     margin-left: 50px;
     display: inline-flex;
     align-items: center;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Sombra de texto para destacar */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 .navbar .last-link:hover {
-    background-color: white; /* Invertir colores al hacer hover */
+    background-color: white; 
     color: var(--primary-dark);
 }
 
@@ -80,7 +79,7 @@ body {
     margin-left: 5px;
 }
 
-/* --- Estilos del Contenido Principal (Adaptado) --- */
+
 .content-container {
     padding: 50px; 
 }
