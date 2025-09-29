@@ -1,7 +1,7 @@
 
 
 
-// Inicializa Google Translate
+
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'es',
@@ -11,14 +11,14 @@ function googleTranslateElementInit() {
   }, 'google_translate_element');
 }
 
-// Cambia idioma usando cookie + recarga (funciona siempre)
+
 function cambiarIdioma(lang) {
   var fromLang = 'es';
   document.cookie = "googtrans=/" + fromLang + "/" + lang + ";path=/";
   location.reload();
 }
 
-// Oculta banner
+
 window.addEventListener('load', () => {
   setTimeout(() => {
     const banner = document.querySelector('.goog-te-banner-frame.skiptranslate');

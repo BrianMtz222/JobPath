@@ -42,7 +42,7 @@ header h1 {
     display: flex;
     align-items: center;
     gap: 30px;
-    /* Ajusta el espacio entre el nav y los botones */
+    
 }
 
 nav.main-nav a {
@@ -134,7 +134,6 @@ nav.main-nav a:hover {
     border-bottom: #000000 dashed 1px;
 }
 
-/* Ocultar elementos de Google Translate */
 #google_translate_element,
 .goog-te-banner-frame.skiptranslate,
 .goog-logo-link {

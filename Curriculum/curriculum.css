@@ -1,36 +1,24 @@
-/* Estilos Globales: Fondo Oscuro y Tipografía Moderna */
 body {
-    /* Fondo con degradado moderno */
     background: linear-gradient(to right, #2d2d3f, #4f4fcf);
     color: white;
-    /* Color de texto principal claro */
     font-family: 'Segoe UI', sans-serif;
-    /* Tipografía moderna y limpia */
     margin: 0;
     padding: 40px 20px;
-    /* Más padding para un mejor respiro */
     min-height: 100vh;
-    /* Asegura que el degradado cubra toda la altura */
 }
 
-/* Estilos de la Sección de Perfil */
 .profile-section {
     margin-bottom: 30px;
     text-align: center;
     padding-top: 20px;
 }
 
-/* Estilos del Botón de Edición */
 #editToggleBtn {
     padding: 12px 25px;
-    /* Color de botón que resalte sobre el fondo oscuro */
     background-color: #ff9800;
-    /* Naranja vibrante para acción */
     color: #2d2d3f;
-    /* Texto oscuro para contraste */
     border: none;
     border-radius: 25px;
-    /* Bordes más redondeados (pastilla) */
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
@@ -40,30 +28,22 @@ body {
 
 #editToggleBtn:hover {
     background-color: #e68900;
-    /* Un tono más oscuro al pasar el ratón */
     transform: translateY(-2px);
-    /* Efecto de elevación sutil */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Estilos del Contenedor del CV */
 .cv-container {
     max-width: 900px;
     margin: 0 auto;
-    /* Contenedor del CV con un fondo semitransparente o claro sobre el degradado */
     background: rgba(255, 255, 255, 0.95);
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    /* Sombra más profunda */
     border-radius: 16px;
     color: #333;
-    /* Texto dentro del contenedor vuelve a ser oscuro para legibilidad */
 }
 
-/* Estilos de Contenido General */
 .cv-content h1 {
     color: #4f4fcf;
-    /* El color secundario del degradado */
     margin-bottom: 10px;
     font-size: 2.5em;
     font-weight: 700;
@@ -71,9 +51,7 @@ body {
 
 .cv-content h2 {
     color: #2d2d3f;
-    /* El color principal del degradado */
     border-bottom: 3px solid #ff9800;
-    /* Subrayado con el color de acento */
     padding-bottom: 8px;
     margin-top: 30px;
     font-size: 1.8em;
@@ -97,7 +75,6 @@ body {
     font-size: 1em;
 }
 
-/* Estilos de la Información de Contacto */
 .contact-info span {
     margin-right: 20px;
     font-size: 1em;
@@ -107,14 +84,11 @@ body {
     gap: 5px;
 }
 
-/* Estilos de Edición (Mejorados) */
 .cv-content[contenteditable="true"] {
     border: 3px dashed #ff9800;
-    /* Borde naranja vibrante para indicar edición */
     padding: 15px;
     min-height: 400px;
     background-color: #f7f7f7;
-    /* Fondo más claro para edición */
     border-radius: 10px;
     transition: all 0.3s ease;
 }
@@ -126,41 +100,27 @@ body {
 
 .cv-content[contenteditable="true"] *:hover {
     background-color: rgba(79, 79, 207, 0.1);
-    /* Sutil resaltado con el color secundario */
 }
 
-/* Estilos de los Rangos de Fecha */
 .date-range {
     font-style: italic;
     color: #4f4fcf;
-    /* Usamos el color de acento para las fechas */
     font-size: 0.95em;
     font-weight: 500;
 }
 
-/* Estilos para el Navegador (nav) */
 nav {
-    /* 1. Usamos Flexbox para centrar los elementos internos */
     display: flex;
-    
-    /* 2. Centra los enlaces horizontalmente dentro de la barra de navegación */
     justify-content: center; 
-    
-    /* Centrado Vertical del contenido (si nav tiene altura) */
     align-items: center; 
-
-    /* Asegura que el nav tome todo el ancho para que el 'justify-content: center' funcione a nivel de página */
     width: 100%; 
-    padding: 10px 0; /* Espacio superior e inferior */
-    
-    /* Las propiedades anidadas deben ser planas en CSS estándar */
-    /* Aquí la versión plana de los estilos de los enlaces (a) */
+    padding: 10px 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px; /* Ajuste el margen izquierdo para un espaciado uniforme */
+    margin: 0 15px;
     font-weight: bold;
     padding-bottom: 2px;
     transition: border-bottom 0.3s ease;

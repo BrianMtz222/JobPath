@@ -47,14 +47,13 @@ input[type="password"] {
     border-radius: 8px;
     font-size: 16px;
     box-sizing: border-box;
-    /* Asegura que el padding no cambie el ancho */
+   
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
     outline: none;
     border-color: #4f4fcf;
-    /* Color del gradiente al enfocar */
     box-shadow: 0 0 5px rgba(79, 79, 207, 0.5);
 }
 
@@ -87,7 +86,7 @@ button[type="submit"]:hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
     text-decoration: none;
-    /* Elimina la línea debajo del enlace */
+    
 }
 
 .submit-button:hover {

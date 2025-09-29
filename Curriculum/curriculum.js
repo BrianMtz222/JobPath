@@ -1,10 +1,7 @@
-// curriculum.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const cvContentElement = document.getElementById('cv-content');
     const editToggleBtn = document.getElementById('editToggleBtn');
 
-    // 1. OBTENER USUARIO ACTUAL Y CLAVE ÚNICA DE ALMACENAMIENTO
     const storedUserData = localStorage.getItem('loggedInUser');
     let currentUserEmail = null;
 
@@ -12,17 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const userData = JSON.parse(storedUserData);
         currentUserEmail = userData.email;
     } else {
-        // Si no hay usuario logueado, usa una clave por defecto y podrías redirigir.
         console.warn("No hay usuario logueado. Usando clave de CV por defecto.");
-        // Opcional: Descomentar para forzar la redirección si el usuario no está logueado
-        // window.location.href = "https://brianmtz222.github.io/JobPath/registro/login.html";
     }
 
-    // Clave de almacenamiento única basada en el email del usuario.
     const cvStorageKey = currentUserEmail ? `cv_${currentUserEmail}` : 'cv_default_anonimo';
 
-    // 2. CONTENIDO DEL CV POR DEFECTO (HTML original)
-    // Usamos el innerHTML del div 'cv-content' del HTML original como plantilla.
     const defaultCVContent = `
         <header>
             <h1 id="cv-name">Nombre Apellido</h1>
@@ -76,28 +67,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isEditing = false;
 
-    // 3. FUNCIÓN PARA CARGAR EL CV
     function loadCV() {
         const savedCV = localStorage.getItem(cvStorageKey);
 
         if (savedCV) {
-            // Carga el CV guardado para este usuario
             cvContentElement.innerHTML = savedCV;
             console.log(`CV cargado para: ${currentUserEmail}`);
         } else {
-            // Si no hay CV guardado, carga el CV por defecto
             cvContentElement.innerHTML = defaultCVContent;
             console.log(`Cargando CV por defecto para: ${currentUserEmail}`);
         }
     }
 
-    // 4. FUNCIÓN PARA GUARDAR EL CV (usando la clave única)
     function saveCV() {
         localStorage.setItem(cvStorageKey, cvContentElement.innerHTML);
         console.log(`CV guardado con clave: ${cvStorageKey}`);
     }
 
-    // 5. Función para alternar el modo de edición
     function toggleEditMode() {
         isEditing = !isEditing;
         cvContentElement.contentEditable = isEditing;
@@ -105,25 +91,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isEditing) {
             editToggleBtn.textContent = 'Guardar CV';
             cvContentElement.focus();
-            // Opcional: podrías agregar una clase CSS para visualmente indicar que es editable
-            // cvContentElement.classList.add('editing');
             alert('YA PUEDES MODIFICAR TU CURRÍCULUM !!!');
         } else {
-            // Al salir del modo edición, guardamos el contenido con la clave única
             saveCV();
             editToggleBtn.textContent = 'Editar Currículum';
-            // cvContentElement.classList.remove('editing');
             alert('¡SE GUARDO TU CURRÍCULUM CORRECTAMTE!');
         }
     }
 
-    // Listener para el botón de edición
     editToggleBtn.addEventListener('click', toggleEditMode);
-
-    // Cargar el CV al iniciar la página
     loadCV();
 
-    // *Opcional: Controlar el 'Enter' para no romper la estructura*
     cvContentElement.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && e.target.tagName !== 'LI') {
             e.preventDefault();
