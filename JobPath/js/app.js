@@ -29,7 +29,7 @@ if (window.location.href.includes('login.html')) {
         }
     });
 
-// Verificar si estamos en la página de perfil
+    // Verificar si estamos en la página de perfil
 } else if (window.location.href.includes('perfil.html')) {
     const userNameDisplay = document.getElementById('userNameDisplay');
     const userLastnameDisplay = document.getElementById('userLastnameDisplay');
@@ -56,60 +56,117 @@ if (window.location.href.includes('login.html')) {
     let isEditing = false; // Estado inicial: No editando
 
     // Lógica para el botón "Editar"
-    editBtn.addEventListener('click', () => {
-        isEditing = !isEditing;
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Declaración de variables y selectores
+        const userNameDisplay = document.getElementById('userNameDisplay');
+        const userLastnameDisplay = document.getElementById('userLastnameDisplay');
+        const userEmailDisplay = document.getElementById('userEmailDisplay');
+        const editBtn = document.querySelector('.edit-btn');
+        let isEditing = false;
 
-        if (isEditing) {
-            // 1. Entrar en modo edición
-            
-            // Habilita la edición en los elementos usando contentEditable
-            userNameDisplay.contentEditable = true;
-            userLastnameDisplay.contentEditable = true;
-            userEmailDisplay.contentEditable = true;
-
-            // Opcional: añade un estilo visual (debe estar en perfil.css)
-            userNameDisplay.classList.add('is-editing');
-            userLastnameDisplay.classList.add('is-editing');
-            userEmailDisplay.classList.add('is-editing');
-
-            editBtn.textContent = 'Guardar Cambios';
-            alert(' Haz clic en tu nombre, apellido o email para modificar.');
-
-        } else {
-            // 2. Salir del modo edición y guardar
-            
-            // Deshabilita la edición
-            userNameDisplay.contentEditable = false;
-            userLastnameDisplay.contentEditable = false;
-            userEmailDisplay.contentEditable = false;
-
-            // Opcional: elimina el estilo visual
-            userNameDisplay.classList.remove('is-editing');
-            userLastnameDisplay.classList.remove('is-editing');
-            userEmailDisplay.classList.remove('is-editing');
-
-            // Captura los nuevos valores y elimina espacios extra
-            const newName = userNameDisplay.textContent.trim();
-            const newLastname = userLastnameDisplay.textContent.trim();
-            const newEmail = userEmailDisplay.textContent.trim();
-            
-            // Validación simple
-            if (!newName || !newLastname || !newEmail) {
-                alert('Todos los campos de perfil deben tener contenido. Revierte o edita.');
-                isEditing = true; // Permanece en modo edición
-                return;
+        // 2. Inicialización de datos de usuario (IMPORTANTE)
+        // Intenta cargar los datos del localStorage o usa datos por defecto si no existen
+        let userData;
+        try {
+            const storedUser = localStorage.getItem('loggedInUser');
+            if (storedUser) {
+                userData = JSON.parse(storedUser);
+            } else {
+                // Datos por defecto si es la primera vez que visita la página
+                userData = {
+                    name: "Usuario",
+                    lastname: "JobPath",
+                    email: "usuario.ejemplo@jobpath.com"
+                };
             }
-
-            // Actualiza el objeto de datos del usuario
-            userData.name = newName;
-            userData.lastname = newLastname;
-            userData.email = newEmail;
-            
-            // Guarda los datos actualizados en localStorage
-            localStorage.setItem('loggedInUser', JSON.stringify(userData));
-
-            editBtn.textContent = 'Editar';
-            alert('¡Perfil actualizado y guardado correctamente!');
+        } catch (e) {
+            console.error("Error al cargar userData del localStorage:", e);
+            // Fallback a datos por defecto si hay un error de parseo
+            userData = {
+                name: "Usuario",
+                lastname: "JobPath",
+                email: "usuario.ejemplo@jobpath.com"
+            };
         }
-    });
+
+        // 3. Función para renderizar los datos en el DOM
+        const renderUserData = () => {
+            userNameDisplay.textContent = userData.name;
+            userLastnameDisplay.textContent = userData.lastname;
+            userEmailDisplay.textContent = userData.email;
+        };
+
+        // Llamamos a la función para mostrar los datos al cargar la página
+        renderUserData();
+
+
+        // 4. Lógica del botón de edición (Tu código original, pero encapsulado)
+        if (editBtn) {
+            editBtn.addEventListener('click', () => {
+                isEditing = !isEditing;
+
+                if (isEditing) {
+                    // 1. Entrar en modo edición
+
+                    // Habilita la edición en los elementos usando contentEditable
+                    userNameDisplay.contentEditable = true;
+                    userLastnameDisplay.contentEditable = true;
+                    userEmailDisplay.contentEditable = true;
+
+                    // Opcional: añade un estilo visual (debe estar en perfil.css)
+                    userNameDisplay.classList.add('is-editing');
+                    userLastnameDisplay.classList.add('is-editing');
+                    userEmailDisplay.classList.add('is-editing');
+
+                    editBtn.textContent = 'Guardar Cambios';
+                    alert('Haz clic en tu nombre, apellido o email para modificar.');
+
+                } else {
+                    // 2. Salir del modo edición y guardar
+
+                    // Deshabilita la edición
+                    userNameDisplay.contentEditable = false;
+                    userLastnameDisplay.contentEditable = false;
+                    userEmailDisplay.contentEditable = false;
+
+                    // Opcional: elimina el estilo visual
+                    userNameDisplay.classList.remove('is-editing');
+                    userLastnameDisplay.classList.remove('is-editing');
+                    userEmailDisplay.classList.remove('is-editing');
+
+                    // Captura los nuevos valores y elimina espacios extra
+                    const newName = userNameDisplay.textContent.trim();
+                    const newLastname = userLastnameDisplay.textContent.trim();
+                    const newEmail = userEmailDisplay.textContent.trim();
+
+                    // Validación simple
+                    if (!newName || !newLastname || !newEmail) {
+                        alert('Todos los campos de perfil deben tener contenido. Revierte o edita.');
+                        isEditing = true; // Permanece en modo edición
+                        // Opcional: Re-habilita la edición y estilos si falla la validación
+                        userNameDisplay.contentEditable = true;
+                        userLastnameDisplay.contentEditable = true;
+                        userEmailDisplay.contentEditable = true;
+                        userNameDisplay.classList.add('is-editing');
+                        userLastnameDisplay.classList.add('is-editing');
+                        userEmailDisplay.classList.add('is-editing');
+                        return;
+                    }
+
+                    // Actualiza el objeto de datos del usuario
+                    userData.name = newName;
+                    userData.lastname = newLastname;
+                    userData.email = newEmail;
+
+                    // Guarda los datos actualizados en localStorage
+                    localStorage.setItem('loggedInUser', JSON.stringify(userData));
+
+                    editBtn.textContent = 'Editar';
+                    alert('¡Perfil actualizado y guardado correctamente!');
+                }
+            });
+        } else {
+            console.error("El botón de edición no fue encontrado.");
+        }
+    })
 }
