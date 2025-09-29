@@ -21,11 +21,20 @@
                 <a href="/JobPath/About%20Us/about.html">Hacerca De..</a>
             </nav>
         </div>
+        <div>
+        <nav class="language-nav">
+            <button onclick="cambiarIdioma('es')">Español</button>
+            <button onclick="cambiarIdioma('en')">English</button>
+        </nav>
+        </div>
+
+        
+        <div id="google_translate_element" style="display:none;"></div>
     </header>
 
     <div class="main-container">
         <div class="top-bar">
-            <a href="" class="btn-volver-atras">Volver Atrás</a>
+            <a href="https://brianmtz222.github.io/JobPath/OrientacionV/Vac" style="color: blue;" class="btn-volver-atras">Volver Atrás</a>
             <div class="vocational-orientation">Orientación Vocacional</div>
         </div>
 
@@ -64,13 +73,30 @@
                         <p>Observá en qué momento sentís motivación y energía.</p>
                     </div>
                 </div>
-
-                <div class="image-placeholder">
-                    <img src="image_51e070.jpg" alt="Dos hombres de negocios mirando notas en un panel de vidrio." />
-                </div>
             </section>
         </main>
     </div>
 
+    <!-- Script para inicializar Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'es', includedLanguages: 'es,en'},
+                'google_translate_element'
+            );
+        }
+
+        // Función para cambiar idioma con botones
+        function cambiarIdioma(idioma) {
+            var select = document.querySelector(".goog-te-combo");
+            if (select) {
+                select.value = idioma;
+                select.dispatchEvent(new Event("change"));
+            }
+        }
+    </script>
+
+    <!-- Script oficial de Google Translate -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

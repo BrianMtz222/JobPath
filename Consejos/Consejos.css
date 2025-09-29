@@ -3,7 +3,7 @@
 
 :root {
     --color-dark-blue: #1c1c38;
-    --color-primary-purple: #4c2a7a;
+    --color-primary-purple: #0011ff;
     --color-secondary-blue: #007bff; /* Used for accents/buttons */
     --color-light-gray: #f5f5f5;
     --color-white: #ffffff;
@@ -71,19 +71,21 @@ body {
     display: flex;
     align-items: center;
     padding: 15px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #1900ff;
     margin-bottom: 20px;
 }
 
 .btn-volver-atras {
-    background-color: var(--color-white);
-    border: 1px solid #ccc;
+    background-color: var(#1900ff);
+    border: 1px solid #003cff;
     padding: 8px 15px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 600;
     margin-right: 15px;
+    text-align: var(#2f00ff);
+    text-decoration: solid black ;
 }
 
 /* Simulation of the light blue circle next to the button */
@@ -187,6 +189,7 @@ body {
     border-radius: 5px;
     margin-bottom: 15px;
     text-align: center;
+    transform: scale(1.05);
 }
 
 .tip-item p {
@@ -234,4 +237,20 @@ a {
 
 a:hover {
   border-bottom: 2px solid white;
+}
+
+.language-nav button {
+  background: none;
+  border: 2px solid white;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-nav button:hover {
+  background: white;
+  color: #2d2d3f;
 }
