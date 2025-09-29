@@ -119,7 +119,7 @@ if (window.location.href.includes('login.html')) {
                     userEmailDisplay.classList.add('is-editing');
 
                     editBtn.textContent = 'Guardar Cambios';
-                    alert('Haz clic en tu nombre, apellido o email para modificar.');
+                    alert('¡YA PUEDES MODIFICAR TUS DATOS!');
 
                 } else {
                     // 2. Salir del modo edición y guardar
@@ -162,7 +162,7 @@ if (window.location.href.includes('login.html')) {
                     localStorage.setItem('loggedInUser', JSON.stringify(userData));
 
                     editBtn.textContent = 'Editar';
-                    alert('¡Perfil actualizado y guardado correctamente!');
+                    alert('¡TU PERFIL FUE ACTUALIZADO Y GUARDADO CORRECTAMENTE!');
                 }
             });
         } else {
@@ -170,3 +170,57 @@ if (window.location.href.includes('login.html')) {
         }
     })
 }
+
+
+
+
+
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function formatNumber(number) {
+    return number.toLocaleString();
+}
+
+function generatePersistentStats() {
+    const USER_EMAIL = 'usuario_simulado@gmail.com';
+
+    if (!USER_EMAIL || USER_EMAIL === 'default_user') {
+        return;
+    }
+    
+    const publicationsKey = `stats_${USER_EMAIL}_publications`;
+    const followersKey = `stats_${USER_EMAIL}_followers`;
+    const pointsKey = `stats_${USER_EMAIL}_points`;
+
+    let publications = localStorage.getItem(publicationsKey);
+    let followers = localStorage.getItem(followersKey);
+    let points = localStorage.getItem(pointsKey);
+
+    if (!publications || !followers || !points) {
+        publications = getRandomNumber(1, 5000).toString();
+        followers = getRandomNumber(100, 5000).toString();
+        points = getRandomNumber(1, 5000).toString();
+        
+        localStorage.setItem(publicationsKey, publications);
+        localStorage.setItem(followersKey, followers);
+        localStorage.setItem(pointsKey, points);
+    }
+
+    const publicationsElement = document.getElementById('publicationsCount');
+    const followersElement = document.getElementById('followersCount');
+    const pointsElement = document.getElementById('pointsCount');
+
+    if (publicationsElement) {
+        publicationsElement.textContent = publications;
+    }
+    if (followersElement) {
+        followersElement.textContent = formatNumber(parseInt(followers, 10));
+    }
+    if (pointsElement) {
+        pointsElement.textContent = points;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', generatePersistentStats);
