@@ -252,10 +252,47 @@ body {
 
 .navbar { 
     background-color: transparent; 
-    color: white;
+    color: rgb(0, 17, 255);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px; 
     box-shadow: none; 
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+
+  flex-grow: 1;
+  justify-content: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  padding-bottom: 2px;
+  transition: border-bottom 0.3s ease;
+}
+
+a:hover {
+  border-bottom: 2px solid white;
+}
+
+.language-nav button {
+  background: none;
+  border: 2px solid white;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-nav button:hover {
+  background: white;
+  color: #2d2d3f;
 }
