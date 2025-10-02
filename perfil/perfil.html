@@ -54,11 +54,15 @@
       <button class="add-image-btn" id="addImageBtn">➕ Agregar Publicación</button>
     </div>
 
-    <div class="publications" id="publicationsGrid">
-      <div class="image-placeholder">
-        <span>Haz click para agregar imagen</span>
-      </div>
-    </div>
+
+
+    <form  class="publications" id="publicationsGrid" action="/subir-archivo" method="post" enctype="multipart/form-data">
+    <label for="selector-archivo">Selecciona una imagen:</label>
+    <input type="file" id="selector-archivo" name="imagen-seleccionada" accept="image/*">
+    <button type="submit">Haz click para agregar imagen</button>
+    </form>
+    
+    
 
     <div class="working">
       <h3>Actualmente trabajando en</h3>
