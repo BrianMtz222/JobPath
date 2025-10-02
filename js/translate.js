@@ -24,8 +24,7 @@ function cambiarIdioma(lang) {
         // La función oculta para cambiar el idioma es llamada, forzando la traducción
         goog.dom.jstiming.load.cl(lang, '', null);
     } else {
-        // Si el método no funciona (p. ej., la función interna no existe o cambió),
-        // se recurre al método de recarga de página para asegurar el cambio.
+       
         location.reload();
     }
 }
