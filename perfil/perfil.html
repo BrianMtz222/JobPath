@@ -5,6 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="perfil.css">
   <title>PERFIL</title>
+  <style>
+    /* --- CSS mínimo para que se vean bien los placeholders --- */
+    .image-placeholder {
+      width: 200px;
+      height: 200px;
+      border: 2px dashed #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 10px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+    }
+    #publicationsGrid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    #publicationsGrid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -69,8 +96,73 @@
     </div>
   </div>
 
-  <script src="/JobPath/js/app.js"></script>
+  <!-- input oculto para seleccionar imágenes -->
+  <input type="file" id="fileInput" accept="image/*" style="display:none;">
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const publicationsGrid = document.getElementById('publicationsGrid');
+      const addImageBtn = document.getElementById('addImageBtn');
+      const fileInput = document.getElementById('fileInput');
+
+      // Maneja el clic en un placeholder
+      const handlePlaceholderClick = (placeholderDiv) => {
+          fileInput.placeholderToFill = placeholderDiv;
+          fileInput.click();
+      };
+
+      // Crear un placeholder nuevo
+      const createPlaceholder = () => {
+          const placeholder = document.createElement('div');
+          placeholder.classList.add('image-placeholder');
+          placeholder.innerHTML = '<span>Haz click para agregar imagen</span>';
+          placeholder.addEventListener('click', () => handlePlaceholderClick(placeholder));
+          return placeholder;
+      };
+
+      // Evento para agregar publicación
+      addImageBtn.addEventListener('click', () => {
+          const newPlaceholder = createPlaceholder();
+          publicationsGrid.appendChild(newPlaceholder);
+
+          // actualizar contador
+          const publicationsCountElement = document.getElementById('publicationsCount');
+          let currentCount = parseInt(publicationsCountElement.textContent) || 0;
+          publicationsCountElement.textContent = currentCount + 1;
+      });
+
+      // Inicializar el primer placeholder
+      const initialPlaceholder = publicationsGrid.querySelector('.image-placeholder');
+      if (initialPlaceholder) {
+          initialPlaceholder.addEventListener('click', () => {
+              handlePlaceholderClick(initialPlaceholder);
+          });
+      }
+
+      // Manejar selección de archivo
+      fileInput.addEventListener('change', (event) => {
+          const file = event.target.files[0];
+          const placeholderDiv = fileInput.placeholderToFill;
+
+          if (file && placeholderDiv) {
+              const reader = new FileReader();
+              reader.onload = (e) => {
+                  const img = document.createElement('img');
+                  img.src = e.target.result;
+                  img.alt = 'Publicación de usuario';
+                  placeholderDiv.innerHTML = '';
+                  placeholderDiv.appendChild(img);
+                  placeholderDiv.classList.remove('image-placeholder');
+                  event.target.value = '';
+                  fileInput.placeholderToFill = null;
+              };
+              reader.readAsDataURL(file);
+          }
+      });
+  });
+  </script>
+
   <script src="../js/translate.js"></script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
