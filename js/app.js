@@ -51,3 +51,43 @@ if (window.location.href.includes('login.html')) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const publicationsGrid = document.getElementById('publicationsGrid');
+    const addImageBtn = document.getElementById('addImageBtn');
+
+    // Función para crear un nuevo espacio de imagen
+    const createPlaceholder = () => {
+        const placeholder = document.createElement('div');
+        placeholder.classList.add('image-placeholder');
+        // El contenido que se muestra en el espacio
+        placeholder.innerHTML = '<span>Haz click para agregar imagen</span>'; 
+
+        // Lógica para el clic en el nuevo espacio
+        placeholder.addEventListener('click', () => {
+            alert('Lógica para seleccionar archivo o subir imagen.');
+        });
+
+        return placeholder;
+    };
+
+    // Evento del botón para agregar una nueva publicación
+    if (addImageBtn) {
+        addImageBtn.addEventListener('click', () => {
+            const newPlaceholder = createPlaceholder();
+            publicationsGrid.appendChild(newPlaceholder);
+            
+            // Opcional: Actualizar el contador de publicaciones
+            const publicationsCountElement = document.getElementById('publicationsCount');
+            let currentCount = parseInt(publicationsCountElement.textContent) || 0;
+            publicationsCountElement.textContent = currentCount + 1;
+        });
+    }
+
+    // Inicializar la funcionalidad del placeholder inicial (si existe)
+    const initialPlaceholder = publicationsGrid ? publicationsGrid.querySelector('.image-placeholder') : null;
+    if (initialPlaceholder) {
+        initialPlaceholder.addEventListener('click', () => {
+            alert('Lógica para seleccionar archivo o subir imagen.');
+        });
+    }
+});

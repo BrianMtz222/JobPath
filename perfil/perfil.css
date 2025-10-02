@@ -174,3 +174,46 @@ nav a:hover {
     cursor: text; 
     display: inline-block;
 }
+
+
+
+/* Para alinear el título y el botón de agregar publicación */
+.publications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el botón de agregar publicación */
+.add-image-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Asegurar que la grilla de publicaciones sigue funcionando */
+.publications {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Estilo para el espacio de imagen (placeholder) */
+.image-placeholder {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #888;
+    cursor: pointer;
+    border-radius: 5px;
+}
