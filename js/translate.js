@@ -1,32 +1,21 @@
+// 1. Inicializa el widget de Google Translate (función global requerida)
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
-        pageLanguage: 'es',
-        includedLanguages: 'es,en',
+        pageLanguage: 'es',          // Idioma original de tu página
+        includedLanguages: 'en,es',  // Idiomas ofrecidos para traducir
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
+        autoDisplay: false           // Oculta el widget estándar de Google, ya que usas tus propios botones
     }, 'google_translate_element');
 }
 
+// 2. Función para cambiar el idioma usando tus botones
 function cambiarIdioma(lang) {
-    document.cookie = "googtrans=/es/" + lang + ";path=/";
+    // La cookie 'googtrans' es el mecanismo oficial. El formato es /idioma_original/idioma_destino
+    const cookieValue = `/es/${lang}`;
+
+    // Establece la cookie con la ruta '/' para que se aplique a todo el sitio.
+    document.cookie = `googtrans=${cookieValue}; path=/;`;
+
+    // Recarga la página. Al recargar, el script de Google detecta la cookie y aplica la traducción.
     location.reload();
-}
-
-(function () {
-    var gtScript = document.createElement("script");
-    gtScript.type = "text/javascript";
-    gtScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    document.head.appendChild(gtScript);
-})();
-
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'es',
-        includedLanguages: 'es,en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-}
-
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'en,es' }, 'google_translate_element');
 }
