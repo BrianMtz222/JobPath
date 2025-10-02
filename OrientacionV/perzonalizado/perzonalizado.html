@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto y Apoyo Personalizado</title>
+  <link rel="stylesheet" href="perzonalizado.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <h1 class="logo">JobPath</h1>
+    </div>
+    <div>
+      <nav class="nav-links">
+        <a href="/JobPath/index.html">Principal</a> |
+        <a href="/JobPath/home/home.html">Inicio</a> |
+        <a href="/JobPath/jovenes/jovenes.html">Jóvenes</a> |
+        <a href="/JobPath/Capacitaciones/Capacitaciones.html">Capacitaciones</a> |
+        <a href="/JobPath/companias/companias.html">Compañías</a> |
+        <a href="/JobPath/About%20Us/about.html">Acerca De...</a>
+      </nav>
+    </div>
+    <div>
+      <nav class="language-nav">
+        <button onclick="cambiarIdioma('es')">Español</button>
+        <button onclick="cambiarIdioma('en')">English</button>
+      </nav>
+    </div>
+    <div id="google_translate_element" style="display:none;"></div>
+  </header>
+
+  <main class="main-container">
+    <div class="top-bar">
+      <a href="https://brianmtz222.github.io/JobPath/OrientacionV/Vac" class="btn-volver-atras">Volver Atrás</a>
+      <h2 class="vocational-orientation">Orientación Profesional</h2>
+    </div>
+
+    <section class="title-section">
+      <h1 class="main-title">Contacto y Apoyo Personalizado</h1>
+    </section>
+
+    <section class="advice-pair">
+      <div class="left-section full-width">
+        <article class="advice-box">
+          <h2>¡Hablemos de tu futuro!</h2>
+          <p>
+            En <strong>JobPath</strong>, entendemos que tu camino profesional es único. Por eso, te ofrecemos <strong>apoyo personalizado</strong> con un equipo de orientadores listos para ayudarte a navegar el mercado laboral. Agenda una sesión individual para revisar tu perfil y planificar tus próximos pasos.
+          </p>
+          <p>
+            Nuestros servicios incluyen: <strong>Revisión experta de CV y Carta de Presentación</strong>, <strong>Simulación de Entrevistas</strong> con feedback constructivo, y <strong>Asesoría en Búsqueda de Empleo</strong> para identificar las mejores oportunidades.
+          </p>
+        </article>
+      </div>
+
+      <div class="right-section full-width">
+        <aside class="tips-section">
+          <h3 class="tips-title">Canales de Contacto Directo</h3>
+          <ul>
+            <li><strong>Email:</strong> <a href="jobpathanima@gmail.com">jobpathanima@gmail.com</a> (Respuesta en 24h)</li>
+            <li><strong>Teléfono:</strong> 2909 3640-JOBP (Lun-Vie de 8 a 17 hs.)</li>
+            <li><strong>Ubicación:</strong> Canelones 1162, 11100 Montevideo, Departamento de Montevideo, Uruguay</li>
+          </ul>
+        </aside>
+        
+      </div>
+    </section>
+
+    <section class="advice-pair">
+      <div class="left-section full-width">
+        <article class="advice-box">
+          <h2>Reserva tu Sesión de Asesoramiento</h2>
+          <p>
+            Elige el tipo de apoyo que necesitas. Nuestras sesiones tienen una duración de <strong>45 minutos</strong> y se realizan por videollamada. Nos adaptamos a tu horario para ofrecerte la mejor experiencia de consultoría.
+          </p>
+          <p>
+            Nuestro objetivo es darte las <strong>herramientas y la confianza</strong> para conseguir el trabajo que deseas. No importa en qué etapa de tu carrera te encuentres, estamos aquí para guiarte.
+          </p>
+        </article>
+      </div>
+
+      <div class="right-section full-width">
+        <aside class="tips-section">
+          <h3 class="tips-title">Tipos de Asesoría</h3>
+          <ul>
+            <li><strong>Asesoría CV/Carta:</strong> Optimización de documentos a tu perfil.</li>
+            <li><strong>Simulación de Entrevista:</strong> Práctica con un experto en RR.HH.</li>
+            <li><strong>Plan de Carrera:</strong> Definición de objetivos a largo plazo.</li>
+            <li><strong>Networking Efectivo:</strong> Consejos para ampliar tu red de contactos.</li>
+          </ul>
+        </aside>
+      
+      </div>
+    </section>
+  </main>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'es', includedLanguages: 'es,en' },
+        'google_translate_element'
+      );
+    }
+
+    function cambiarIdioma(idioma) {
+      var select = document.querySelector(".goog-te-combo");
+      if (select) {
+        select.value = idioma;
+        select.dispatchEvent(new Event("change"));
+      }
+    }
+  </script>
+
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
