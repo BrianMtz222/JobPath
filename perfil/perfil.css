@@ -202,7 +202,13 @@ nav a:hover {
     gap: 10px;
     padding: 10px;
 }
-
+/* Añade esto a tu perfil.css para que las imágenes llenen el espacio */
+.publications img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
+    border-radius: 5px; /* Si quieres bordes redondeados */
+}
 /* Estilo para el espacio de imagen (placeholder) */
 .image-placeholder {
     width: 200px;

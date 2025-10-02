@@ -54,17 +54,26 @@ if (window.location.href.includes('login.html')) {
 document.addEventListener('DOMContentLoaded', () => {
     const publicationsGrid = document.getElementById('publicationsGrid');
     const addImageBtn = document.getElementById('addImageBtn');
+    const fileInput = document.getElementById('fileInput'); // Obtenemos el input de archivo
+
+    // Función que maneja el clic en un placeholder
+    const handlePlaceholderClick = (placeholderDiv) => {
+        // Almacenamos una referencia al placeholder actual para saber dónde poner la imagen
+        fileInput.placeholderToFill = placeholderDiv; 
+        
+        // Simula un clic en el input de archivo oculto, abriendo el diálogo del sistema
+        fileInput.click(); 
+    };
 
     // Función para crear un nuevo espacio de imagen
     const createPlaceholder = () => {
         const placeholder = document.createElement('div');
         placeholder.classList.add('image-placeholder');
-        // El contenido que se muestra en el espacio
         placeholder.innerHTML = '<span>Haz click para agregar imagen</span>'; 
 
-        // Lógica para el clic en el nuevo espacio
+        // Asignamos el manejador de clic
         placeholder.addEventListener('click', () => {
-            alert('Lógica para seleccionar archivo o subir imagen.');
+            handlePlaceholderClick(placeholder);
         });
 
         return placeholder;
@@ -87,7 +96,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialPlaceholder = publicationsGrid ? publicationsGrid.querySelector('.image-placeholder') : null;
     if (initialPlaceholder) {
         initialPlaceholder.addEventListener('click', () => {
-            alert('Lógica para seleccionar archivo o subir imagen.');
+            handlePlaceholderClick(initialPlaceholder);
         });
     }
+
+    // *** NUEVA LÓGICA PARA LEER EL ARCHIVO SELECCIONADO ***
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const placeholderDiv = fileInput.placeholderToFill; // El div que debe llenarse
+
+        if (file && placeholderDiv) {
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                // 1. Crear el elemento de imagen
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.alt = 'Publicación de usuario';
+                
+                // 2. Limpiar el contenido del placeholder (eliminar el texto "Haz click...")
+                placeholderDiv.innerHTML = '';
+                
+                // 3. Insertar la imagen en el placeholder
+                placeholderDiv.appendChild(img);
+                
+                // Opcional: Eliminar la clase 'image-placeholder' para usar solo el estilo de imagen
+                placeholderDiv.classList.remove('image-placeholder');
+                
+                // 4. Limpiar el input de archivo para poder seleccionar el mismo archivo de nuevo
+                event.target.value = '';
+                fileInput.placeholderToFill = null;
+            };
+
+            // Leer el archivo como una URL de datos
+            reader.readAsDataURL(file);
+        }
+    });
 });
