@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iniciar Sesión</title>
   <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
   <div class="login-container">
     <h1>BIENVENIDO</h1>
@@ -27,7 +29,7 @@
   </div>
 
   <script>
-    document.getElementById("loginForm").addEventListener("submit", function(e){
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
       const name = document.getElementById("username").value;
@@ -37,10 +39,40 @@
       localStorage.setItem("userLastname", lastname);
       localStorage.setItem("userEmail", email);
 
-      
+
       window.location.href = "/JobPath/perfil/perfil.html";
     });
   </script>
-   <script src="../js/app.js"></script>
+ <script>
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault(); 
+
+  const name = document.getElementById("username").value.trim();
+  const lastname = document.getElementById("lastname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  if (!name || !lastname || !email) {
+    alert("No se pudo ingresar: todos los campos son obligatorios");
+     alert("No se pudo ingresar");
+    return;
+  }
+
+  if (!email.includes("@")) {
+    alert("No se pudo ingresar: el correo debe contener '@'");
+     alert("No se pudo ingresar");
+    return;
+  }
+
+  localStorage.setItem("userName", name);
+  localStorage.setItem("userLastname", lastname);
+  localStorage.setItem("userEmail", email);
+
+  alert("Login exitoso");
+  window.location.href = "/JobPath/perfil/perfil.html";
+});
+</script>
+
+
+  <script src="../js/app.js"></script>
 </body>
+
 </html>
