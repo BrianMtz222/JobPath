@@ -132,84 +132,71 @@
   <input type="file" id="fileInput" accept="image/*" style="display:none;">
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Lógica para cargar Nombre, Apellido y Email del localStorage ---
+    // --- Cargar datos del usuario ---
     const userName = localStorage.getItem('userName');
     const userLastname = localStorage.getItem('userLastname');
     const userEmail = localStorage.getItem('userEmail');
 
-    if (userName) {
-        document.getElementById('userNameDisplay').textContent = userName;
-    }
-    if (userLastname) {
-        document.getElementById('userLastnameDisplay').textContent = userLastname;
-    }
-    if (userEmail) {
-        document.getElementById('userEmailDisplay').textContent = userEmail;
-    }
+    if (userName) document.getElementById('userNameDisplay').textContent = userName;
+    if (userLastname) document.getElementById('userLastnameDisplay').textContent = userLastname;
+    if (userEmail) document.getElementById('userEmailDisplay').textContent = userEmail;
+
+    // --- Lógica de publicaciones ---
+    const publicationsGrid = document.getElementById('publicationsGrid');
+    const addImageBtn = document.getElementById('addImageBtn');
+    const fileInput = document.getElementById('fileInput');
+
+    const handlePlaceholderClick = (placeholderDiv) => {
+        fileInput.placeholderToFill = placeholderDiv;
+        fileInput.click();
+    };
+
+    const createPlaceholder = () => {
+        const placeholder = document.createElement('div');
+        placeholder.classList.add('image-placeholder');
+        placeholder.innerHTML = '<span>Haz click para agregar imagen</span>';
+        placeholder.addEventListener('click', () => handlePlaceholderClick(placeholder));
+        return placeholder;
+    };
+
+    addImageBtn.addEventListener('click', () => {
+        const newPlaceholder = createPlaceholder();
+        publicationsGrid.appendChild(newPlaceholder);
+
+        const publicationsCountElement = document.getElementById('publicationsCount');
+        let currentCount = parseInt(publicationsCountElement.textContent) || 0;
+        publicationsCountElement.textContent = currentCount + 1;
+    });
+
+    // Hacer clic en placeholder inicial
+    const initialPlaceholder = publicationsGrid.querySelector('.image-placeholder');
+    if (initialPlaceholder) initialPlaceholder.addEventListener('click', () => handlePlaceholderClick(initialPlaceholder));
+
+    // Cuando se selecciona un archivo
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const placeholderDiv = fileInput.placeholderToFill;
+
+        if (file && placeholderDiv) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.alt = 'Publicación de usuario';
+
+                placeholderDiv.innerHTML = ''; // limpiar contenido
+                placeholderDiv.appendChild(img);
+                placeholderDiv.classList.remove('image-placeholder');
+
+                fileInput.value = '';
+                fileInput.placeholderToFill = null;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
 });
+</script>
 
-
-  
-  document.addEventListener('DOMContentLoaded', () => {
-      const publicationsGrid = document.getElementById('publicationsGrid');
-      const addImageBtn = document.getElementById('addImageBtn');
-      const fileInput = document.getElementById('fileInput');
-
-     
-      const handlePlaceholderClick = (placeholderDiv) => {
-          fileInput.placeholderToFill = placeholderDiv;
-          fileInput.click();
-      };
-
-      
-      const createPlaceholder = () => {
-          const placeholder = document.createElement('div');
-          placeholder.classList.add('image-placeholder');
-          placeholder.innerHTML = '<span>Haz click para agregar imagen</span>';
-          placeholder.addEventListener('click', () => handlePlaceholderClick(placeholder));
-          return placeholder;
-      };
-
-      addImageBtn.addEventListener('click', () => {
-          const newPlaceholder = createPlaceholder();
-          publicationsGrid.appendChild(newPlaceholder);
-
-          
-          const publicationsCountElement = document.getElementById('publicationsCount');
-          let currentCount = parseInt(publicationsCountElement.textContent) || 0;
-          publicationsCountElement.textContent = currentCount + 1;
-      });
-
-     
-      const initialPlaceholder = publicationsGrid.querySelector('.image-placeholder');
-      if (initialPlaceholder) {
-          initialPlaceholder.addEventListener('click', () => {
-              handlePlaceholderClick(initialPlaceholder);
-          });
-      }
-
- 
-      fileInput.addEventListener('change', (event) => {
-          const file = event.target.files[0];
-          const placeholderDiv = fileInput.placeholderToFill;
-
-          if (file && placeholderDiv) {
-              const reader = new FileReader();
-              reader.onload = (e) => {
-                  const img = document.createElement('img');
-                  img.src = e.target.result;
-                  img.alt = 'Publicación de usuario';
-                  placeholderDiv.innerHTML = 'image-placeholder';
-                  placeholderDiv.appendChild(img);
-                  placeholderDiv.classList.remove('image-placeholder');
-                  event.target.value = '';
-                  fileInput.placeholderToFill = null;
-              };
-              reader.readAsDataURL(file);
-          }
-      });
-  });
-  </script>
 
   <script src="../js/translate.js"></script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
