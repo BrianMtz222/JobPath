@@ -103,10 +103,6 @@ nav a:hover {
   gap: 15px;
 }
 
-.publications img {
-  width: 100%;
-  border-radius: 10px;
-}
 
 .working {
   background: #fafafa;
@@ -179,23 +175,24 @@ nav a:hover {
 
 /* Para alinear el título y el botón de agregar publicación */
 .publications-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espacio mínimo entre título y botón */
+  margin-bottom: 15px;
 }
 
-/* Estilo para el botón de agregar publicación */
 .add-image-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  max-height: 40px;
 }
 
-/* Asegurar que la grilla de publicaciones sigue funcionando */
+
 .publications {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -210,16 +207,51 @@ nav a:hover {
     border-radius: 5px; /* Si quieres bordes redondeados */
 }
 /* Estilo para el espacio de imagen (placeholder) */
-.image-placeholder {
+
+
+.publications img {
     width: 200px;
-    height: 200px;
-    background-color: #f0f0f0;
-    border: 2px dashed #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #888;
-    cursor: pointer;
-    border-radius: 5px;
+    height: 100px;
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
+    border-radius: 5px; /* Si quieres bordes redondeados */
+}
+
+
+
+
+#publicationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* cuadrícula adaptable */
+  gap: 15px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+#publicationsGrid img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover; /* recorta la imagen para que se vea completa */
+  border-radius: 10px; /* bordes suaves */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Ajuste de los placeholders */
+.image-placeholder {
+  width: 150px;
+  height: 150px;
+  border: 2px dashed #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.image-placeholder:hover {
+  background-color: #f2f2f2;
+  border-color: #777;
 }

@@ -3,102 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAGO</title>
+    <title>PAGO DE SUSCRIPCIÓN</title>
     <link rel="stylesheet" href="Pago.css">
 </head>
 <body>
     <div class="container">
         <header>
- <a href="https://brianmtz222.github.io/JobPath/suscripciones/suscripciones.html" class="btn-back">Volver Atrás</a>            <h1 class="title">SUSCRIPCIONES<span class="crown">👑</span></h1>
+            <nav class="language-nav">
+            <button onclick="cambiarIdioma('es')">Español</button>
+            <button onclick="cambiarIdioma('en')">English</button>
+        </nav>
+            <a href="https://brianmtz222.github.io/JobPath/suscripciones/suscripciones.html" class="btn-back">Volver Atrás</a>
+            <h1 class="title">SUSCRIPCIONES<span class="crown">👑</span></h1>
             <div class="purple-line"></div>
         </header>
-        <nav class="language-nav">
-        <button onclick="cambiarIdioma('es')">Español</button>
-        <button onclick="cambiarIdioma('en')">English</button>
-      </nav>
-    </div>
+        
+   
     <div id="google_translate_element" style="display:none;"></div>
 
-        <main class="payment-layout">
-            <div class="payment-form-card">
-                <div class="input-group">
-                    <label for="subscription-select">Seleccionar Suscripción</label>
-                    <select id="subscription-select" class="custom-select">
-                        <option value="4.85" data-plan-name="Básico">Básico - $4.85</option>
-                        <option value="8.50" data-plan-name="Pro">Pro - $8.50</option>
-                        <option value="16.25" data-plan-name="Master" selected>Master - $16.25</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <div class="input-icon-wrapper">
-                        <span class="icon">📧</span>
-                        <input type="email" id="email" placeholder="email@ejemplo.com">
-                    </div>
-                </div>
-
-                <div class="payment-method-selector">
-                    <div class="payment-option selected">
-                        <span class="icon">💳</span> Tarjeta
-                    </div>
-                    <div class="payment-option">
-                        <span class="icon">🏦</span> Banco <span class="badge">USD 5</span>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label for="card-number">Número de tarjeta</label>
-                    <div class="card-input-wrapper">
-                        <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX">
-                        <img src="visa-mastercard.png" alt="Visa Mastercard" class="card-logo"> </div>
-                </div>
-
-                <div class="card-details-group">
-                    <div class="input-group expiry">
-                        <label for="expiry-date">Fecha de Vencimiento</label>
-                        <input type="text" id="expiry-date" placeholder="MM/AA">
-                    </div>
-                    <div class="input-group cvc">
-                        <label for="cvc-code">Código de Seguridad</label>
-                        <div class="cvc-input-wrapper">
-                            <input type="text" id="cvc-code" placeholder="CVC">
-                            <span class="icon-cvc">🎴</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label for="country">País</label>
-                    <select id="country">
-                        <option value="">Selecciona un País</option>
-                        <option value="UY">Uruguay</option>
-                        <option value="AR">Argentina</option>
-                        </select>
-                </div>
-
-                <a href="https://brianmtz222.github.io/JobPath/" class="btn-pay">Pagar</a>
-                <p class="secure-text">🔒 JobPath--Pago</p>
+    <main class="payment-layout">
+        <div class="payment-form-card">
+            <div class="input-group">
+                <label for="subscription-select">Seleccionar Suscripción</label>
+                <select id="subscription-select" class="custom-select">
+                    <option value="4.85" data-plan-name="Básico">Básico - $4.85</option>
+                    <option value="8.50" data-plan-name="Pro">Pro - $8.50</option>
+                    <option value="16.25" data-plan-name="Master" selected>Master - $16.25</option>
+                </select>
             </div>
 
-            <div class="summary-card">
-                <div class="CONSULTA GRATIS">
-                    <p class="plan-name-display" id="consultation-plan-name">Este es el precio de la susbcripcion que usted esta por comprar ahora , verfique antes de hacer el pago!!! </p>
-                    <p class="price" id="consultation-price">$16.25</p>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <div class="input-icon-wrapper">
+                    <span class="icon">📧</span>
+                    <input type="email" id="email" placeholder="email@ejemplo.com">
                 </div>
-                <div class="total-section">
-                    <p class="label">Total</p>
-                    <p class="price" id="total-price">$16.25</p>
-                    
-                </div>
-                
             </div>
 
-        </main>
-        
-    </div>
+            <div class="payment-method-selector">
+                <div class="payment-option selected">
+                    <span class="icon">💳</span> Tarjeta
+                </div>
+                <div class="payment-option">
+                    <span class="icon">🏦</span> Banco <span class="badge">USD 5</span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="card-number">Número de tarjeta</label>
+                <div class="card-input-wrapper">
+                    <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX">
+                    <img src="visa-mastercard.png" alt="Visa Mastercard" class="card-logo">
+                </div>
+            </div>
+
+            <div class="card-details-group">
+                <div class="input-group expiry">
+                    <label for="expiry-date">Fecha de Vencimiento</label>
+                    <input type="text" id="expiry-date" placeholder="MM/AA">
+                </div>
+                <div class="input-group cvc">
+                    <label for="cvc-code">Código de Seguridad</label>
+                    <div class="cvc-input-wrapper">
+                        <input type="text" id="cvc-code" placeholder="CVC">
+                        <span class="icon-cvc">🎴</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="country">País</label>
+                <select id="country">
+                    <option value="">Selecciona un País</option>
+                    <option value="UY">Uruguay</option>
+                    <option value="AR">Argentina</option>
+                </select>
+            </div>
+
+            <a href="https://brianmtz222.github.io/JobPath/" class="btn-pay">Pagar</a>
+            <p class="secure-text">🔒 JobPath--Pago</p>
+        </div>
+
+        <div class="summary-card">
+            <div class="summary-info">
+                <p class="plan-name-display" id="consultation-plan-name">Este es el precio de la suscripción que usted está por comprar ahora, verifique antes de hacer el pago:</p>
+                <p class="price" id="consultation-price">$16.25</p>
+            </div>
+            <div class="total-section">
+                <p class="label">Total</p>
+                <p class="price" id="total-price">$16.25</p>
+            </div>
+        </div>
+    </main>
 
     <script src="Pago.js"></script>
-    
 </body>
 </html>
