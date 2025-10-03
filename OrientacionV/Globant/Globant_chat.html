@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Globant</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    :root {
+      --globant-purple: #3A0CA3;
+      --dark-blue: #1C0F4A;
+      --light-purple: #4361EE;
+      --accent-blue: #4895EF;
+      --background-gray: #f9f9f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-color: var(--background-gray);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, var(--globant-purple) 30%, var(--dark-blue));
+      color: white;
+      padding: 10px 20px;
+      height: 70px;
+    }
+
+    .logo-container {
+      background-color: var(--globant-purple);
+      padding: 10px 30px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .chat-container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .chat-messages {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      border-radius: 20px;
+      max-width: 70%;
+      line-height: 1.4;
+    }
+
+    .user-message {
+      background-color: var(--light-purple);
+      color: white;
+      margin-left: auto;
+    }
+
+    .bot-message {
+      background-color: #eee;
+      color: #333;
+      margin-right: auto;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+
+    .chat-input input {
+      flex-grow: 1;
+      padding: 15px;
+      border: none;
+      outline: none;
+    }
+
+    .chat-input button {
+      background-color: var(--globant-purple);
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .chat-input button:hover {
+      background-color: var(--light-purple);
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo-container">
+      <span class="logo-text">Globant Chat</span>
+    </div>
+  </div>
+
+  <div class="chat-container">
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Escribe un mensaje...">
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    const chatMessages = document.getElementById('chatMessages');
+    const userInput = document.getElementById('userInput');
+
+    function addMessage(text, type) {
+      const msg = document.createElement('div');
+      msg.classList.add('message', type === 'user' ? 'user-message' : 'bot-message');
+      msg.textContent = text;
+      chatMessages.appendChild(msg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function sendMessage() {
+      const text = userInput.value.trim();
+      if (!text) return;
+
+      addMessage(text, 'user');
+      userInput.value = '';
+
+      setTimeout(() => {
+        const lowerText = text.toLowerCase();
+
+        if (lowerText === 'hola') {
+          addMessage('Somos Globant 🚀', 'bot');
+        } else if (lowerText === 'cómo estás' || lowerText === 'como estas') {
+          addMessage('¡Muy bien! ¿Y vos?', 'bot');
+        } else if (lowerText === 'qué hacen' || lowerText === 'que hacen') {
+          addMessage('En Globant creamos soluciones de software innovadoras 🌟', 'bot');
+        } else if (lowerText.includes('proyecto')) {
+          addMessage('¡Contanos más de tu proyecto! Podemos ayudarte 💡', 'bot');
+        } else if (lowerText === 'adiós' || lowerText === 'chau') {
+          addMessage('¡Hasta luego! 👋', 'bot');
+        } else {
+          addMessage('No entendí, probá con "hola", "cómo estás", "qué hacen" o "adiós"', 'bot');
+        }
+      }, 500);
+    }
+
+    // Enter para enviar
+    userInput.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+</body>
+</html>
