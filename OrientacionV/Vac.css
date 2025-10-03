@@ -1,19 +1,14 @@
-/* Variables de Colores (Adaptadas al nuevo estilo) */
 :root {
-    /* Colores del segundo ejemplo */
     --primary-dark: #2d2d3f; 
     --secondary-blue: #4f4fcf;
     --text-light: white; 
-    --button-border-light: rgba(255, 255, 255, 0.4); /* Borde claro para elementos internos */
-    --bg-internal: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente para el contenido */
+    --button-border-light: rgba(255, 255, 255, 0.4);
+    --bg-internal: rgba(255, 255, 255, 0.1);
 }
 
-/* Estilos Generales (Tomados del segundo ejemplo) */
 body {
-    /* Fondo con gradiente y tipografía Segoe UI */
     margin: 0;
     padding: 0;
-    /* overflow: hidden; /* Esto puede ser restrictivo, lo dejaré comentado a menos que sea necesario */
     height: 100%;
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(to right, var(--primary-dark), var(--secondary-blue));
@@ -21,25 +16,24 @@ body {
 }
 
 .language-nav button {
-  background: none;
-  border: 2px solid white;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    background: none;
+    border: 2px solid white;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .language-nav button:hover {
-  background: white;
-  color: #2d2d3f;
+    background: white;
+    color: #2d2d3f;
 }
 
 .active {
-  border-bottom: 2px solid white;
+    border-bottom: 2px solid white;
 }
-
 
 .navbar { 
     background-color: transparent; 
@@ -55,7 +49,6 @@ body {
     font-size: 24px;
     font-weight: bold;
 }
-
 
 .navbar a {
     color: white;
@@ -74,7 +67,6 @@ body {
 }
 
 .navbar .active {
-    
     background-color: transparent; 
     border-bottom: 2px solid white;
 }
@@ -99,7 +91,6 @@ body {
     margin-left: 5px;
 }
 
-
 .content-container {
     padding: 50px; 
 }
@@ -109,16 +100,14 @@ body {
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
-    /* Fondo interno semi-transparente y claro */
     background-color: var(--bg-internal); 
     padding: 50px;
-    border-radius: 16px; /* Borde más redondeado */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Sombra más oscura */
-    color: white; /* Aseguramos que el texto dentro sea blanco */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    border-radius: 16px; 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    color: white; 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
 }
 
-/* Columna Izquierda (Texto) */
 .left-column {
     flex: 1;
     display: flex;
@@ -132,25 +121,21 @@ body {
     margin-bottom: 10px;
 }
 
-/* Cuadros de texto con borde claro y fondo semi-transparente */
 .section-box p {
     font-size: 14px;
     line-height: 1.6;
     border: 1px solid var(--button-border-light); 
-    background-color: rgba(0, 0, 0, 0.1); /* Fondo muy sutil */
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 15px;
     border-radius: 5px;
 }
 
-
-/* Columna Central (Botones) */
 .center-column {
     width: 350px;
     position: relative;
 }
 
 .stars {
-    /* Mantener el estilo decorativo */
     font-size: 30px;
     position: absolute;
     top: -20px;
@@ -165,28 +150,26 @@ body {
     margin-top: 20px;
 }
 
-/* Estilo de los botones (Adaptados al look claro/oscuro) */
 .action-button {
     display: block;
     text-align: left;
     padding: 15px 20px;
     border: 1px solid var(--button-border-light);
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.1);
     text-decoration: none;
-    color: white; /* Texto blanco */
+    color: white;
     font-size: 14px;
     font-weight: 500;
     transition: all 0.2s;
 }
 
 .action-button:hover {
-    background-color: white; /* Fondo blanco */
+    background-color: white;
     border-color: white;
-    color: var(--primary-dark); /* Texto oscuro al hacer hover */
+    color: var(--primary-dark);
 }
 
-/* Columna Derecha (Imágenes) */
 .right-column {
     width: 400px;
     display: flex;
@@ -198,8 +181,7 @@ body {
 .image-card {
     border-radius: 10px;
     overflow: hidden;
-    /* Sombra más oscura que resalte en el fondo oscuro */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .image-card img {
@@ -208,7 +190,6 @@ body {
     display: block;
 }
 
-/* Ajuste de posición de las imágenes como en la maqueta */
 .top-image {
     width: 90%;
     align-self: flex-start;
@@ -219,11 +200,10 @@ body {
     position: relative;
     right: 0;
     bottom: -80px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Sombra muy fuerte */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     z-index: 1;
 }
 
-/* Líneas de decoración (Ajustadas para ser blancas en fondo oscuro) */
 .right-column::before {
     content: "";
     position: absolute;
@@ -231,9 +211,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Reemplazo de SVG para puntos blancos en fondo oscuro */
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="1" cy="1" r=".5" fill="white" /></svg>');
     background-size: 15px 15px;
-    opacity: 0.2; /* Más visibles pero aún sutiles */
+    opacity: 0.2;
     z-index: 0;
 }

@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
   display: flex;
@@ -17,7 +17,7 @@ body {
 }
 
 header {
-  background: linear-gradient(to right, #0000af, #ffffff);
+  background: linear-gradient(to right , #4b29d0 , #000000);
   padding: 20px 50px 0;
   position: relative;
 }
@@ -31,6 +31,7 @@ header {
   cursor: pointer;
   font-size: 14px;
   margin-bottom: 20px;
+
 }
 
 .title {
@@ -108,7 +109,6 @@ input[type="email"], input[type="text"], select {
 
 select {
   appearance: none;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%20176.4L146.2%2045.5%205.4%20176.4z%22%2F%3E%3C%2Fsvg%3E');
   background-repeat: no-repeat;
   background-position: right 10px top 50%;
   background-size: 10px auto;
@@ -210,7 +210,7 @@ select {
 
 .btn-pay {
   width: 500px;
-  background-color: #161fa3;
+   background: linear-gradient(to right, #000000, #4b29d0);
   color: white;
   padding: 15px;
   border: none;
@@ -284,9 +284,10 @@ select {
   color: #2d2d3f;
 }
 
-&.active {
+.language-nav .active {
   border-bottom: 2px solid white;
 }
+
 .language-nav {
   position: absolute;
   top: 20px;

@@ -1,17 +1,16 @@
-/* Importing the 'Poppins' font for a modern look */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
     --color-dark-blue: #1c1c38;
     --color-primary-purple: #0011ff;
-    --color-secondary-blue: #007bff; /* Used for accents/buttons */
+    --color-secondary-blue: #007bff; 
     --color-light-gray: #f5f5f5;
     --color-white: #ffffff;
     --color-black: #000000;
-    --color-accent-dot: #20b8d2; /* Light blue dot */
+    --color-accent-dot: #20b8d2; 
 }
 
-/* Base Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,7 +24,6 @@ body {
     color: var(--color-black);
 }
 
-/* Header Styling */
 .header {
     background: linear-gradient(90deg, #1d1d3a 0%, #303060 50%, #454580 100%);
     padding: 15px 50px;
@@ -43,7 +41,6 @@ body {
     font-weight: 700;
 }
 
-/* Canva Info Simulation */
 .canva-info {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 5px 10px;
@@ -62,7 +59,6 @@ body {
     font-weight: 600;
 }
 
-/* Main Container and Top Bar */
 .main-container {
     padding: 20px 50px;
 }
@@ -88,7 +84,6 @@ body {
     text-decoration: solid black ;
 }
 
-/* Simulation of the light blue circle next to the button */
 .btn-volver-atras::after {
     content: '';
     display: inline-block;
@@ -107,7 +102,6 @@ body {
     margin-left: 50px;
 }
 
-/* Main Content Layout */
 .content-area {
     display: flex;
     gap: 40px;
@@ -116,14 +110,14 @@ body {
 .left-section {
     flex: 1;
     padding-right: 20px;
-    border-right: 1px solid #ccc; /* Vertical line separator */
+    border-right: 1px solid #ccc;
 }
 
 .left-section h2 {
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 20px;
-    max-width: 80%; /* To break the line like in the image */
+    max-width: 80%; 
 }
 
 .advice-box {
@@ -138,7 +132,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Right Section Styling (Tips and Image) */
+
 .right-section {
     flex: 1;
     position: relative;
@@ -164,7 +158,7 @@ body {
     margin-right: auto;
 }
 
-/* Star decoration simulation */
+
 .tips-title::before, .tips-title::after {
     content: '★';
     font-size: 1.5rem;
@@ -197,11 +191,11 @@ body {
     font-weight: 600;
 }
 
-/* Image Styling */
+
 .image-placeholder {
     width: 100%;
-    max-width: 400px; /* Adjust as needed */
-    position: absolute; /* To overlap the tips/background lines */
+    max-width: 400px; 
+    position: absolute; 
     right: 0;
     top: 50%;
     transform: translateY(-50%);
@@ -213,9 +207,7 @@ body {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    /* Mimic the angled cut of the image */
     clip-path: polygon(10% 0, 100% 0, 100% 90%, 0 100%);
-    /* NOTE: If you save the image as 'image_51e070.jpg' in the same folder as the HTML/CSS files, it will display correctly. */
 }
 
 nav {

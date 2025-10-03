@@ -22,7 +22,7 @@ body {
 h1 {
     font-size: 28px;
     font-weight: bold;
-    color: #333;
+    color:linear-gradient(to right, #000000, #4b29d0);
     margin-bottom: 30px;
 }
 
@@ -58,7 +58,7 @@ input[type="password"]:focus {
 }
 
 button[type="submit"] {
-    background: linear-gradient(to right, #2d2d3f, #4f4fcf);
+    background: linear-gradient(to right, #000000, #4b29d0);
     color: white;
     font-weight: bold;
     font-size: 16px;

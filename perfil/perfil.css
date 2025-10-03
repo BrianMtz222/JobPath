@@ -1,197 +1,99 @@
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f4f4; 
 }
 
-
 header {
-   background: linear-gradient(to right, #2d2d3f, #4f4fcf);
-  padding: 15px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    background: linear-gradient(to right, #000000, #4b29d0);
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .language-nav button {
-  background: none;
-  border: 2px solid white; 
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    background: none;
+    border: 2px solid white;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); 
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 .language-nav button:hover {
-  background: white;
-  color: #2d2d3f;
+    background: white;
+    color: #1d1d2c;
 }
 
 header div {
-  color: white;
-  font-size: 1.5rem;
+    color: white;
+    font-size: 1.5rem;
 }
 
 nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  font-family: 'Segoe UI', sans-serif;
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 nav a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
-/* Perfil */
 .profile-container {
-  text-align: center;
-  padding: 30px 20px;
-  border-bottom: 1px solid #ddd;
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 1px solid #ddd;
 }
 
 .username {
-  margin: 0 0 15px 0;
-  font-size: 1.8rem;
+    margin: 0 0 15px 0;
+    font-size: 1.8rem;
 }
 
 .stats {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
 }
 
 .stats div {
-  text-align: center;
+    text-align: center;
 }
 
 .profile-actions {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .profile-actions button {
-  padding: 8px 15px;
-  border: 1px solid #2a5298;
-  border-radius: 8px;
-  background: #2a5298;
-  color: white;
-  cursor: pointer;
+    padding: 8px 15px;
+    border: 1px solid #3c8efc; 
+    border-radius: 8px;
+    background: #3c8efc;
+    color: white;
+    cursor: pointer;
 }
 
 .profile-actions .secondary {
-  background: white;
-  color: #2a5298;
+    background: white;
+    color: #3c8efc;
+    border-color: #3c8efc;
 }
-
 
 .main-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  padding: 20px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 20px 40px;
 }
-
-
-.publications {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-
-.working {
-  background: #fafafa;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.working h3 {
-  margin-bottom: 15px;
-}
-
-.company-card img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.company-card button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: 1px solid #2a5298;
-  border-radius: 8px;
-  background: #2a5298;
-  color: white;
-  cursor: pointer;
-}
-
-.top-right-buttons {
-  position: absolute;
-  top: 70px; 
-  right: 20px;
-  display: flex;
-  gap: 10px;
-}
-
-
-.edit-btn, .settings-btn {
-  background: #007bff;
-  border: none;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.settings-btn {
-  font-size: 16px;
-  padding: 8px 10px;
-}
-
-.edit-btn:hover, .settings-btn:hover {
-  background: #0056b3;
-}
-.active {
-  border-bottom: 2px solid white;
-}
-
-.is-editing {
-    border: 1px solid #007bff; 
-    background-color: #f8f9fa; 
-    padding: 5px;
-    border-radius: 4px;
-    cursor: text; 
-    display: inline-block;
-}
-
-
-
-/* Para alinear el título y el botón de agregar publicación */
-.publications-header {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* espacio mínimo entre título y botón */
-  margin-bottom: 15px;
-}
-
-.add-image-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  max-height: 40px;
-}
-
 
 .publications {
     display: grid;
@@ -199,59 +101,131 @@ nav a:hover {
     gap: 10px;
     padding: 10px;
 }
-/* Añade esto a tu perfil.css para que las imágenes llenen el espacio */
-.publications img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
-    border-radius: 5px; /* Si quieres bordes redondeados */
-}
-/* Estilo para el espacio de imagen (placeholder) */
 
+.working {
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.working h3 {
+    margin-bottom: 15px;
+}
+
+.company-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.company-card button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 1px solid #3c8efc;
+    border-radius: 8px;
+    background: linear-gradient(to right, #000000, #4b29d0);
+    color: white;
+    cursor: pointer;
+}
+
+.top-right-buttons {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn, .settings-btn {
+    background: linear-gradient(to right, #000000, #4b29d0);
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.settings-btn {
+    font-size: 16px;
+    padding: 8px 10px;
+}
+
+.edit-btn:hover, .settings-btn:hover {
+    background: #1e70e3; 
+}
+
+.active {
+    border-bottom: 2px solid white;
+}
+
+.is-editing {
+    border: 1px solid #3c8efc;
+    background-color: #f8f9fa;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: text;
+    display: inline-block;
+}
+
+.publications-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.add-image-btn {
+    background: linear-gradient(to right, #000000, #4b29d0);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    max-height: 40px;
+}
 
 .publications img {
     width: 200px;
     height: 100px;
-    object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
-    border-radius: 5px; /* Si quieres bordes redondeados */
+    object-fit: cover;
+    border-radius: 5px;
 }
 
-
-
-
 #publicationsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* cuadrícula adaptable */
-  gap: 15px;
-  justify-items: center;
-  margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-items: center;
+    margin-top: 20px;
 }
 
 #publicationsGrid img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover; /* recorta la imagen para que se vea completa */
-  border-radius: 10px; /* bordes suaves */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Ajuste de los placeholders */
 .image-placeholder {
-  width: 150px;
-  height: 150px;
-  border: 2px dashed #aaa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  text-align: center;
-  font-size: 13px;
-  color: #555;
-  border-radius: 10px;
-  transition: 0.3s;
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
 .image-placeholder:hover {
-  background-color: #f2f2f2;
-  border-color: #777;
+    background-color: #f2f2f2;
+    border-color: #777;
 }

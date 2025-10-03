@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to right, #2d2d3f, #4f4fcf);
+    background: linear-gradient(to right, #000000, #4b29d0);
     color: white;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -10,11 +10,11 @@ body {
 .profile-section {
     margin-bottom: 30px;
     text-align: center;
-   
 }
+
 .language-nav button {
   background: none;
-  border: 2px solid white;
+  border: 2px solid #fff;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
   padding: 8px 18px;
@@ -24,19 +24,18 @@ body {
 }
 
 .language-nav button:hover {
-  background: white;
-  color: #2d2d3f;
+  background: #fff;
+  color: #4b29d0;
 }
 
 &.active {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #fff;
 }
-
 
 #editToggleBtn {
     padding: 12px 25px;
-    background-color: #ff9800;
-    color: #2d2d3f;
+    background-color: #4b29d0;
+    color: white;
     border: none;
     border-radius: 25px;
     cursor: pointer;
@@ -47,7 +46,7 @@ body {
 }
 
 #editToggleBtn:hover {
-    background-color: #e68900;
+    background-color: #3100f3;
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
@@ -55,23 +54,23 @@ body {
 .cv-container {
     max-width: 900px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(29, 29, 44, 0.95);
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border-radius: 16px;
-    color: #333;
+    color: #fff;
 }
 
 .cv-content h1 {
-    color: #4f4fcf;
+    color: #4b29d0;
     margin-bottom: 10px;
     font-size: 2.5em;
     font-weight: 700;
 }
 
 .cv-content h2 {
-    color: #2d2d3f;
-    border-bottom: 3px solid #ff9800;
+    color: #ffffff;
+    border-bottom: 3px solid #4b29d0;
     padding-bottom: 8px;
     margin-top: 30px;
     font-size: 1.8em;
@@ -83,7 +82,7 @@ body {
 .cv-content h3 {
     margin-top: 20px;
     margin-bottom: 5px;
-    color: #444;
+    color: #d1d1f9;
     font-size: 1.2em;
     font-weight: 600;
 }
@@ -93,22 +92,23 @@ body {
     line-height: 1.7;
     margin-bottom: 15px;
     font-size: 1em;
+    color: #e0e0ff;
 }
 
 .contact-info span {
     margin-right: 20px;
     font-size: 1em;
-    color: #666;
+    color: #bfbfff;
     display: inline-flex;
     align-items: center;
     gap: 5px;
 }
 
 .cv-content[contenteditable="true"] {
-    border: 3px dashed #ff9800;
+    border: 3px dashed #4b29d0;
     padding: 15px;
     min-height: 400px;
-    background-color: #f7f7f7;
+    background-color: rgba(79, 79, 207, 0.1);
     border-radius: 10px;
     transition: all 0.3s ease;
 }
@@ -119,12 +119,12 @@ body {
 }
 
 .cv-content[contenteditable="true"] *:hover {
-    background-color: rgba(79, 79, 207, 0.1);
+    background-color: rgba(79, 79, 207, 0.2);
 }
 
 .date-range {
     font-style: italic;
-    color: #4f4fcf;
+    color: #4b29d0;
     font-size: 0.95em;
     font-weight: 500;
 }
@@ -147,9 +147,9 @@ nav a {
 }
 
 nav a:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #4b29d0;
 }
 
 nav a.active {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #4b29d0;
 }
