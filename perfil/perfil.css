@@ -124,7 +124,7 @@ nav a:hover {
     padding: 10px 20px;
     border: 1px solid #3c8efc;
     border-radius: 8px;
-    background: linear-gradient(to right, #000000, #4b29d0);
+     background-color: #4b29d0;
     color: white;
     cursor: pointer;
 }
@@ -138,7 +138,7 @@ nav a:hover {
 }
 
 .edit-btn, .settings-btn {
-    background: linear-gradient(to right, #000000, #4b29d0);
+    background-color: #4b29d0;
     border: none;
     color: white;
     padding: 8px 14px;
@@ -177,7 +177,7 @@ nav a:hover {
 }
 
 .add-image-btn {
-    background: linear-gradient(to right, #000000, #4b29d0);
+    background-color: #4b29d0;
     color: white;
     border: none;
     padding: 8px 12px;
