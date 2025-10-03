@@ -83,9 +83,9 @@
   </header>
 
   <div class="profile-container">
-    <h2 class="username" id="userNameDisplay"></h2>
-    <h2 class="username" id="userLastnameDisplay"></h2>
-    <p class="user-email" id="userEmailDisplay"></p>
+  <h2 class="username" id="userNameDisplay"></h2>
+<h2 class="username" id="userLastnameDisplay"></h2>
+<p class="user-email" id="userEmailDisplay"></p>
 
     <div class="stats">
       <div>
@@ -130,8 +130,26 @@
 
   
   <input type="file" id="fileInput" accept="image/*" style="display:none;">
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Lógica para cargar Nombre, Apellido y Email del localStorage ---
+    const userName = localStorage.getItem('userName');
+    const userLastname = localStorage.getItem('userLastname');
+    const userEmail = localStorage.getItem('userEmail');
 
-  <script>
+    if (userName) {
+        document.getElementById('userNameDisplay').textContent = userName;
+    }
+    if (userLastname) {
+        document.getElementById('userLastnameDisplay').textContent = userLastname;
+    }
+    if (userEmail) {
+        document.getElementById('userEmailDisplay').textContent = userEmail;
+    }
+});
+
+
+  
   document.addEventListener('DOMContentLoaded', () => {
       const publicationsGrid = document.getElementById('publicationsGrid');
       const addImageBtn = document.getElementById('addImageBtn');
