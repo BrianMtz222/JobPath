@@ -1,0 +1,323 @@
+/* Importamos la fuente Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+    --salus-blue-primary: #0077B6; /* Azul corporativo, agua */
+    --salus-accent-aqua: #48D1CC; /* Verde Aguamarina/Celeste para acentos (frescura) */
+    --salus-light-blue: #B0E0E6; /* Celeste muy claro */
+    --salus-text-dark: #333333;
+    --background-white: #ffffff; /* Fondo blanco para simbolizar pureza */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: var(--background-white);
+    min-height: 100vh;
+}
+
+/* --- Barra de Navegación (Header) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Fondo con el azul principal */
+    background-color: var(--salus-blue-primary); 
+    color: white;
+    padding: 10px 20px;
+    height: 70px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    background-color: transparent;
+    padding: 10px 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: white; 
+}
+
+.nav-links a {
+    color: var(--salus-light-blue);
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--salus-accent-aqua); /* Acento aguamarina al pasar el mouse */
+}
+
+/* --- Contenido Principal --- */
+.main-content {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.sidebar {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-right: 20px;
+}
+
+.btn-volver, .btn-locations {
+    background-color: var(--salus-accent-aqua); /* Aguamarina de acento para los botones */
+    color: var(--salus-text-dark);
+    border: none;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 4px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.btn-volver:hover, .btn-locations:hover {
+    background-color: #3CB371; /* Un tono de verde más oscuro al pasar el mouse */
+    color: white;
+}
+
+.sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.icon-link {
+    background-color: var(--salus-light-blue);
+    border: 1px solid var(--salus-accent-aqua);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    color: var(--salus-blue-primary);
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.icon-link:hover {
+    background-color: var(--salus-blue-primary); 
+    color: white;
+}
+
+.icon-link .material-icons {
+    font-size: 24px;
+}
+
+/* --- Contenido de la Página (Main) --- */
+.page-content {
+    flex-grow: 1;
+    display: grid;
+    grid-template-areas:
+        "hero hero images"
+        "about more images";
+    grid-template-columns: 1fr 1fr auto;
+    gap: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+
+/* --- Sección Principal (Hero) --- */
+.hero-section {
+    grid-area: hero;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.image-gallery {
+    display: flex;
+    height: 250px;
+}
+
+.gallery-image {
+    width: 50%;
+    object-fit: cover;
+}
+
+.logo-overlay {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30%; 
+    background-color: var(--salus-accent-aqua); /* Color de acento de SaluS */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.overlay-text {
+    color: var(--salus-blue-primary); /* Texto en azul primario */
+    font-size: 30px;
+    font-weight: 700;
+    z-index: 2;
+    margin-top: -20px; 
+}
+
+.logo-arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 20px; 
+    background-color: white; 
+    transform: skewX(-15deg); 
+    transform-origin: 0 0;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+}
+
+.team-info {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.team-icon {
+    color: var(--salus-blue-primary); /* Icono con color primario */
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.team-text {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--salus-text-dark);
+}
+
+.alert-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.alert-icon .material-icons {
+    color: var(--salus-accent-aqua); /* Icono de naturaleza/pureza */
+}
+
+
+/* --- Secciones de Detalles --- */
+.about-us-container {
+    grid-area: about;
+}
+
+.more-info-container {
+    grid-area: more;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--salus-blue-primary);
+    margin-bottom: 10px;
+}
+
+.info-card {
+    background-color: var(--background-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-height: 200px;
+    border-left: 5px solid var(--salus-accent-aqua); /* Detalle de color */
+}
+
+.card-title {
+    color: var(--salus-accent-aqua); /* Título en aguamarina de acento */
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+/* --- Imágenes Derecha --- */
+.images-right {
+    grid-area: images;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Simulación de líneas de fondo abstractas (adaptadas a los colores de SaluS) */
+.images-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Patrón de onda o burbujas suaves */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23B0E0E6' stroke-width='0.5' d='M0 50C16.6 33.4 33.4 33.4 50 50S83.4 66.6 100 50'/%3E%3Cpath fill='none' stroke='%2348D1CC' stroke-width='0.5' d='M0 60C16.6 43.4 33.4 43.4 50 60S83.4 76.6 100 60'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 100% 50%;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.img-large {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.img-small {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-right: 50px; 
+}
