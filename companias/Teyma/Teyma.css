@@ -1,0 +1,321 @@
+/* Importamos la fuente Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+    --teyma-blue-dark: #2F4F4F; /* Azul oscuro/Gris Pizarra para la identidad */
+    --teyma-accent-orange: #FF4500; /* Naranja/Rojo anaranjado para acentos */
+    --teyma-light-gray: #A9A9A9; /* Gris para textos secundarios */
+    --teyma-text-dark: #333333;
+    --background-gray: #f4f4f4; /* Fondo un poco más claro */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: var(--background-gray);
+    min-height: 100vh;
+}
+
+/* --- Barra de Navegación (Header) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Fondo con el azul oscuro predominante */
+    background-color: var(--teyma-blue-dark); 
+    color: white;
+    padding: 10px 20px;
+    height: 70px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logo-container {
+    background-color: transparent;
+    padding: 10px 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: white; /* Letras en blanco */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--teyma-accent-orange); /* Acento naranja al pasar el mouse */
+}
+
+/* --- Contenido Principal --- */
+.main-content {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.sidebar {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-right: 20px;
+}
+
+.btn-volver, .btn-locations {
+    background-color: var(--teyma-accent-orange); /* Naranja de acento para los botones */
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 4px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.btn-volver:hover, .btn-locations:hover {
+    background-color: #E63900; /* Un tono más oscuro de naranja al pasar el mouse */
+}
+
+.sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.icon-link {
+    background-color: white;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    color: var(--teyma-blue-dark);
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.icon-link:hover {
+    background-color: var(--teyma-light-gray); /* Gris claro al pasar el mouse */
+    color: white;
+}
+
+.icon-link .material-icons {
+    font-size: 24px;
+}
+
+/* --- Contenido de la Página (Main) --- */
+.page-content {
+    flex-grow: 1;
+    display: grid;
+    grid-template-areas:
+        "hero hero images"
+        "about more images";
+    grid-template-columns: 1fr 1fr auto;
+    gap: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+
+/* --- Sección Principal (Hero) --- */
+.hero-section {
+    grid-area: hero;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.image-gallery {
+    display: flex;
+    height: 250px;
+}
+
+.gallery-image {
+    width: 50%;
+    object-fit: cover;
+}
+
+.logo-overlay {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30%; 
+    background-color: var(--teyma-accent-orange); /* Color de acento de Teyma */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.overlay-text {
+    color: white; /* Texto en blanco */
+    font-size: 30px;
+    font-weight: 700;
+    z-index: 2;
+    margin-top: -20px; 
+}
+
+.logo-arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 20px; 
+    background-color: var(--teyma-blue-dark); /* Color oscuro del logo para el contraste */
+    transform: skewX(-15deg); 
+    transform-origin: 0 0;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+}
+
+.team-info {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.team-icon {
+    color: var(--teyma-accent-orange); /* Icono con color de acento */
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.team-text {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--teyma-text-dark);
+}
+
+.alert-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.alert-icon .material-icons {
+    color: var(--teyma-blue-dark); /* Icono de manufactura/ingeniería */
+}
+
+
+/* --- Secciones de Detalles --- */
+.about-us-container {
+    grid-area: about;
+}
+
+.more-info-container {
+    grid-area: more;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--teyma-blue-dark);
+    margin-bottom: 10px;
+}
+
+.info-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-height: 200px;
+}
+
+.card-title {
+    color: var(--teyma-accent-orange); /* Título en naranja de acento */
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+/* --- Imágenes Derecha --- */
+.images-right {
+    grid-area: images;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Simulación de líneas de fondo abstractas (adaptadas a los colores de Teyma) */
+.images-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Un patrón más angular y en tonos grises/azules suaves */
+    background-image: url("data:image/svg+xml,%3Csvg width='100%' height='100%' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0 400 L 200 200 L 400 400 L 0 400 Z' stroke='%232F4F4F' fill='none' stroke-width='3' opacity='0.2'/%3E%3Cpath d='M 0 350 L 150 150 L 350 350 L 0 350 Z' stroke='%23A9A9A9' fill='none' stroke-width='3' opacity='0.2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.img-large {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.img-small {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-right: 50px; 
+}
