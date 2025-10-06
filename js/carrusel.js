@@ -57,3 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('globant-link-btn');
+    if (button) {
+        button.addEventListener('click', function() {
+            window.location.href = 'https://brianmtz222.github.io/JobPath/companias/Globant/Globant.html';
+        });
+    }
+});
