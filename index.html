@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Principal</title>
-    <link rel="stylesheet" href="index.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Principal</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-    <script src="/js/translate.js"></script>
-    <header class="header">
-        <div class="logo">
-            <img src="../JobPath/img/logo.png" alt="Anima logo" />
-            Anima
-        </div>
-        <nav>
-            <a href="home/home.html" class="active">PRINCIPAL</a>
-            <a href="https://brianmtz222.github.io/JobPath/registro/login.html" id="perfil-link">INICIAR SESIÓN</a>
-            <a href="//brianmtz222.github.io/JobPath/OrientacionV/Vac">ORIENTACIÓN VOCACIONAL</a>
+  <script src="/js/translate.js"></script>
 
-        </nav>
-
-    </header>
-    <div class="container">
-        <h1 class="title">JobPath</h1>
-        <div class="arrow">&#8595;</div>
+  <header class="header">
+    <div class="logo">
+      <img src="../JobPath/img/logo.png" alt="Anima logo" />
+      Anima
     </div>
-    <script>
-        const GO = () => {
-            location.href = 'https://brianmtz222.github.io/JobPath/home/home.html';
-        };
-        let done = false;
-        function fireOnce() {
-            if (done) return;
-            done = true;
-            GO();
-        }
-        window.addEventListener("scroll", fireOnce, { passive: true });
-        window.addEventListener("wheel", fireOnce, { passive: true });
-        window.addEventListener("touchmove", fireOnce, { passive: true });
-        window.addEventListener("keydown", (e) => {
-            if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
-        });
-    </script>
-    <script>
-        documsent.addEventListener("DOMContentLoaded", () => {
-            const perfilLink = document.querySelector('a[href="https://brianmtz222.github.io/JobPath/registro/login.html"]');
-            const storedUserData = localStorage.getItem("loggedInUser");
+    <nav>
+      <a href="home/home.html" class="active">PRINCIPAL</a>
+      <a href="https://brianmtz222.github.io/JobPath/registro/login.html" id="perfil-link">INICIAR SESIÓN</a>
+      <a href="//brianmtz222.github.io/JobPath/OrientacionV/Vac">ORIENTACIÓN VOCACIONAL</a>
+    </nav>
+  </header>
 
-            if (perfilLink) {
-                if (storedUserData) {
-                    perfilLink.style.display = "inline";
-                } else {
-                    perfilLink.style.display = "none";
-                }
-            }
-        });
-    </script>
+  <div class="container">
+    <h1 class="title">JobPath</h1>
+    <div class="arrow">&#8595;</div>
+  </div>
 
+  <script>
+    // Script para redirigir al hacer scroll o rueda
+    const GO = () => {
+      location.href = 'https://brianmtz222.github.io/JobPath/home/home.html';
+    };
+    let done = false;
+    function fireOnce() {
+      if (done) return;
+      done = true;
+      GO();
+    }
+    window.addEventListener("scroll", fireOnce, { passive: true });
+    window.addEventListener("wheel", fireOnce, { passive: true });
+    window.addEventListener("touchmove", fireOnce, { passive: true });
+    window.addEventListener("keydown", (e) => {
+      if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
+    });
+  </script>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const perfilLink = document.getElementById("perfil-link");
+      const isLoggedIn = localStorage.getItem("userName");
+
+      if (perfilLink && isLoggedIn) {
+        perfilLink.textContent = "PERFIL";
+        perfilLink.href = "https://brianmtz222.github.io/JobPath/perfil/perfil.html";
+        perfilLink.style.display = "inline";
+      } else if (perfilLink) {
+        perfilLink.textContent = "INICIAR SESIÓN";
+        perfilLink.href = "https://brianmtz222.github.io/JobPath/registro/login.html";
+        perfilLink.style.display = "inline";
+      }
+    });
+  </script>
 </body>
-
 </html>
-&#8595;
