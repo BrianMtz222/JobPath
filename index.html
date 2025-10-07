@@ -27,62 +27,40 @@
     <div class="arrow">&#8595;</div>
   </div>
 
-<script>
-const GO = () => {
-  // Use a relative path if possible, or keep the absolute one if necessary
-  location.href = 'home/home.html'; 
-};
+  <script>
+    
+    const GO = () => {
+      location.href = 'https://brianmtz222.github.io/JobPath/home/home.html';
+    };
+    let done = false;
+    function fireOnce() {
+      if (done) return;
+      done = true;
+      GO();
+    }
+    window.addEventListener("scroll", fireOnce, { passive: true });
+    window.addEventListener("wheel", fireOnce, { passive: true });
+    window.addEventListener("touchmove", fireOnce, { passive: true });
+    window.addEventListener("keydown", (e) => {
+      if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(e.key)) fireOnce();
+    });
+  </script>
 
-const userName = localStorage.getItem('userName');
-const isLoggedIn = userName && userName.trim() !== '';
-let done = false;
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const perfilLink = document.getElementById("perfil-link");
+      const isLoggedIn = localStorage.getItem("userName");
 
-// Function to stop listening for events
-function removeListeners() {
-  window.removeEventListener('scroll', handleInteraction);
-  window.removeEventListener('wheel', handleInteraction);
-  window.removeEventListener('touchmove', handleInteraction);
-  window.removeEventListener('keydown', handleKeyDown);
-}
-
-// Handler function that runs the logic
-function handleInteraction() {
-  if (isLoggedIn || done) return;
-  
-  done = true;
-  removeListeners(); // Stop listening immediately
-  GO();
-}
-
-// Separate keydown handler to check the key
-function handleKeyDown(e) {
-  if (['ArrowDown', 'PageDown', ' '].includes(e.key) || e.code === 'Space') {
-    handleInteraction();
-  }
-}
-
-// Only attach listeners if the user is NOT logged in
-if (!isLoggedIn) {
-  window.addEventListener('scroll', handleInteraction, { passive: true });
-  window.addEventListener('wheel', handleInteraction, { passive: true });
-  window.addEventListener('touchmove', handleInteraction, { passive: true });
-  window.addEventListener('keydown', handleKeyDown);
-}
-
-// Script to update the navigation link
-document.addEventListener('DOMContentLoaded', () => {
-  const perfilLink = document.getElementById('perfil-link');
-  if (!perfilLink) return;
-
-  if (isLoggedIn) {
-    perfilLink.textContent = 'PERFIL';
-    perfilLink.href = 'perfil/perfil.html'; // Use relative path for consistency
-  } else {
-    perfilLink.textContent = 'INICIAR SESIÓN';
-    perfilLink.href = 'https://brianmtz222.github.io/JobPath/registro/login.html';
-  }
-});
-</script>
-
+      if (perfilLink && isLoggedIn) {
+        perfilLink.textContent = "PERFIL";
+        perfilLink.href = "https://brianmtz222.github.io/JobPath/perfil/perfil.html";
+        perfilLink.style.display = "inline";
+      } else if (perfilLink) {
+        perfilLink.textContent = "INICIAR SESIÓN";
+        perfilLink.href = "https://brianmtz222.github.io/JobPath/registro/login.html";
+        perfilLink.style.display = "inline";
+      }
+    });
+  </script>
 </body>
 </html>
