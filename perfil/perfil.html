@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="perfil.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="perfil.css" />
   <title>PERFIL</title>
+
   <style>
     .main-container {
       display: flex;
@@ -54,6 +55,7 @@
     .working { width: 35%; }
   </style>
 </head>
+
 <body>
   <header>
     <div><strong>Mi Perfil</strong></div>
@@ -111,24 +113,31 @@
   <input type="file" id="fileInput" accept="image/*" style="display:none;">
 
   <script>
-    let userPublicationsKey = 'publications_default'; 
+    let userPublicationsKey = 'publications_default';
+
     document.addEventListener('DOMContentLoaded', () => {
-      const userName = localStorage.getItem('userName');
-      const userLastname = localStorage.getItem('userLastname');
-      const userEmail = localStorage.getItem('userEmail');
-
-      if (userName) document.getElementById('userNameDisplay').textContent = userName;
-      if (userLastname) document.getElementById('userLastnameDisplay').textContent = userLastname;
-      if (userEmail) {
-        document.getElementById('userEmailDisplay').textContent = userEmail;
-        userPublicationsKey = `publications_${userEmail}`;
-      }
-
       const publicationsGrid = document.getElementById('publicationsGrid');
       const addImageBtn = document.getElementById('addImageBtn');
       const fileInput = document.getElementById('fileInput');
       const publicationsCountElement = document.getElementById('publicationsCount');
 
+      const userNameDisplay = document.getElementById('userNameDisplay');
+      const userLastnameDisplay = document.getElementById('userLastnameDisplay');
+      const userEmailDisplay = document.getElementById('userEmailDisplay');
+
+      // 🔹 Cargar datos del usuario
+      const userName = localStorage.getItem('userName');
+      const userLastname = localStorage.getItem('userLastname');
+      const userEmail = localStorage.getItem('userEmail');
+
+      if (userName) userNameDisplay.textContent = userName;
+      if (userLastname) userLastnameDisplay.textContent = userLastname;
+      if (userEmail) {
+        userEmailDisplay.textContent = userEmail;
+        userPublicationsKey = `publications_${userEmail}`;
+      }
+
+      // 🔹 Función para agregar imágenes
       const addImageToGrid = (url) => {
         const publicationDiv = document.createElement('div');
         const img = document.createElement('img');
@@ -138,15 +147,16 @@
         publicationsGrid.appendChild(publicationDiv);
       };
 
+      // 🔹 Cargar publicaciones del usuario actual
       const loadPublications = () => {
         const savedPublications = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
         publicationsGrid.innerHTML = '';
         savedPublications.forEach(url => addImageToGrid(url));
         publicationsCountElement.textContent = savedPublications.length;
       };
-
       loadPublications();
 
+      // 🔹 Agregar nueva publicación
       addImageBtn.addEventListener('click', () => fileInput.click());
 
       fileInput.addEventListener('change', (event) => {
@@ -155,23 +165,23 @@
           const reader = new FileReader();
           reader.onload = (e) => {
             const imageDataUrl = e.target.result;
-            let publications = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
+            const publications = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
             publications.push(imageDataUrl);
             localStorage.setItem(userPublicationsKey, JSON.stringify(publications));
             addImageToGrid(imageDataUrl);
-            let currentCount = parseInt(publicationsCountElement.textContent) || 0;
-            publicationsCountElement.textContent = currentCount + 1;
+            publicationsCountElement.textContent = publications.length;
             fileInput.value = '';
           };
           reader.readAsDataURL(file);
         }
       });
 
+      // 🔹 Editar datos del usuario
       const editBtn = document.querySelector('.edit-btn');
       editBtn.addEventListener('click', () => {
-        let currentName = localStorage.getItem('userName') || '';
-        let currentLastname = localStorage.getItem('userLastname') || '';
-        let currentEmail = localStorage.getItem('userEmail') || '';
+        const currentName = localStorage.getItem('userName') || '';
+        const currentLastname = localStorage.getItem('userLastname') || '';
+        const currentEmail = localStorage.getItem('userEmail') || '';
 
         const newName = prompt("Ingrese su nombre:", currentName);
         const newLastname = prompt("Ingrese su apellido:", currentLastname);
@@ -179,18 +189,17 @@
 
         if (newName !== null) localStorage.setItem('userName', newName);
         if (newLastname !== null) localStorage.setItem('userLastname', newLastname);
+
+        // 🔹 Si cambia el email, actualizamos la clave y recargamos las publicaciones de ese email
         if (newEmail !== null) {
-          if (newEmail !== currentEmail) {
-            localStorage.setItem('userEmail', newEmail);
-            window.location.reload(); 
-          } else {
-            localStorage.setItem('userEmail', newEmail);
-          }
+          localStorage.setItem('userEmail', newEmail);
+          userPublicationsKey = `publications_${newEmail}`;
+          loadPublications(); // 👈 recarga las publicaciones del nuevo usuario
         }
 
-        document.getElementById('userNameDisplay').textContent = newName || currentName;
-        document.getElementById('userLastnameDisplay').textContent = newLastname || currentLastname;
-        document.getElementById('userEmailDisplay').textContent = newEmail || currentEmail;
+        userNameDisplay.textContent = newName || currentName;
+        userLastnameDisplay.textContent = newLastname || currentLastname;
+        userEmailDisplay.textContent = newEmail || currentEmail;
       });
     });
   </script>
