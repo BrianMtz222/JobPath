@@ -5,63 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="perfil.css">
   <title>PERFIL</title>
- <style>
+  <style>
     .main-container {
-        display: flex;
-        justify-content: flex-start;
-        gap: 20px;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .publications {
-        width: 65%;
+      width: 65%;
     }
 
     #publicationsGrid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
     }
 
     #publicationsGrid > div {
-        position: relative;
-        padding-bottom: 20px;
-        overflow: hidden;
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      overflow: hidden;
     }
 
     .image-placeholder {
-        border: 2px dashed #aaa;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        text-align: center;
-        font-size: 14px;
-        color: #555;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 40%;
-        margin: 0;
+      border: 2px dashed #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
     }
 
     #publicationsGrid img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .working {
-        width: 70%;
+      width: 35%;
     }
-</style>
+  </style>
 </head>
 <body>
   <header>
@@ -97,8 +98,10 @@
         <strong id="pointsCount">20</strong><br>points
       </div>
     </div>
+
     <div class="top-right-buttons"></div>
     <a href="https://brianmtz222.github.io/JobPath/registro/login.html" class="settings-btn" role="button">Cerrar Sesion</a>
+
     <div class="top-right-buttons">
       <button class="edit-btn">Editar</button>
       <a href="https://brianmtz222.github.io/JobPath/Curriculum/Curriculum.html" class="settings-btn" role="button">CV</a>
@@ -112,11 +115,7 @@
         <button class="add-image-btn" id="addImageBtn">➕ Agregar Publicación</button>
       </div>
 
-      <div id="publicationsGrid">
-        <div class="image-placeholder">
-          <span>Haz click para agregar imagen</span>
-        </div>
-      </div>
+      <div id="publicationsGrid"></div>
     </div>
 
     <div class="working">
@@ -129,89 +128,82 @@
   </div>
 
   <input type="file" id="fileInput" accept="image/*" style="display:none;">
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const userName = localStorage.getItem('userName');
-    const userLastname = localStorage.getItem('userLastname');
-    const userEmail = localStorage.getItem('userEmail');
 
-    if (userName) document.getElementById('userNameDisplay').textContent = userName;
-    if (userLastname) document.getElementById('userLastnameDisplay').textContent = userLastname;
-    if (userEmail) document.getElementById('userEmailDisplay').textContent = userEmail;
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const userName = localStorage.getItem('userName');
+      const userLastname = localStorage.getItem('userLastname');
+      const userEmail = localStorage.getItem('userEmail');
 
-    const publicationsGrid = document.getElementById('publicationsGrid');
-    const addImageBtn = document.getElementById('addImageBtn');
-    const fileInput = document.getElementById('fileInput');
+      if (userName) document.getElementById('userNameDisplay').textContent = userName;
+      if (userLastname) document.getElementById('userLastnameDisplay').textContent = userLastname;
+      if (userEmail) document.getElementById('userEmailDisplay').textContent = userEmail;
 
-    const handlePlaceholderClick = (placeholderDiv) => {
-        fileInput.placeholderToFill = placeholderDiv;
+      const publicationsGrid = document.getElementById('publicationsGrid');
+      const addImageBtn = document.getElementById('addImageBtn');
+      const fileInput = document.getElementById('fileInput');
+      const publicationsCountElement = document.getElementById('publicationsCount');
+
+      const addImageToGrid = (url) => {
+        const publicationDiv = document.createElement('div');
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = 'Publicación de usuario';
+        publicationDiv.appendChild(img);
+        publicationsGrid.appendChild(publicationDiv);
+      };
+
+      const loadPublications = () => {
+        const savedPublications = JSON.parse(localStorage.getItem('publications')) || [];
+        publicationsGrid.innerHTML = '';
+        savedPublications.forEach(url => addImageToGrid(url));
+        publicationsCountElement.textContent = savedPublications.length;
+      };
+
+      loadPublications();
+
+      addImageBtn.addEventListener('click', () => {
         fileInput.click();
-    };
+      });
 
-    const createPlaceholder = () => {
-        const placeholder = document.createElement('div');
-        placeholder.classList.add('image-placeholder');
-        placeholder.innerHTML = '<span>Haz click para agregar imagen</span>';
-        placeholder.addEventListener('click', () => handlePlaceholderClick(placeholder));
-        return placeholder;
-    };
-
-    addImageBtn.addEventListener('click', () => {
-        const newPlaceholder = createPlaceholder();
-        publicationsGrid.appendChild(newPlaceholder);
-
-        const publicationsCountElement = document.getElementById('publicationsCount');
-        let currentCount = parseInt(publicationsCountElement.textContent) || 0;
-        publicationsCountElement.textContent = currentCount + 1;
-    });
-
-    const initialPlaceholder = publicationsGrid.querySelector('.image-placeholder');
-    if (initialPlaceholder) initialPlaceholder.addEventListener('click', () => handlePlaceholderClick(initialPlaceholder));
-
-    fileInput.addEventListener('change', (event) => {
+      fileInput.addEventListener('change', (event) => {
         const file = event.target.files[0];
-        const placeholderDiv = fileInput.placeholderToFill;
-
-        if (file && placeholderDiv) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                img.alt = 'Publicación de usuario';
-
-                placeholderDiv.innerHTML = ''; 
-                placeholderDiv.appendChild(img);
-                placeholderDiv.classList.remove('image-placeholder');
-
-                fileInput.value = '';
-                fileInput.placeholderToFill = null;
-            };
-            reader.readAsDataURL(file);
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const imageDataUrl = e.target.result;
+            let publications = JSON.parse(localStorage.getItem('publications')) || [];
+            publications.push(imageDataUrl);
+            localStorage.setItem('publications', JSON.stringify(publications));
+            addImageToGrid(imageDataUrl);
+            let currentCount = parseInt(publicationsCountElement.textContent) || 0;
+            publicationsCountElement.textContent = currentCount + 1;
+            fileInput.value = '';
+          };
+          reader.readAsDataURL(file);
         }
+      });
+
+      const editBtn = document.querySelector('.edit-btn');
+      editBtn.addEventListener('click', () => {
+        let currentName = localStorage.getItem('userName') || '';
+        let currentLastname = localStorage.getItem('userLastname') || '';
+        let currentEmail = localStorage.getItem('userEmail') || '';
+
+        const newName = prompt("Ingrese su nombre:", currentName);
+        const newLastname = prompt("Ingrese su apellido:", currentLastname);
+        const newEmail = prompt("Ingrese su correo:", currentEmail);
+
+        if (newName !== null) localStorage.setItem('userName', newName);
+        if (newLastname !== null) localStorage.setItem('userLastname', newLastname);
+        if (newEmail !== null) localStorage.setItem('userEmail', newEmail);
+
+        document.getElementById('userNameDisplay').textContent = newName || currentName;
+        document.getElementById('userLastnameDisplay').textContent = newLastname || currentLastname;
+        document.getElementById('userEmailDisplay').textContent = newEmail || currentEmail;
+      });
     });
-});
-</script>
-<script>
-const editBtn = document.querySelector('.edit-btn');
-
-editBtn.addEventListener('click', () => {
-    let currentName = localStorage.getItem('userName') || '';
-    let currentLastname = localStorage.getItem('userLastname') || '';
-    let currentEmail = localStorage.getItem('userEmail') || '';
-
-    const newName = prompt("Ingrese su nombre:", currentName);
-    const newLastname = prompt("Ingrese su apellido:", currentLastname);
-    const newEmail = prompt("Ingrese su correo:", currentEmail);
-
-    if (newName !== null) localStorage.setItem('userName', newName);
-    if (newLastname !== null) localStorage.setItem('userLastname', newLastname);
-    if (newEmail !== null) localStorage.setItem('userEmail', newEmail);
-
-    document.getElementById('userNameDisplay').textContent = newName || currentName;
-    document.getElementById('userLastnameDisplay').textContent = newLastname || currentLastname;
-    document.getElementById('userEmailDisplay').textContent = newEmail || currentEmail;
-});
-</script>
+  </script>
 
   <script src="../js/translate.js"></script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
