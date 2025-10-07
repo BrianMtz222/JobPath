@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 :root {
-    --salus-blue-primary: #0077B6; /* Azul corporativo, agua */
-    --salus-accent-aqua: #48D1CC; /* Verde Aguamarina/Celeste para acentos (frescura) */
-    --salus-light-blue: #B0E0E6; /* Celeste muy claro */
-    --salus-text-dark: #333333;
-    --background-white: #ffffff; /* Fondo blanco para simbolizar pureza */
+    --conaprole-blue: #0087c5; /* Azul primario, color de la marca */
+    --conaprole-green: #4caf50; /* Verde de acento (campo, natural) */
+    --conaprole-light-blue: #b2d8d6; /* Celeste muy claro/agua */
+    --conaprole-text-dark: #212121;
+    --background-white: #ffffff; 
 }
 
 * {
@@ -26,16 +26,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Fondo con el azul principal */
-    background-color: var(--salus-blue-primary); 
+    /* Fondo con el azul primario */
+    background-color: var(--conaprole-blue); 
     color: white;
     padding: 10px 20px;
     height: 70px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
 .logo-container {
-    background-color: transparent;
     padding: 10px 0;
     height: 100%;
     display: flex;
@@ -45,11 +44,11 @@ body {
 .logo-text {
     font-size: 24px;
     font-weight: 700;
-    color: white; 
+    color: var(--background-white); 
 }
 
 .nav-links a {
-    color: var(--salus-light-blue);
+    color: var(--conaprole-light-blue); /* Enlaces secundarios en celeste claro */
     text-decoration: none;
     padding: 10px 15px;
     font-size: 16px;
@@ -58,7 +57,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--salus-accent-aqua); /* Acento aguamarina al pasar el mouse */
+    color: var(--conaprole-green); /* Acento verde al pasar el mouse */
 }
 
 /* --- Contenido Principal --- */
@@ -67,28 +66,20 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding-top: 20px;
-    /* (¡No cambies nada aquí!) */
 }
-
 
 .sidebar {
     width: 150px;
     display: flex;
     flex-direction: column;
-    /* CAMBIO 1: Eliminamos el padding para pegar el contenido a la izquierda 
-       Antes: padding: 0 10px;
-    */
-    padding: 0; 
-    /* CAMBIO 2: Reducimos el margen derecho para acercar el contenido principal.
-       Antes: margin-right: 20px;
-    */
-    margin-right: 10px;
-    gap: 10px; /* Espacio entre los elementos del sidebar */
+    padding: 0 10px;
+    margin-right: 20px;
 }
 
+/* Botones de acción (Volver y Contacto) */
 .btn-volver, .btn-locations {
-    background-color: var(--salus-accent-aqua); /* Aguamarina de acento para los botones */
-    color: var(--salus-text-dark);
+    background-color: var(--conaprole-green); /* Verde para los botones de acción */
+    color: white;
     border: none;
     padding: 10px 10px;
     margin-bottom: 10px;
@@ -103,8 +94,7 @@ body {
 }
 
 .btn-volver:hover, .btn-locations:hover {
-    background-color: #3CB371; /* Un tono de verde más oscuro al pasar el mouse */
-    color: white;
+    background-color: #388e3c; /* Verde más oscuro al hacer hover */
 }
 
 .sidebar-icons {
@@ -113,9 +103,10 @@ body {
     margin-bottom: 20px;
 }
 
+/* Enlaces de Íconos */
 .icon-link {
-    background-color: var(--salus-light-blue);
-    border: 1px solid var(--salus-accent-aqua);
+    background-color: var(--conaprole-light-blue);
+    border: 1px solid var(--conaprole-blue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,14 +114,14 @@ body {
     margin-bottom: 10px;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    color: var(--salus-blue-primary);
+    color: var(--conaprole-blue);
     text-decoration: none;
     transition: background-color 0.3s;
 }
 
 .icon-link:hover {
-    background-color: var(--salus-blue-primary); 
-    color: white;
+    background-color: var(--conaprole-blue); 
+    color: var(--background-white);
 }
 
 .icon-link .material-icons {
@@ -175,7 +166,7 @@ body {
     top: 0;
     bottom: 0;
     width: 30%; 
-    background-color: var(--salus-accent-aqua); /* Color de acento de SaluS */
+    background-color: var(--conaprole-green); /* Overlay en verde */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -184,7 +175,7 @@ body {
 }
 
 .overlay-text {
-    color: var(--salus-blue-primary); /* Texto en azul primario */
+    color: var(--background-white); 
     font-size: 30px;
     font-weight: 700;
     z-index: 2;
@@ -197,7 +188,7 @@ body {
     bottom: 0;
     left: 0;
     width: 20px; 
-    background-color: white; 
+    background-color: var(--background-white); /* Flecha en blanco */
     transform: skewX(-15deg); 
     transform-origin: 0 0;
     box-shadow: -2px 0 5px rgba(0,0,0,0.2);
@@ -218,7 +209,7 @@ body {
 }
 
 .team-icon {
-    color: var(--salus-blue-primary); /* Icono con color primario */
+    color: var(--conaprole-blue);
     font-size: 20px;
     margin-right: 5px;
 }
@@ -226,14 +217,14 @@ body {
 .team-text {
     font-weight: 700;
     font-size: 14px;
-    color: var(--salus-text-dark);
+    color: var(--conaprole-text-dark);
 }
 
 .alert-icon {
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: white;
+    background-color: var(--conaprole-blue);
     border-radius: 50%;
     padding: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -241,7 +232,7 @@ body {
 }
 
 .alert-icon .material-icons {
-    color: var(--salus-accent-aqua); /* Icono de naturaleza/pureza */
+    color: var(--background-white); 
 }
 
 
@@ -257,7 +248,7 @@ body {
 .section-title {
     font-size: 18px;
     font-weight: 700;
-    color: var(--salus-blue-primary);
+    color: var(--conaprole-blue);
     margin-bottom: 10px;
 }
 
@@ -267,11 +258,11 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     min-height: 200px;
-    border-left: 5px solid var(--salus-accent-aqua); /* Detalle de color */
+    border-left: 5px solid var(--conaprole-green); /* Detalle de color */
 }
 
 .card-title {
-    color: var(--salus-accent-aqua); /* Título en aguamarina de acento */
+    color: var(--conaprole-green); 
     font-size: 16px;
     margin-bottom: 10px;
 }
@@ -295,7 +286,7 @@ body {
     overflow: hidden;
 }
 
-/* Simulación de líneas de fondo abstractas (adaptadas a los colores de SaluS) */
+/* Simulación de ondulaciones de leche/agua en tonos claros */
 .images-right::before {
     content: '';
     position: absolute;
@@ -304,7 +295,7 @@ body {
     right: 0;
     bottom: 0;
     /* Patrón de onda o burbujas suaves */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23B0E0E6' stroke-width='0.5' d='M0 50C16.6 33.4 33.4 33.4 50 50S83.4 66.6 100 50'/%3E%3Cpath fill='none' stroke='%2348D1CC' stroke-width='0.5' d='M0 60C16.6 43.4 33.4 43.4 50 60S83.4 76.6 100 60'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23B2D8D6' stroke-width='0.5' d='M0 50C16.6 33.4 33.4 33.4 50 50S83.4 66.6 100 50'/%3E%3Cpath fill='none' stroke='%230087C5' stroke-width='0.5' d='M0 60C16.6 43.4 33.4 43.4 50 60S83.4 76.6 100 60'/%3E%3C/svg%3E");
     background-repeat: repeat-x;
     background-size: 100% 50%;
     opacity: 0.8;
