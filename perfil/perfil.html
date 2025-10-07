@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="perfil.css" />
   <title>PERFIL</title>
-
   <style>
     .main-container {
       display: flex;
@@ -13,20 +13,32 @@
       gap: 20px;
       padding: 20px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 0 auto
     }
-    .publications { width: 65%; }
+
+    .publications {
+      width: 65%
+    }
+
     #publicationsGrid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
+      gap: 5px
     }
-    #publicationsGrid > div {
+
+    #publicationsGrid>div {
       position: relative;
       width: 100%;
       padding-bottom: 100%;
       overflow: hidden;
+      cursor: pointer;
+      transition: opacity .2s
     }
+
+    #publicationsGrid>div:hover {
+      opacity: .8
+    }
+
     .image-placeholder {
       border: 2px dashed #aaa;
       display: flex;
@@ -41,8 +53,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      margin: 0;
+      margin: 0
     }
+
     #publicationsGrid img {
       width: 100%;
       height: 100%;
@@ -50,9 +63,12 @@
       border-radius: 0;
       position: absolute;
       top: 0;
-      left: 0;
+      left: 0
     }
-    .working { width: 35%; }
+
+    .working {
+      width: 35%
+    }
   </style>
 </head>
 
@@ -73,25 +89,23 @@
     </nav>
     <div id="google_translate_element" style="display:none;"></div>
   </header>
-
   <div class="profile-container">
     <h2 class="username" id="userNameDisplay"></h2>
     <h2 class="username" id="userLastnameDisplay"></h2>
     <p class="user-email" id="userEmailDisplay"></p>
-
     <div class="stats">
       <div><strong id="publicationsCount">0</strong><br>publications</div>
       <div><strong id="followersCount">10.394</strong><br>followers</div>
       <div><strong id="pointsCount">20</strong><br>points</div>
     </div>
-
-    <a href="https://brianmtz222.github.io/JobPath/registro/login.html" class="settings-btn" role="button">Cerrar Sesion</a>
+    <a href="https://brianmtz222.github.io/JobPath/registro/login.html" class="settings-btn" role="button">Cerrar
+      Sesion</a>
     <div class="top-right-buttons">
       <button class="edit-btn">Editar</button>
-      <a href="https://brianmtz222.github.io/JobPath/Curriculum/Curriculum.html" class="settings-btn" role="button">CV</a>
+      <a href="https://brianmtz222.github.io/JobPath/Curriculum/Curriculum.html" class="settings-btn"
+        role="button">CV</a>
     </div>
   </div>
-
   <div class="main-container">
     <div class="publications">
       <div class="publications-header">
@@ -100,7 +114,6 @@
       </div>
       <div id="publicationsGrid"></div>
     </div>
-
     <div class="working">
       <h3>Actualmente trabajando en</h3>
       <div class="company-card">
@@ -109,45 +122,38 @@
       </div>
     </div>
   </div>
-
   <input type="file" id="fileInput" accept="image/*" style="display:none;">
-
   <script>
     let userPublicationsKey = 'publications_default';
-
     document.addEventListener('DOMContentLoaded', () => {
       const publicationsGrid = document.getElementById('publicationsGrid');
       const addImageBtn = document.getElementById('addImageBtn');
       const fileInput = document.getElementById('fileInput');
       const publicationsCountElement = document.getElementById('publicationsCount');
-
       const userNameDisplay = document.getElementById('userNameDisplay');
       const userLastnameDisplay = document.getElementById('userLastnameDisplay');
       const userEmailDisplay = document.getElementById('userEmailDisplay');
-
-      // 🔹 Cargar datos del usuario
       const userName = localStorage.getItem('userName');
       const userLastname = localStorage.getItem('userLastname');
       const userEmail = localStorage.getItem('userEmail');
-
       if (userName) userNameDisplay.textContent = userName;
       if (userLastname) userLastnameDisplay.textContent = userLastname;
       if (userEmail) {
         userEmailDisplay.textContent = userEmail;
         userPublicationsKey = `publications_${userEmail}`;
       }
-
-      // 🔹 Función para agregar imágenes
       const addImageToGrid = (url) => {
         const publicationDiv = document.createElement('div');
         const img = document.createElement('img');
         img.src = url;
         img.alt = 'Publicación de usuario';
         publicationDiv.appendChild(img);
+        publicationDiv.addEventListener('click', () => {
+          console.log('Click en publicación');
+          alert('¡Publicación clickeada!');
+        });
         publicationsGrid.appendChild(publicationDiv);
       };
-
-      // 🔹 Cargar publicaciones del usuario actual
       const loadPublications = () => {
         const savedPublications = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
         publicationsGrid.innerHTML = '';
@@ -155,15 +161,12 @@
         publicationsCountElement.textContent = savedPublications.length;
       };
       loadPublications();
-
-      // 🔹 Agregar nueva publicación
       addImageBtn.addEventListener('click', () => fileInput.click());
-
-      fileInput.addEventListener('change', (event) => {
+      fileInput.addEventListener('change', event => {
         const file = event.target.files[0];
         if (file) {
           const reader = new FileReader();
-          reader.onload = (e) => {
+          reader.onload = e => {
             const imageDataUrl = e.target.result;
             const publications = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
             publications.push(imageDataUrl);
@@ -175,36 +178,29 @@
           reader.readAsDataURL(file);
         }
       });
-
-      // 🔹 Editar datos del usuario
       const editBtn = document.querySelector('.edit-btn');
       editBtn.addEventListener('click', () => {
         const currentName = localStorage.getItem('userName') || '';
         const currentLastname = localStorage.getItem('userLastname') || '';
         const currentEmail = localStorage.getItem('userEmail') || '';
-
         const newName = prompt("Ingrese su nombre:", currentName);
         const newLastname = prompt("Ingrese su apellido:", currentLastname);
         const newEmail = prompt("Ingrese su correo:", currentEmail);
-
         if (newName !== null) localStorage.setItem('userName', newName);
         if (newLastname !== null) localStorage.setItem('userLastname', newLastname);
-
-        // 🔹 Si cambia el email, actualizamos la clave y recargamos las publicaciones de ese email
         if (newEmail !== null) {
           localStorage.setItem('userEmail', newEmail);
           userPublicationsKey = `publications_${newEmail}`;
-          loadPublications(); // 👈 recarga las publicaciones del nuevo usuario
+          loadPublications();
         }
-
         userNameDisplay.textContent = newName || currentName;
         userLastnameDisplay.textContent = newLastname || currentLastname;
         userEmailDisplay.textContent = newEmail || currentEmail;
       });
     });
   </script>
-
   <script src="../js/translate.js"></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
+
 </html>
