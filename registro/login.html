@@ -30,37 +30,21 @@
     </form>
   </div>
 
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById("username").value;
-      const lastname = document.getElementById("lastname").value;
-      const email = document.getElementById("email").value;
-      localStorage.setItem("userName", name);
-      localStorage.setItem("userLastname", lastname);
-      localStorage.setItem("userEmail", email);
-
-
-      window.location.href = "/JobPath/perfil/perfil.html";
-    });
-  </script>
- <script>
+<script>
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); 
 
   const name = document.getElementById("username").value.trim();
   const lastname = document.getElementById("lastname").value.trim();
   const email = document.getElementById("email").value.trim();
+
   if (!name || !lastname || !email) {
     alert("No se pudo ingresar: todos los campos son obligatorios");
-     alert("No se pudo ingresar");
     return;
   }
 
   if (!email.includes("@")) {
     alert("No se pudo ingresar: el correo debe contener '@'");
-     alert("No se pudo ingresar");
     return;
   }
 
@@ -69,9 +53,11 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   localStorage.setItem("userEmail", email);
 
   alert("Login exitoso");
-  window.location.href = "/JobPath/perfil/perfil.html";
+  window.location.href = "https://brianmtz222.github.io/JobPath/index.html";
 });
 </script>
+
+
 
 
   <script src="../js/app.js"></script>
