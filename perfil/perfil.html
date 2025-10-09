@@ -13,17 +13,17 @@
       gap: 20px;
       padding: 20px;
       max-width: 1200px;
-      margin: 0 auto
+      margin: 0 auto;
     }
 
     .publications {
-      width: 65%
+      width: 65%;
     }
 
     #publicationsGrid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 5px
+      gap: 5px;
     }
 
     #publicationsGrid>div {
@@ -32,42 +32,48 @@
       padding-bottom: 100%;
       overflow: hidden;
       cursor: pointer;
-      transition: opacity .2s
+      transition: opacity .2s;
     }
 
     #publicationsGrid>div:hover {
-      opacity: .8
-    }
-
-    .image-placeholder {
-      border: 2px dashed #aaa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      margin: 0
+      opacity: .8;
     }
 
     #publicationsGrid img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 0;
       position: absolute;
       top: 0;
-      left: 0
+      left: 0;
     }
 
     .working {
-      width: 35%
+      width: 35%;
+    }
+
+    .company-card {
+      position: relative;
+      text-align: center;
+    }
+
+    .company-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .change-company-btn {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #4b29d0;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .change-company-btn:hover {
+      background-color: #3b21a5;
     }
   </style>
 </head>
@@ -89,24 +95,29 @@
     </nav>
     <div id="google_translate_element" style="display:none;"></div>
   </header>
+
   <div class="profile-container">
     <h2 class="username" id="userNameDisplay"></h2>
     <h2 class="username" id="userLastnameDisplay"></h2>
     <p class="user-email" id="userEmailDisplay"></p>
+
     <div class="stats">
       <div><strong id="publicationsCount">0</strong><br>publications</div>
       <div><strong id="followersCount">10.394</strong><br>followers</div>
       <div><strong id="pointsCount">20</strong><br>points</div>
     </div>
-    <a href="https://brianmtz222.github.io/JobPath/registro/login.html" class="settings-btn" role="button">Cerrar
-      Sesion/Iniciar Sesion</a>
-       
+
+    <a href="https://brianmtz222.github.io/JobPath/registro/login.html" class="settings-btn" role="button">
+      Cerrar Sesión/Iniciar Sesión
+    </a>
+
     <div class="top-right-buttons">
       <button class="edit-btn">Editar</button>
       <a href="https://brianmtz222.github.io/JobPath/Curriculum/Curriculum.html" class="settings-btn"
         role="button">CV</a>
     </div>
   </div>
+
   <div class="main-container">
     <div class="publications">
       <div class="publications-header">
@@ -115,108 +126,125 @@
       </div>
       <div id="publicationsGrid"></div>
     </div>
+
     <div class="working">
       <h3>Actualmente trabajando en</h3>
       <div class="company-card">
-        <img src="https://picsum.photos/400/200?random=7" alt="">
-        <button>Ver Compañia</button>
+        <img id="companyImage" src="https://picsum.photos/400/200?random=7" alt="Imagen de compañía">
+        <button class="change-company-btn" id="changeCompanyBtn">🖼️ Cambiar Imagen</button>
+        <button>Ver Compañía</button>
       </div>
     </div>
   </div>
+
+  <!-- inputs ocultos -->
   <input type="file" id="fileInput" accept="image/*" style="display:none;">
+  <input type="file" id="companyFileInput" accept="image/*" style="display:none;">
+
   <script>
     let userPublicationsKey = 'publications_default';
+    let userCompanyImageKey = 'company_image_default';
+
     document.addEventListener('DOMContentLoaded', () => {
       const publicationsGrid = document.getElementById('publicationsGrid');
       const addImageBtn = document.getElementById('addImageBtn');
       const fileInput = document.getElementById('fileInput');
       const publicationsCountElement = document.getElementById('publicationsCount');
+      const companyImage = document.getElementById('companyImage');
+      const changeCompanyBtn = document.getElementById('changeCompanyBtn');
+      const companyFileInput = document.getElementById('companyFileInput');
+
       const userNameDisplay = document.getElementById('userNameDisplay');
       const userLastnameDisplay = document.getElementById('userLastnameDisplay');
       const userEmailDisplay = document.getElementById('userEmailDisplay');
+
       const userName = localStorage.getItem('userName');
       const userLastname = localStorage.getItem('userLastname');
       const userEmail = localStorage.getItem('userEmail');
 
-
-      const statsSection = document.querySelector('.stats');
-      if (!userName && !userLastname && !userEmail) {
-        statsSection.style.display = 'none';
+      // Claves únicas por usuario (Gmail)
+      if (userEmail) {
+        userPublicationsKey = `publications_${userEmail}`;
+        userCompanyImageKey = `company_image_${userEmail}`;
       }
 
+      // Mostrar datos
       if (userName) userNameDisplay.textContent = userName;
       if (userLastname) userLastnameDisplay.textContent = userLastname;
-      if (userEmail) {
-        userEmailDisplay.textContent = userEmail;
-        userPublicationsKey = `publications_${userEmail}`;
-      }
+      if (userEmail) userEmailDisplay.textContent = userEmail;
 
-
-      if (userName) userNameDisplay.textContent = userName;
-      if (userLastname) userLastnameDisplay.textContent = userLastname;
-      if (userEmail) {
-        userEmailDisplay.textContent = userEmail;
-        userPublicationsKey = `publications_${userEmail}`;
-      }
+      // --- PUBLICACIONES ---
       const addImageToGrid = (url) => {
-        const publicationDiv = document.createElement('div');
+        const div = document.createElement('div');
         const img = document.createElement('img');
         img.src = url;
-        img.alt = 'Publicación de usuario';
-        publicationDiv.appendChild(img);
-        publicationDiv.addEventListener('click', () => {
-          console.log('Click en publicación');
-          alert('¡Publicación clickeada!');
-        });
-        publicationsGrid.appendChild(publicationDiv);
+        div.appendChild(img);
+        publicationsGrid.appendChild(div);
       };
+
       const loadPublications = () => {
-        const savedPublications = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
+        const saved = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
         publicationsGrid.innerHTML = '';
-        savedPublications.forEach(url => addImageToGrid(url));
-        publicationsCountElement.textContent = savedPublications.length;
+        saved.forEach(url => addImageToGrid(url));
+        publicationsCountElement.textContent = saved.length;
       };
       loadPublications();
+
       addImageBtn.addEventListener('click', () => fileInput.click());
-      fileInput.addEventListener('change', event => {
-        const file = event.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = e => {
-            const imageDataUrl = e.target.result;
-            const publications = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
-            publications.push(imageDataUrl);
-            localStorage.setItem(userPublicationsKey, JSON.stringify(publications));
-            addImageToGrid(imageDataUrl);
-            publicationsCountElement.textContent = publications.length;
-            fileInput.value = '';
-          };
-          reader.readAsDataURL(file);
-        }
+      fileInput.addEventListener('change', e => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = ev => {
+          const imgData = ev.target.result;
+          const list = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
+          list.push(imgData);
+          localStorage.setItem(userPublicationsKey, JSON.stringify(list));
+          addImageToGrid(imgData);
+          publicationsCountElement.textContent = list.length;
+        };
+        reader.readAsDataURL(file);
       });
-      const editBtn = document.querySelector('.edit-btn');
-      editBtn.addEventListener('click', () => {
-        const currentName = localStorage.getItem('userName') || '';
-        const currentLastname = localStorage.getItem('userLastname') || '';
+
+      // --- COMPAÑÍA (según Gmail) ---
+    const loadCompanyImage = () => {
+  const savedImg = localStorage.getItem(userCompanyImageKey);
+  if (savedImg) companyImage.src = savedImg;
+};
+loadCompanyImage();
+
+changeCompanyBtn.addEventListener('click', () => companyFileInput.click());
+companyFileInput.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const imgData = ev.target.result;
+    companyImage.src = imgData;
+    localStorage.setItem(userCompanyImageKey, imgData);
+  };
+  reader.readAsDataURL(file);
+});
+
+      // --- EDITAR PERFIL ---
+      document.querySelector('.edit-btn').addEventListener('click', () => {
         const currentEmail = localStorage.getItem('userEmail') || '';
-        const newName = prompt("Ingrese su nombre:", currentName);
-        const newLastname = prompt("Ingrese su apellido:", currentLastname);
         const newEmail = prompt("Ingrese su correo:", currentEmail);
-        if (newName !== null) localStorage.setItem('userName', newName);
-        if (newLastname !== null) localStorage.setItem('userLastname', newLastname);
-        if (newEmail !== null) {
+
+        if (newEmail && newEmail !== currentEmail) {
           localStorage.setItem('userEmail', newEmail);
           userPublicationsKey = `publications_${newEmail}`;
+          userCompanyImageKey = `company_image_${newEmail}`;
           loadPublications();
+          loadCompanyImage();
         }
-        userNameDisplay.textContent = newName || currentName;
-        userLastnameDisplay.textContent = newLastname || currentLastname;
-        userEmailDisplay.textContent = newEmail || currentEmail;
+
+        alert("Datos actualizados correctamente ✅");
       });
     });
   </script>
+
   <script src="../js/translate.js"></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
-
 </html>
