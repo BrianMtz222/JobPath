@@ -1,72 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>Hacerca De..</title>
   <link rel="stylesheet" href="about.css" />
-
-
 </head>
 
 <body>
-  
-
   <header class="header">
     <h1 class="about-title">Hacerca De Nosotros</h1>
     <nav>
-
       <a href="/JobPath/index.html">Principal</a> |
       <a href="/JobPath/home/home.html">Inicio</a> |
       <a href="/JobPath/jovenes/jovenes.html">Jóvenes</a> |
       <a href="/JobPath/companias/companias.html">Compañías</a> |
       <a href="/JobPath/About%20Us/about.html" class="active">Hacerca De..</a> |
-
-
     </nav>
-   <nav class="language-nav">
-  <button onclick="cambiarIdioma('es')">Español</button>
-  <button onclick="cambiarIdioma('en')">English</button>
-</nav>
-<div id="google_translate_element" style="display:none;"></div>
-  </header>
 
+    <nav class="language-nav">
+      <button onclick="cambiarIdioma('es')">Español</button>
+      <button onclick="cambiarIdioma('en')">English</button>
+    </nav>
+    <div id="google_translate_element" style="display:none;"></div>
+  </header>
 
   <div class="logo-bar">
     <div class="logo-jobpath">
-      <img
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANkAAADoCAMAAABVRrFMAAAAe1BMVEX///8bGxsAAAAaGhoXFxfo6Oienp7d3d1tbW0QEBDl5eWysrIJCQmFhYXr6+vz8/PQ0NAqKip2dnZfXl/DwsOmpqYTExMkJCQ0NDTLy8tsbGyhoaFISEi3t7c8PDxDQ0NWVlaKioqUlJR9fX3X19dPT09ZWVkoKCg3Nzd5vcsaAAAIDElEQVR4nO2dbZuyKBSA9UCZZtqLUc1k7zX7/3/hgqkpkmgz1wIu97ed1efiDjwiHMBxLBaLxWKxWCwWnZmPv7ZA8fezdKS6MH/H6EytfOxSEAEIT6nqEv0NwRIgs3qCEPJhsVZdqj/gG0Lk8iA43lQX7JfEJ2h6MQiYXW0eDoVeWbVdVZfuF3gueSdGgaXq8n1MTNrEqNpZdQk/5f62KRZqhob/C0jE6LMWqS7kJ3jVt9gbwpXqUn7CypeK0fY4V13M/tykbZHh31WXsz9LQdejCQLj+iIxxqiLGsxUl7QvCW2MnSrNVV3Svsxk77KyOQaqi9qTgzzk52amva07RUYGXFQXtR9RZ7PQsH6x19nM/1Jd1n70MDOsgzXcOuvxnE1Ul7Un3WOjaZ+f247vM/O+Pq8dK828Pkj6ZjSOB2PVJe1LFHZrjqF5Y3OTbl1i877PnHmnB40Y+E3tnLpUGiSqi/kBtw4xxH+oLuVHzKTtERsX8nOOknE5BFPVRfyQCCTj+uZF/AIvbFFDYFgvv4aH3zZIZPAkEyM6vgkjBMaqy/ZbLiB4ryE4GDigz+OtgOtDEgiNr7AnwWzD8kEQchHCIcDe7Mn3OrvLY4v80N8clusB5fDkxFEUqy6D5f9BHHhtlO2w/TLP0+4pvPxAK2WBZ+3XQfjQ62F8sEQChNlEpwhyKIs7BfElOewlrlKEZ/r8ysyKJqIyeC+fmYedQhOeY/vnihu+BoIj6cy8TjNqkWxgoDoQLPsVtJpRS2QtDLzXxV+yDBidZme+pWaVi6XpWDqZjSWFxT+Vi1OZWWiQmV+dI5NOGppUZ/VoJzXTaK5QalYbCf5HEhwNMkPV0CjPNTPIDLtxj6tNMiPH2tWyt59BZlynIhiOGXzXL1+0T4eaZMZ13u/twdEkMy53/do+Z6itGQrpl3Etrm+4y9f1H4J9SRth5i+jUe3z0j9xl+9qIjAfjWqu2pqFM+6DLeSToOtJWWzec2qmWXNmc1MNjiabNaZdassvzDUTLOs5V6831ww3M/KnwzBrhEZuZM5YMyQYZItrj6GpZoLQSHuOwzATZMNVg6OxZtgXzEBUR+aMNSOiCYh0CGbCMTZvCGbC+YeYoAGYCXMz92QAZp7ojolvvBkC2R2mmglDY21kzlSzN/n4gflm/IhcwQDM3kynv+Z0DTV7u6DntSrZUDO8eHPL+lWrhppt39xivJnr74V3pOZHEBdOghvSyq4oppohBPvGBxoVG0CPmIbHE3d5Uhv2N9gMQX2RGbdQ0lwzXi2pNkWzzdhqrFN5bcqJmW2GXhGyuWbXaDPWIJ+rA5OGmOFmTICpiVZZG2/Gak1QY0MwoxGSiNIljDejENEfB2EmxpopwZpZM9U+L6yZNVPt82IMPoVk+DAks3T1VWHNtvv+6bCzrc5mu++MdR36l9RLWnfG1tws8csljIz6qsZlJFtxoK9ZQhscWwApgvbsT0G3h61hpnynuTikpfrZLijbfypsGSF2YT3rtHEvM6utb1K+BRYtDaydmBHtKiQRtfYOhOzrWbVtZrXdiJSfKXCBcqY2rj1hseOMTgm4m25bXmXzUD+vSKp+m3NqVs5GfFdm3Fn+R7TdAepjVp3BUN0Ya2bOKlfLB017mznX4reBd/NS/x01M+cMQDCB/AcficxwKNxwKJ8VvWT/QAiqA6PDmzneef9zPOcZf9GxaUaO1+tJoFbM9waX/eJw1WETG86sRnxPMrPqK471J9eC9gn67cHQZrZidXbbbCuwhqqrWezdKlxDfLi9Yz6mESGZ14h0NUv33HYXyMUtu2G4z6U8FRbjWLSWWrVZvAfiIkROgaBnIdgMo/g/rOjjiK3LQhjc+Roau1EoNgtIlraHWErOpLHxQIsZrdgN66Rk/4UhaS5VU2y2zUeu2RqXZcdDAXJYsktuxjZsPPJfpGrNxkUj+qWZ6z8aHRO1Zhv8W7MyD+vGn5ag1GwO6I/MaDjhT7hQajb9OzP/a8o1R6Vm4z80W/FL4BWblcWwZtbMmlkza2bNrJk1s2bWzJpZM2tmzayZNbNm1ux/Y6Y2ScKafWLW2ANxQGZDfc6smTWzZtbMmg3ajM/jUWqW/p1ZeOVzXZSaVbbV+XVuQcKfPaI2H6Tcb/H3+SABn+qu1uxWrHJhGefSo2zqID9+HXwM0wv/uyjOuxoXGdD+8tGvymjQOFw3Rf70ymvuW6A4C3CcnxSLffGq6BYQ8Z+3YJhEm0aFqzZzdge2sIdkGS/ED2X4OXm6N2ErgtxpsGgeXaTcjD5sl+XkzmqMPCYyrsuc6509oWS1vF52sfCYIw3MGFkicIcDyqYFu/yOdD0b65pHnPEsp/SI87hcmfaVHfoGyRF0zv128oVizc3XeeI8GNJmmD7r7Ig1N4sBSIeDAONiB33sjiCkd3iQrdldN2K+NmZO8HVYyg9vLM1cmATL4yza+9qbdeNl5sI+TaZb3x2emcuCCXsNDs+swJrpjTWzZvpgzayZPlgza6YP1sw8M2fRHG2Fc3lefBVkmJngYEsYsxMGm2ZE/iGrE4KxfzbiFTT3iiJ3+b+mE82zcRFmdXNsjKQKT8rRmUblPA/P5Rd5vj80QVv4+b/coBE0dTr0vSNcuysaHddMMVG9nVB/gurWNAhWxd9nVTXUYSBdP7xNGeIxVNrcGUplXz6OriXxBEKMECbgj6t/TxZAEI2VIdxNix4lt/MWAO5r/l2crjCAezWxJVosFovFYrFYjOZfapCvr++1iGwAAAAASUVORK5CYII="
-        alt="JobPath icon" />
+      <img src="data:image/png;base64,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" alt="JobPath icon" />
       <span>JobPath</span>
     </div>
-    <a href="https://brianmtz222.github.io/JobPath/perfil/perfil.html" class="login-btn">
+
+    <!-- BOTÓN PERFIL (se oculta si no hay sesión) -->
+    <a href="https://brianmtz222.github.io/JobPath/perfil/perfil.html" class="login-btn" id="perfilLink">
       <img src="../img/usuario.png" alt="User" />
       PERFIL
     </a>
   </div>
 
-
   <main class="main-content">
-
     <section class="left-box">
-      <h2>Únete a nuestra <br><strong>Comunidad </strong></h2>
+      <h2>Únete a nuestra <br><strong>Comunidad</strong></h2>
       <p>
-        Descubre un espacio donde la colaboración y el conocimiento abren puertas a nuevas oportunidades. Aquí, jóvenes
-        talentos, profesionales y empresas se conectan para crecer juntos, compartir experiencias y construir el futuro
-        de sus carreras.
-
+        Descubre un espacio donde la colaboración y el conocimiento abren puertas a nuevas oportunidades. Aquí, jóvenes talentos, profesionales y empresas se conectan para crecer juntos, compartir experiencias y construir el futuro de sus carreras.
       </p>
-<a href='https://brianmtz222.github.io/JobPath/suscripciones/suscripciones.html' class="get-started">Empezar</a>    
-</section>
-
+      <a href="https://brianmtz222.github.io/JobPath/suscripciones/suscripciones.html" class="get-started">Empezar</a>
+    </section>
 
     <section class="center-box">
       <div class="icon">👥</div>
       <p>
-        Más allá de la teoría, la programación es crear y colaborar. Al unirte a nuestra comunidad, no solo aprenderás a
-        escribir código, sino que también te conectarás con otros programadores para construir juntos el futuro de la
-        tecnología.
-
+        Más allá de la teoría, la programación es crear y colaborar. Al unirte a nuestra comunidad, no solo aprenderás a escribir código, sino que también te conectarás con otros programadores para construir juntos el futuro de la tecnología.
       </p>
     </section>
 
@@ -76,19 +59,26 @@
         <li>Buscando un trabajo</li>
         <li>En busca de experiencia</li>
         <li>Investigación de empresas</li>
-        <li>investigación empresarial</li>
+        <li>Investigación empresarial</li>
         <li>Contratar gente joven</li>
       </ul>
       <small>✅ Se compartirá el nombre | 0 votos</small>
     </section>
   </main>
 
- 
-
+  <!-- Scripts -->
   <script src="../js/translate.js"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- 🔥 Script para mostrar/ocultar el botón PERFIL -->
+  <script>
+    const userName = localStorage.getItem("userName");
+    const perfilLink = document.getElementById("perfilLink");
+
+    if (!userName || userName.trim() === "") {
+      perfilLink.style.display = "none";
+    }
+  </script>
 
 </body>
-
 </html>
