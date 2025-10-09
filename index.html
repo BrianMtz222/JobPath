@@ -60,6 +60,11 @@
         perfilLink.href = "https://brianmtz222.github.io/JobPath/registro/login.html";
         perfilLink.style.display = "inline";
       }
+
+
+      window.addEventListener("beforeunload", () => {
+  localStorage.removeItem("userName");
+});
     });
   </script>
 </body>
