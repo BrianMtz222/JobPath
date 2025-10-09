@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mensaje.style.color = "green";
             mensaje.textContent = "Pago exitoso";
             alert("Pago exitoso");
-            window.location.href = "https://brianmtz222.github.io/JobPath/";
+            window.location.href = "https://brianmtz222.github.io/JobPath/index2.html";
         }
     }
 

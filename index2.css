@@ -1,0 +1,121 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #2d2d3f, #4f4fcf);
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    gap: 8px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .nav-and-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  nav {
+    display: flex;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    padding-bottom: 1px;
+    margin-bottom: 40px;
+    transition: border-bottom 0.3s ease;
+
+    &:hover {
+      border-bottom: 2px solid white;
+    }
+
+    &.active {
+      border-bottom: 2px solid white;
+    }
+  }
+
+  .language-buttons {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.container {
+  height: calc(100vh - 80px);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 50px;
+  font-size: 40px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.language-nav {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.language-nav button {
+  background: none;
+  border: 2px solid white;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-nav button:hover {
+  background: white;
+  color: #2d2d3f;
+}
