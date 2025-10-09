@@ -99,7 +99,8 @@
       <div><strong id="pointsCount">20</strong><br>points</div>
     </div>
     <a href="https://brianmtz222.github.io/JobPath/registro/login.html" class="settings-btn" role="button">Cerrar
-      Sesion</a>
+      Sesion/Iniciar Sesion</a>
+       
     <div class="top-right-buttons">
       <button class="edit-btn">Editar</button>
       <a href="https://brianmtz222.github.io/JobPath/Curriculum/Curriculum.html" class="settings-btn"
@@ -136,6 +137,21 @@
       const userName = localStorage.getItem('userName');
       const userLastname = localStorage.getItem('userLastname');
       const userEmail = localStorage.getItem('userEmail');
+
+
+      const statsSection = document.querySelector('.stats');
+      if (!userName && !userLastname && !userEmail) {
+        statsSection.style.display = 'none';
+      }
+
+      if (userName) userNameDisplay.textContent = userName;
+      if (userLastname) userLastnameDisplay.textContent = userLastname;
+      if (userEmail) {
+        userEmailDisplay.textContent = userEmail;
+        userPublicationsKey = `publications_${userEmail}`;
+      }
+
+
       if (userName) userNameDisplay.textContent = userName;
       if (userLastname) userLastnameDisplay.textContent = userLastname;
       if (userEmail) {

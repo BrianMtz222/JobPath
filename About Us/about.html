@@ -30,7 +30,6 @@
       <span>JobPath</span>
     </div>
 
-    <!-- BOTÓN PERFIL (se oculta si no hay sesión) -->
     <a href="https://brianmtz222.github.io/JobPath/perfil/perfil.html" class="login-btn" id="perfilLink">
       <img src="../img/usuario.png" alt="User" />
       PERFIL
@@ -66,11 +65,9 @@
     </section>
   </main>
 
-  <!-- Scripts -->
   <script src="../js/translate.js"></script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- 🔥 Script para mostrar/ocultar el botón PERFIL -->
   <script>
     const userName = localStorage.getItem("userName");
     const perfilLink = document.getElementById("perfilLink");
@@ -79,6 +76,5 @@
       perfilLink.style.display = "none";
     }
   </script>
-
 </body>
 </html>
