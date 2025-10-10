@@ -1,66 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión</title>
-  <link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión Profesional</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
 <body>
-  <div class="login-container">
-  <a href="https://brianmtz222.github.io/JobPath/index.html" class="btn-volver-atras">Volver Atrás</a>
+    <div class="login-container">
+        <a href="https://brianmtz222.github.io/JobPath/index.html" class="btn-volver-atras">
+            <i class="fas fa-arrow-left"></i> Volver Atrás
+        </a>
+        
+        <div class="header-content">
+            <h1>Bienvenido de Nuevo</h1>
+            <p>Inicia sesión para continuar en la plataforma.</p>
+        </div>
 
-    <h1>BIENVENIDO</h1>
-    <h3>----------------------------------------------------</h3>
-    <h1>Iniciar Sesión</h1>
+        <form id="loginForm" method="post">
+            <div class="input-group">
+                <label for="username">Nombre</label>
+                <input type="text" id="username" name="username" placeholder="Ingresa tu nombre" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="lastname">Apellido</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Ingresa tu apellido" required>
+            </div>
 
-    <form id="loginForm" method="post">
-      <label for="username">Nombre</label>
-      <input type="text" id="username" name="username" required>
+            <div class="input-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" placeholder="ejemplo@dominio.com" required>
+            </div>
 
-      <label for="lastname">Apellido</label>
-      <input type="text" id="lastname" name="lastname" required>
+            <button type="submit" class="submit-button">Iniciar Sesión</button>
+        </form>
 
-      <label for="email">Correo</label>
-      <input type="email" id="email" name="email" required>
+        <div class="divider">
+            <span class="divider-text">o Inicia sesión con</span>
+        </div>
 
-      <button type="submit" class="submit-button">Login</button>
-    </form>
-  </div>
+        <div class="social-login">
+            <button class="social-btn google" type="button" onclick="handleSocialLogin('Google')">
+                <i class="fab fa-google"></i> Google
+            </button>
+            <button class="social-btn github" type="button" onclick="handleSocialLogin('GitHub')">
+                <i class="fab fa-github"></i> GitHub
+            </button>
+            <button class="social-btn facebook" type="button" onclick="handleSocialLogin('Facebook')">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </button>
+        </div>
+
+    </div>
 
 <script>
+// Manejo del formulario de Login con los campos
 document.getElementById("loginForm").addEventListener("submit", function (e) {
-  e.preventDefault(); 
+    e.preventDefault(); 
 
-  const name = document.getElementById("username").value.trim();
-  const lastname = document.getElementById("lastname").value.trim();
-  const email = document.getElementById("email").value.trim();
+    const name = document.getElementById("username").value.trim();
+    const lastname = document.getElementById("lastname").value.trim();
+    const email = document.getElementById("email").value.trim();
 
-  if (!name || !lastname || !email) {
-    alert("No se pudo ingresar: todos los campos son obligatorios");
-    return;
-  }
+    if (!name || !lastname || !email) {
+        alert("🚨 Error de Acceso: Todos los campos son obligatorios.");
+        return;
+    }
 
-  if (!email.includes("@")) {
-    alert("No se pudo ingresar: el correo debe contener '@'");
-    return;
-  }
+    // Validación de formato de email más robusta (simple)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("🚨 Error de Correo: Ingresa un correo electrónico válido (debe contener '@' y un dominio).");
+        return;
+    }
 
-  localStorage.setItem("userName", name);
-  localStorage.setItem("userLastname", lastname);
-  localStorage.setItem("userEmail", email);
+    // Guardar en Local Storage
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userLastname", lastname);
+    localStorage.setItem("userEmail", email);
 
-  alert("Login exitoso");
-  window.location.href = "https://brianmtz222.github.io/JobPath/index.html";
+    // Éxito y redirección
+    alert("✅ Login exitoso. ¡Bienvenido/a!");
+    // *** CAMBIO CLAVE AQUÍ: Redirigir a la página de perfil.html ***
+    window.location.href = "https://brianmtz222.github.io/JobPath/perfil/perfil.html"; 
 });
+
+// Función para simular el inicio de sesión social
+function handleSocialLogin(platform) {
+    alert(`🌐 Iniciando sesión con ${platform}. (Esta es una simulación)`);
+    // Opcionalmente, redirige al perfil después del login social simulado
+    // window.location.href = "https://brianmtz222.github.io/JobPath/perfil/perfil.html"; 
+}
 </script>
 
-
-
-
-  <script src="../js/app.js"></script>
+<script src="../js/app.js"></script>
 </body>
-
 </html>
