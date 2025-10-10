@@ -1,14 +1,13 @@
 :root {
     --primary-color: #3c8efc;      /* azul botones/acento */
     --highlight-color: #6a4bd0;    /* morado para bordes destacados */
-    --text-color: #2d2d3f;         /* texto oscuro */
-    --secondary-text: #555;        /* texto secundario */
-    --background-color: #ffffff;   /* fondo interno de cards */
-    --border-color: #e0e0e0;       /* bordes suaves */
-    --card-shadow: rgba(0, 0, 0, 0.05);
+    --text-color: white;            /* texto general blanco */
+    --secondary-text: rgba(255,255,255,0.8);  /* texto secundario blanco semi */
+    --background-color: #1d1d2c;   /* fondo interno de cards oscuro */
+    --border-color: #2e2e40;       /* bordes más oscuros */
+    --card-shadow:  rgba(0, 0, 0, 0.3);
 }
 
-/* --- Reset y base --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,7 +16,7 @@
 }
 
 body {
-    background: #f4f4f4;
+    background: linear-gradient(to right, #000000, #4b29d0);
     color: var(--text-color);
 }
 
@@ -27,22 +26,21 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #ffffff;
-    color: var(--text-color);
+    background: linear-gradient(to right, #000000, var(--highlight-color));
+    color: white;
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 5px var(--card-shadow);
 }
-
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: var(--primary-color);
 }
-
 .navbar nav a {
-    color: var(--text-color);
+    color: white;
     text-decoration: none;
     margin-left: 25px;
+    font-weight: bold;
     font-size: 16px;
     border-bottom: 2px solid transparent;
     transition: border-bottom 0.3s ease;
@@ -50,7 +48,7 @@ body {
 
 .navbar nav a:hover,
 .navbar nav a.active {
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 2px solid white;
 }
 
 .user-info {
@@ -95,23 +93,28 @@ body {
 }
 
 /* --- Botón Agregar Post --- */
-.add-post-btn {
-    position: absolute;
-    top: 0;
-    left: -40px;
-    width: 30px;
-    height: 30px;
+.language-nav button,
+.add-post-btn,
+.follow-btn,
+.check-company-btn,
+.get-started {
     background-color: var(--primary-color);
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
     color: white;
-    line-height: 1;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
     cursor: pointer;
-    z-index: 10;
+    transition: all 0.3s ease;
+}
+.add-post-btn{
+width: 150px;
+height: 50px    ;
+}
+.highlighted {
+    border: 3px solid var(--highlight-color);
+    box-shadow: 0 4px 15px rgba(106, 75, 208, 0.5);
 }
 
-/* --- Tarjetas de Post --- */
 .post-card {
     background-color: var(--background-color);
     border: 1px solid var(--border-color);
@@ -146,23 +149,24 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
-
+.language-nav button:hover,
+.add-post-btn:hover,
+.follow-btn:hover,
+.check-company-btn:hover,
+.get-started:hover {
+    background-color: var(--highlight-color);
+    color: white;
+}
 .post-content {
     flex-grow: 1;
     padding-top: 10px;
 }
 
+.post-text,
 .user-details {
-    font-size: 14px;
-    margin-bottom: 5px;
     color: var(--secondary-text);
 }
 
-.post-text {
-    font-size: 14px;
-    color: var(--secondary-text);
-    margin-bottom: 10px;
-}
 
 .show-more-btn {
     background: none;
@@ -184,11 +188,11 @@ body {
 }
 
 .action-icon {
-    font-size: 20px;
     cursor: pointer;
-    margin-right: 15px;
-    color: var(--primary-color);
-}
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}   
 
 .check-company-btn {
     background-color: var(--primary-color);
@@ -200,11 +204,21 @@ body {
     font-size: 13px;
     font-weight: bold;
 }
+.action-icon.liked {
+    color: red;
+}
 
-/* --- Aside (Explore People) --- */
+.action-icon.liked {
+    color: red;
+}
+
+
+
 .explore-people {
-    width: 250px;
+    width: 270px;
     padding-left: 20px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(15, 15, 15);
 }
 
 .explore-people h3 {
@@ -215,7 +229,7 @@ body {
 
 .person {
     display: flex;
-    align-items: center;
+    align-items: left;
     margin-bottom: 15px;
 }
 
@@ -234,11 +248,10 @@ body {
     align-items: center;
 }
 
-.person-name {
-    font-weight: bold;
-    font-size: 14px;
+.person-name,
+.follow-btn {
+    color: white;
 }
-
 .follow-btn {
     background-color: var(--primary-color);
     color: white;
