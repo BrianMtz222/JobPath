@@ -1,166 +1,75 @@
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: linear-gradient(to right, #2d2d3f, #4f4fcf);
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.login-container {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
-h1 {
-    font-size: 28px;
-    font-weight: bold;
-    color:linear-gradient(to right, #000000, #4b29d0);
-    margin-bottom: 30px;
-}
-
-#loginForm {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-label {
-    font-weight: 600;
-    text-align: left;
-    margin-bottom: -10px;
-    color: #555;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    box-sizing: border-box;
-   
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-    outline: none;
-    border-color: #4f4fcf;
-    box-shadow: 0 0 5px rgba(79, 79, 207, 0.5);
-}
-
-button[type="submit"] {
-    background: linear-gradient(to right, #000000, #4b29d0);
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-button[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.submit-button {
-    background: linear-gradient(to right, #2d2d3f, #4f4fcf);
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    text-align: center;
-    text-decoration: none;
-    
-}
-
-.submit-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-volver-atras {
-    background-color: transparent; 
-    border: 1px solid #003cff;
-    color: #003cff;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-right: 15px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.btn-volver-atras:hover {
-    background-color: rgba(0, 60, 255, 0.05);
-}
-
-.btn-volver-atras::after {
-    content: '';
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: var(--color-accent-dot);
-    border-radius: 50%;
-    margin-left: 10px;
-    position: relative;
-    top: -1px;
-}
-
+/* ---------------------------------- */
+/* 1. Variables CSS (Color Palette)   */
+/* ---------------------------------- */
 :root {
     --color-primary: #4f4fcf; /* Azul primario */
+    --color-primary-light: #6c7ff5; /* Azul claro para gradientes */
     --color-dark: #2c3e50; /* Gris oscuro para texto */
     --color-light-bg: #f5f7fa; /* Fondo claro */
     --color-border: #e0e0e0; /* Borde suave */
+    --color-placeholder: #95a5a6; /* Color para divisores y texto secundario */
+    
+    /* Colores Sociales */
     --color-google: #db4437; /* Rojo de Google */
     --color-github: #333333; /* Gris oscuro de GitHub */
     --color-facebook: #4267B2; /* Azul de Facebook */
 }
 
+/* ---------------------------------- */
+/* 2. Global/Body Styles              */
+/* ---------------------------------- */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, var(--color-primary), #2d2d3f); /* Fondo degradado */
+    /* Fondo degradado moderno */
+    background: linear-gradient(135deg, var(--color-primary), #2d2d3f); 
     color: var(--color-dark);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la vista */
     padding: 20px;
     box-sizing: border-box;
 }
 
+/* ---------------------------------- */
+/* 3. Login Container                 */
+/* ---------------------------------- */
 .login-container {
     background: #ffffff;
     padding: 30px 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     width: 100%;
-    max-width: 420px;
+    max-width: 420px; /* Tamaño profesional */
     text-align: center;
     position: relative;
 }
 
-/* --- Títulos y Encabezado --- */
+/* ---------------------------------- */
+/* 4. Header & Titles                 */
+/* ---------------------------------- */
+.header-content {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
 
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 5px 0;
+}
+
+p {
+    font-size: 16px;
+    color: var(--color-placeholder);
+    margin: 0;
+}
+
+/* ---------------------------------- */
+/* 5. Back Button (Volver Atrás)      */
+/* ---------------------------------- */
 .btn-volver-atras {
     position: absolute;
     top: 20px;
@@ -186,30 +95,13 @@ body {
     border-color: var(--color-dark);
 }
 
-.header-content {
-    margin-top: 10px; /* Espacio debajo del botón de volver */
-    margin-bottom: 30px;
-}
-
-h1 {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin-bottom: 5px;
-}
-
-p {
-    font-size: 16px;
-    color: #7f8c8d;
-    margin: 0;
-}
-
-/* --- Formulario Principal --- */
-
+/* ---------------------------------- */
+/* 6. Form, Input Groups, and Inputs  */
+/* ---------------------------------- */
 #loginForm {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px; /* Espaciado entre campos */
     margin-bottom: 25px;
 }
 
@@ -225,6 +117,7 @@ label {
     margin-bottom: 5px;
 }
 
+/* Estilo unificado para campos de texto y email */
 input[type="text"],
 input[type="email"] {
     width: 100%;
@@ -236,6 +129,7 @@ input[type="email"] {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+/* Estilo de foco para campos */
 input[type="text"]:focus,
 input[type="email"]:focus {
     outline: none;
@@ -243,8 +137,12 @@ input[type="email"]:focus {
     box-shadow: 0 0 0 3px rgba(79, 79, 207, 0.1);
 }
 
+/* ---------------------------------- */
+/* 7. Submit Button                   */
+/* ---------------------------------- */
 .submit-button {
-    background: linear-gradient(to right, var(--color-primary), #6c7ff5);
+    /* Usando un gradiente vibrante con variables */
+    background: linear-gradient(to right, var(--color-primary), var(--color-primary-light));
     color: white;
     font-weight: 700;
     font-size: 17px;
@@ -254,6 +152,7 @@ input[type="email"]:focus {
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
     margin-top: 10px;
+    width: 100%; /* Asegura que ocupe todo el ancho */
 }
 
 .submit-button:hover {
@@ -266,14 +165,15 @@ input[type="email"]:focus {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* --- Separador (Divider) --- */
-
+/* ---------------------------------- */
+/* 8. Divider (Separador)             */
+/* ---------------------------------- */
 .divider {
     display: flex;
     align-items: center;
     text-align: center;
-    color: #95a5a6;
-    margin: 20px 0;
+    color: var(--color-placeholder);
+    margin: 25px 0;
 }
 
 .divider::before,
@@ -284,20 +184,22 @@ input[type="email"]:focus {
 }
 
 .divider:not(:empty)::before {
-    margin-right: .25em;
+    margin-right: .5em;
 }
 
 .divider:not(:empty)::after {
-    margin-left: .25em;
+    margin-left: .5em;
 }
 
 .divider-text {
     padding: 0 10px;
     font-size: 14px;
+    font-weight: 500;
 }
 
-/* --- Botones de Inicio de Sesión Social --- */
-
+/* ---------------------------------- */
+/* 9. Social Login Buttons            */
+/* ---------------------------------- */
 .social-login {
     display: flex;
     justify-content: space-between;
@@ -306,7 +208,7 @@ input[type="email"]:focus {
 
 .social-btn {
     flex: 1;
-    padding: 12px;
+    padding: 12px 10px;
     border: 1px solid var(--color-border);
     border-radius: 8px;
     font-size: 15px;
@@ -317,42 +219,40 @@ input[type="email"]:focus {
     justify-content: center;
     gap: 8px;
     transition: all 0.3s ease;
+    background-color: white; /* Base blanca */
 }
 
 .social-btn i {
     font-size: 1.1em;
 }
 
-/* Estilos específicos para cada plataforma */
+/* Estilos de Hover y Foco Específicos */
 .social-btn.google {
     color: var(--color-google);
     border-color: var(--color-google);
-    background-color: white;
 }
 
 .social-btn.google:hover {
-    background-color: rgba(219, 68, 55, 0.1);
-    box-shadow: 0 2px 8px rgba(219, 68, 55, 0.2);
+    background-color: rgba(219, 68, 55, 0.05);
+    box-shadow: 0 2px 8px rgba(219, 68, 55, 0.1);
 }
 
 .social-btn.github {
     color: var(--color-github);
     border-color: var(--color-github);
-    background-color: white;
 }
 
 .social-btn.github:hover {
-    background-color: rgba(51, 51, 51, 0.1);
-    box-shadow: 0 2px 8px rgba(51, 51, 51, 0.2);
+    background-color: rgba(51, 51, 51, 0.05);
+    box-shadow: 0 2px 8px rgba(51, 51, 51, 0.1);
 }
 
 .social-btn.facebook {
     color: var(--color-facebook);
     border-color: var(--color-facebook);
-    background-color: white;
 }
 
 .social-btn.facebook:hover {
-    background-color: rgba(66, 103, 178, 0.1);
-    box-shadow: 0 2px 8px rgba(66, 103, 178, 0.2);
+    background-color: rgba(66, 103, 178, 0.05);
+    box-shadow: 0 2px 8px rgba(66, 103, 178, 0.1);
 }
