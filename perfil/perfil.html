@@ -141,108 +141,126 @@
   <input type="file" id="fileInput" accept="image/*" style="display:none;">
   <input type="file" id="companyFileInput" accept="image/*" style="display:none;">
 
-  <script>
-    let userPublicationsKey = 'publications_default';
-    let userCompanyImageKey = 'company_image_default';
+ <script>
+  let userPublicationsKey = 'publications_default';
+  let userCompanyImageKey = 'company_image_default';
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const publicationsGrid = document.getElementById('publicationsGrid');
-      const addImageBtn = document.getElementById('addImageBtn');
-      const fileInput = document.getElementById('fileInput');
-      const publicationsCountElement = document.getElementById('publicationsCount');
-      const companyImage = document.getElementById('companyImage');
-      const changeCompanyBtn = document.getElementById('changeCompanyBtn');
-      const companyFileInput = document.getElementById('companyFileInput');
+  document.addEventListener('DOMContentLoaded', () => {
+    const publicationsGrid = document.getElementById('publicationsGrid');
+    const addImageBtn = document.getElementById('addImageBtn');
+    const fileInput = document.getElementById('fileInput');
+    const publicationsCountElement = document.getElementById('publicationsCount');
+    const companyImage = document.getElementById('companyImage');
+    const changeCompanyBtn = document.getElementById('changeCompanyBtn');
+    const companyFileInput = document.getElementById('companyFileInput');
 
-      const userNameDisplay = document.getElementById('userNameDisplay');
-      const userLastnameDisplay = document.getElementById('userLastnameDisplay');
-      const userEmailDisplay = document.getElementById('userEmailDisplay');
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const userLastnameDisplay = document.getElementById('userLastnameDisplay');
+    const userEmailDisplay = document.getElementById('userEmailDisplay');
 
-      const userName = localStorage.getItem('userName');
-      const userLastname = localStorage.getItem('userLastname');
-      const userEmail = localStorage.getItem('userEmail');
+    let userName = localStorage.getItem('userName') || '';
+    let userLastname = localStorage.getItem('userLastname') || '';
+    let userEmail = localStorage.getItem('userEmail') || '';
 
-      // Claves únicas por usuario (Gmail)
-      if (userEmail) {
-        userPublicationsKey = `publications_${userEmail}`;
-        userCompanyImageKey = `company_image_${userEmail}`;
+    if (userEmail) {
+      userPublicationsKey = `publications_${userEmail}`;
+      userCompanyImageKey = `company_image_${userEmail}`;
+    }
+
+    // Mostrar datos
+    userNameDisplay.textContent = userName;
+    userLastnameDisplay.textContent = userLastname;
+    userEmailDisplay.textContent = userEmail;
+
+    // --- PUBLICACIONES ---
+    const addImageToGrid = (url) => {
+      const div = document.createElement('div');
+      const img = document.createElement('img');
+      img.src = url;
+      div.appendChild(img);
+      publicationsGrid.appendChild(div);
+    };
+
+    const loadPublications = () => {
+      const saved = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
+      publicationsGrid.innerHTML = '';
+      saved.forEach(url => addImageToGrid(url));
+      publicationsCountElement.textContent = saved.length;
+    };
+    loadPublications();
+
+    addImageBtn.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const imgData = ev.target.result;
+        const list = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
+        list.push(imgData);
+        localStorage.setItem(userPublicationsKey, JSON.stringify(list));
+        addImageToGrid(imgData);
+        publicationsCountElement.textContent = list.length;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // --- COMPAÑÍA ---
+    const loadCompanyImage = () => {
+      const savedImg = localStorage.getItem(userCompanyImageKey);
+      if (savedImg) companyImage.src = savedImg;
+    };
+    loadCompanyImage();
+
+    changeCompanyBtn.addEventListener('click', () => companyFileInput.click());
+    companyFileInput.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const imgData = ev.target.result;
+        companyImage.src = imgData;
+        localStorage.setItem(userCompanyImageKey, imgData);
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // --- EDITAR USUARIO ---
+    document.querySelector('.edit-btn').addEventListener('click', () => {
+      const currentName = localStorage.getItem('userName') || '';
+      const currentLastname = localStorage.getItem('userLastname') || '';
+      const currentEmail = localStorage.getItem('userEmail') || '';
+
+      const newName = prompt("Ingrese su nombre:", currentName);
+      const newLastname = prompt("Ingrese su apellido:", currentLastname);
+      const newEmail = prompt("Ingrese su correo:", currentEmail);
+
+      // Actualizar nombre
+      if (newName !== null && newName !== currentName) {
+        localStorage.setItem('userName', newName);
+        userNameDisplay.textContent = newName;
       }
 
-      // Mostrar datos
-      if (userName) userNameDisplay.textContent = userName;
-      if (userLastname) userLastnameDisplay.textContent = userLastname;
-      if (userEmail) userEmailDisplay.textContent = userEmail;
+      // Actualizar apellido
+      if (newLastname !== null && newLastname !== currentLastname) {
+        localStorage.setItem('userLastname', newLastname);
+        userLastnameDisplay.textContent = newLastname;
+      }
 
-      // --- PUBLICACIONES ---
-      const addImageToGrid = (url) => {
-        const div = document.createElement('div');
-        const img = document.createElement('img');
-        img.src = url;
-        div.appendChild(img);
-        publicationsGrid.appendChild(div);
-      };
+      // Actualizar correo y dependencias
+      if (newEmail !== null && newEmail !== currentEmail) {
+        localStorage.setItem('userEmail', newEmail);
+        userEmailDisplay.textContent = newEmail;
 
-      const loadPublications = () => {
-        const saved = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
-        publicationsGrid.innerHTML = '';
-        saved.forEach(url => addImageToGrid(url));
-        publicationsCountElement.textContent = saved.length;
-      };
-      loadPublications();
-
-      addImageBtn.addEventListener('click', () => fileInput.click());
-      fileInput.addEventListener('change', e => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = ev => {
-          const imgData = ev.target.result;
-          const list = JSON.parse(localStorage.getItem(userPublicationsKey)) || [];
-          list.push(imgData);
-          localStorage.setItem(userPublicationsKey, JSON.stringify(list));
-          addImageToGrid(imgData);
-          publicationsCountElement.textContent = list.length;
-        };
-        reader.readAsDataURL(file);
-      });
-
-      // --- COMPAÑÍA (según Gmail) ---
-    const loadCompanyImage = () => {
-  const savedImg = localStorage.getItem(userCompanyImageKey);
-  if (savedImg) companyImage.src = savedImg;
-};
-loadCompanyImage();
-
-changeCompanyBtn.addEventListener('click', () => companyFileInput.click());
-companyFileInput.addEventListener('change', e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    const imgData = ev.target.result;
-    companyImage.src = imgData;
-    localStorage.setItem(userCompanyImageKey, imgData);
-  };
-  reader.readAsDataURL(file);
-});
-
-      // --- EDITAR PERFIL ---
-      document.querySelector('.edit-btn').addEventListener('click', () => {
-        const currentEmail = localStorage.getItem('userEmail') || '';
-        const newEmail = prompt("Ingrese su correo:", currentEmail);
-
-        if (newEmail && newEmail !== currentEmail) {
-          localStorage.setItem('userEmail', newEmail);
-          userPublicationsKey = `publications_${newEmail}`;
-          userCompanyImageKey = `company_image_${newEmail}`;
-          loadPublications();
-          loadCompanyImage();
-        }
-
-        alert("Datos actualizados correctamente ✅");
-      });
+        userPublicationsKey = `publications_${newEmail}`;
+        userCompanyImageKey = `company_image_${newEmail}`;
+        loadPublications();
+        loadCompanyImage();
+      }
     });
-  </script>
+  });
+</script>
+
 
   <script src="../js/translate.js"></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
