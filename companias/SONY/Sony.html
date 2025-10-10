@@ -8,6 +8,48 @@
     <link rel="stylesheet" href="Sony.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        .cv-section {
+            margin-top: 25px;
+            padding: 20px;
+            border: 2px dashed #0072ce;
+            border-radius: 10px;
+            background-color: #f0f8ff;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .cv-section h4 {
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .cv-section input[type="file"] {
+            display: none;
+        }
+
+        .cv-label {
+            background-color: #0072ce;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .cv-label:hover {
+            background-color: #005fa3;
+        }
+
+        .cv-message {
+            margin-top: 15px;
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,23 +66,21 @@
 
     <div class="main-content">
         <aside class="sidebar">
-            <a href="https://brianmtz222.github.io/JobPath/companias/companias.html" class="btn-volver">Volver
-                Atrás</a>
-                <div class="sidebar-icons">
-                    <a href="#" class="icon-link"><span class="material-icons">sports_esports</span></a> 
-                    <a href="https://brianmtz222.github.io/JobPath/companias/Sony/Sony_chat.html"
-                        class="icon-link"><span class="material-icons">movie_filter</span></a> 
-                    <a href="#" class="icon-link"><span class="material-icons">photo_camera</span></a> 
-                </div>
-                <a href="https://www.sony.net/en/S_I/locations/" class="btn-locations">Oficinas Globales</a>
+            <a href="https://brianmtz222.github.io/JobPath/companias/companias.html" class="btn-volver">Volver Atrás</a>
+            <div class="sidebar-icons">
+                <a href="#" class="icon-link"><span class="material-icons">sports_esports</span></a> 
+                <a href="https://brianmtz222.github.io/JobPath/companias/Sony/Sony_chat.html"
+                    class="icon-link"><span class="material-icons">movie_filter</span></a> 
+                <a href="#" class="icon-link"><span class="material-icons">photo_camera</span></a> 
+            </div>
+            <a href="https://www.sony.net/en/S_I/locations/" class="btn-locations">Oficinas Globales</a>
         </aside>
 
         <main class="page-content">
             <div class="hero-section">
                 <div class="image-gallery">
                     <img src="../../img/Sony.png" alt="Oficina de Diseño Sony" class="gallery-image">
-                    <img src="https://via.placeholder.com/350x200/222222/FFFFFF?text=Innovación+Tecnológica" alt="Innovación"
-                        class="gallery-image">
+                    <img src="https://via.placeholder.com/350x200/222222/FFFFFF?text=Innovación+Tecnológica" alt="Innovación" class="gallery-image">
                     <div class="logo-overlay">
                         <span class="overlay-text">SNY</span>
                         <div class="logo-arrow"></div>
@@ -66,8 +106,15 @@
                     <h3 class="section-title">Ecosistema y Creatividad</h3>
                     <div class="info-card">
                         <h4 class="card-title">La Tecnología al Servicio del Arte</h4>
-                        <p>La **ingeniería** es clave para nuestro ecosistema. Unimos hardware y software para crear experiencias inmersivas, desde consolas de juegos hasta sensores de imagen de vanguardia. Fomentamos la **creatividad** en todos nuestros equipos, impulsando soluciones que conectan a las personas con sus pasiones. Estamos comprometidos con la excelencia en cada producto.</p>
+                        <p>La <strong>ingeniería</strong> es clave para nuestro ecosistema. Unimos hardware y software para crear experiencias inmersivas, desde consolas de juegos hasta sensores de imagen de vanguardia. Fomentamos la <strong>creatividad</strong> en todos nuestros equipos, impulsando soluciones que conectan a las personas con sus pasiones. Estamos comprometidos con la excelencia en cada producto.</p>
                     </div>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Enviar Currículum</h4>
+                    <label for="cvInput" class="cv-label">📎 Seleccionar archivo</label>
+                    <input type="file" id="cvInput" accept=".pdf,.doc,.docx">
+                    <div id="cvMessage" class="cv-message">✅ Currículum enviado correctamente</div>
                 </div>
             </div>
 
@@ -75,9 +122,22 @@
                 <img src="../../img/SonyP.jpg" alt="Persona jugando en PlayStation" class="img-large">
                 <img src="../../img/SonyC.jpg" alt="Cámara Sony" class="img-small">
             </div>
-
         </main>
     </div>
+
+    <script>
+        const inputCV = document.getElementById("cvInput");
+        const msgCV = document.getElementById("cvMessage");
+
+        inputCV.addEventListener("change", function () {
+            if (inputCV.files.length > 0) {
+                msgCV.style.display = "none";
+                setTimeout(() => {
+                    msgCV.style.display = "block";
+                }, 500);
+            }
+        });
+    </script>
 
 </body>
 

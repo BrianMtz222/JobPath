@@ -1,4 +1,3 @@
-/* Importamos una fuente similar a la de la imagen */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 :root {
@@ -21,7 +20,6 @@ body {
     min-height: 100vh;
 }
 
-/* --- Barra de Navegación (Header) --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -55,7 +53,7 @@ body {
 }
 
 .nav-links a.active {
-    background-color: var(--light-purple); /* Color de fondo para "About" */
+    background-color: var(--light-purple);
     border-radius: 5px;
 }
 
@@ -73,7 +71,6 @@ body {
     font-size: 20px;
 }
 
-/* --- Contenido Principal --- */
 .main-content {
     display: flex;
     max-width: 1400px;
@@ -126,7 +123,6 @@ body {
     font-size: 24px;
 }
 
-/* --- Contenido de la Página (Main) --- */
 .page-content {
     flex-grow: 1;
     display: grid;
@@ -136,10 +132,9 @@ body {
     grid-template-columns: 1fr 1fr auto;
     gap: 20px;
     padding-right: 20px;
-    position: relative; /* Para posicionar el alerta */
+    position: relative;
 }
 
-/* --- Sección Principal (Hero) --- */
 .hero-section {
     grid-area: hero;
     position: relative;
@@ -163,8 +158,8 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 30%; /* Ajustar el ancho de la superposición */
-    background-color: var(--globant-purple); /* Fondo de la segunda imagen */
+    width: 30%;
+    background-color: var(--globant-purple);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -177,7 +172,7 @@ body {
     font-size: 30px;
     font-weight: 700;
     z-index: 2;
-    margin-top: -20px; /* Ajuste para centrar visualmente */
+    margin-top: -20px;
 }
 
 .logo-arrow {
@@ -185,9 +180,9 @@ body {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 20px; /* Ancho de la flecha */
+    width: 20px;
     background-color: white;
-    transform: skewX(-15deg); /* Efecto de flecha */
+    transform: skewX(-15deg);
     transform-origin: 0 0;
     box-shadow: -2px 0 5px rgba(0,0,0,0.2);
 }
@@ -232,8 +227,6 @@ body {
     color: var(--accent-blue);
 }
 
-
-/* --- Secciones de Detalles --- */
 .about-us-container {
     grid-area: about;
 }
@@ -270,7 +263,6 @@ body {
     margin-bottom: 5px;
 }
 
-/* --- Imágenes Derecha --- */
 .images-right {
     grid-area: images;
     display: flex;
@@ -282,7 +274,6 @@ body {
     overflow: hidden;
 }
 
-/* Simulación de líneas de fondo abstractas */
 .images-right::before {
     content: '';
     position: absolute;
@@ -314,5 +305,45 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     z-index: 1;
-    margin-right: 50px; /* Mover la imagen más a la izquierda */
+    margin-right: 50px;
+}
+
+.cv-section {
+    margin-top: 25px;
+    padding: 20px;
+    border: 2px dashed #3A0CA3;
+    border-radius: 10px;
+    background-color: #f0f4ff;
+    text-align: center;
+    max-width: 400px;
+}
+
+.cv-section h4 {
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.cv-section input[type="file"] {
+    display: none;
+}
+
+.cv-label {
+    background-color: #3A0CA3;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.cv-label:hover {
+    background-color: #003f8a;
+}
+
+.cv-message {
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+    display: none;
 }

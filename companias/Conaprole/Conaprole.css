@@ -1,12 +1,11 @@
-/* Importamos la fuente Open Sans */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 :root {
-    --conaprole-blue: #0087c5; /* Azul primario, color de la marca */
-    --conaprole-green: #4caf50; /* Verde de acento (campo, natural) */
-    --conaprole-light-blue: #b2d8d6; /* Celeste muy claro/agua */
+    --conaprole-blue: #0087c5;
+    --conaprole-green: #4caf50;
+    --conaprole-light-blue: #b2d8d6;
     --conaprole-text-dark: #212121;
-    --background-white: #ffffff; 
+    --background-white: #ffffff;
 }
 
 * {
@@ -21,17 +20,15 @@ body {
     min-height: 100vh;
 }
 
-/* --- Barra de Navegación (Header) --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Fondo con el azul primario */
-    background-color: var(--conaprole-blue); 
+    background-color: var(--conaprole-blue);
     color: white;
     padding: 10px 20px;
     height: 70px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .logo-container {
@@ -44,11 +41,11 @@ body {
 .logo-text {
     font-size: 24px;
     font-weight: 700;
-    color: var(--background-white); 
+    color: var(--background-white);
 }
 
 .nav-links a {
-    color: var(--conaprole-light-blue); /* Enlaces secundarios en celeste claro */
+    color: var(--conaprole-light-blue);
     text-decoration: none;
     padding: 10px 15px;
     font-size: 16px;
@@ -57,10 +54,9 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--conaprole-green); /* Acento verde al pasar el mouse */
+    color: var(--conaprole-green);
 }
 
-/* --- Contenido Principal --- */
 .main-content {
     display: flex;
     max-width: 1400px;
@@ -76,9 +72,9 @@ body {
     margin-right: 20px;
 }
 
-/* Botones de acción (Volver y Contacto) */
-.btn-volver, .btn-locations {
-    background-color: var(--conaprole-green); /* Verde para los botones de acción */
+.btn-volver,
+.btn-locations {
+    background-color: var(--conaprole-green);
     color: white;
     border: none;
     padding: 10px 10px;
@@ -87,14 +83,15 @@ body {
     font-weight: 700;
     border-radius: 4px;
     text-align: left;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     display: block;
     transition: background-color 0.3s;
 }
 
-.btn-volver:hover, .btn-locations:hover {
-    background-color: #388e3c; /* Verde más oscuro al hacer hover */
+.btn-volver:hover,
+.btn-locations:hover {
+    background-color: #388e3c;
 }
 
 .sidebar-icons {
@@ -103,7 +100,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Enlaces de Íconos */
 .icon-link {
     background-color: var(--conaprole-light-blue);
     border: 1px solid var(--conaprole-blue);
@@ -113,14 +109,14 @@ body {
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     color: var(--conaprole-blue);
     text-decoration: none;
     transition: background-color 0.3s;
 }
 
 .icon-link:hover {
-    background-color: var(--conaprole-blue); 
+    background-color: var(--conaprole-blue);
     color: var(--background-white);
 }
 
@@ -128,7 +124,6 @@ body {
     font-size: 24px;
 }
 
-/* --- Contenido de la Página (Main) --- */
 .page-content {
     flex-grow: 1;
     display: grid;
@@ -141,13 +136,12 @@ body {
     position: relative;
 }
 
-/* --- Sección Principal (Hero) --- */
 .hero-section {
     grid-area: hero;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .image-gallery {
@@ -165,8 +159,8 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 30%; 
-    background-color: var(--conaprole-green); /* Overlay en verde */
+    width: 30%;
+    background-color: var(--conaprole-green);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -175,11 +169,11 @@ body {
 }
 
 .overlay-text {
-    color: var(--background-white); 
+    color: var(--background-white);
     font-size: 30px;
     font-weight: 700;
     z-index: 2;
-    margin-top: -20px; 
+    margin-top: -20px;
 }
 
 .logo-arrow {
@@ -187,11 +181,11 @@ body {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 20px; 
-    background-color: var(--background-white); /* Flecha en blanco */
-    transform: skewX(-15deg); 
+    width: 20px;
+    background-color: var(--background-white);
+    transform: skewX(-15deg);
     transform-origin: 0 0;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .team-info {
@@ -202,7 +196,7 @@ body {
     background-color: white;
     padding: 10px 30px;
     border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     z-index: 10;
@@ -227,16 +221,14 @@ body {
     background-color: var(--conaprole-blue);
     border-radius: 50%;
     padding: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 10;
 }
 
 .alert-icon .material-icons {
-    color: var(--background-white); 
+    color: var(--background-white);
 }
 
-
-/* --- Secciones de Detalles --- */
 .about-us-container {
     grid-area: about;
 }
@@ -256,13 +248,13 @@ body {
     background-color: var(--background-white);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     min-height: 200px;
-    border-left: 5px solid var(--conaprole-green); /* Detalle de color */
+    border-left: 5px solid var(--conaprole-green);
 }
 
 .card-title {
-    color: var(--conaprole-green); 
+    color: var(--conaprole-green);
     font-size: 16px;
     margin-bottom: 10px;
 }
@@ -274,7 +266,6 @@ body {
     margin-bottom: 5px;
 }
 
-/* --- Imágenes Derecha --- */
 .images-right {
     grid-area: images;
     display: flex;
@@ -286,7 +277,6 @@ body {
     overflow: hidden;
 }
 
-/* Simulación de ondulaciones de leche/agua en tonos claros */
 .images-right::before {
     content: '';
     position: absolute;
@@ -294,7 +284,6 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Patrón de onda o burbujas suaves */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23B2D8D6' stroke-width='0.5' d='M0 50C16.6 33.4 33.4 33.4 50 50S83.4 66.6 100 50'/%3E%3Cpath fill='none' stroke='%230087C5' stroke-width='0.5' d='M0 60C16.6 43.4 33.4 43.4 50 60S83.4 76.6 100 60'/%3E%3C/svg%3E");
     background-repeat: repeat-x;
     background-size: 100% 50%;
@@ -307,7 +296,7 @@ body {
     height: 180px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1;
     margin-bottom: 20px;
 }
@@ -317,7 +306,47 @@ body {
     height: 120px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    margin-right: 50px; 
+    margin-right: 50px;
+}
+
+.cv-section {
+    margin-top: 25px;
+    padding: 20px;
+    border: 2px dashed #4caf50;
+    border-radius: 10px;
+    background-color: #f0fff8;
+    text-align: center;
+    max-width: 400px;
+}
+
+.cv-section h4 {
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.cv-section input[type="file"] {
+    display: none;
+}
+
+.cv-label {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.cv-label:hover {
+    background-color: #005942;
+}
+
+.cv-message {
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+    display: none;
 }

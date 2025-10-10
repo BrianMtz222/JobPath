@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="Salus.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   
 </head>
 
 <body>
@@ -24,15 +26,12 @@
 
     <div class="main-content">
         <aside class="sidebar">
-            <a href="https://brianmtz222.github.io/JobPath/companias/companias.html" class="btn-volver">Volver
-                Atrás</a>
-                <div class="sidebar-icons">
-                    <a href="#" class="icon-link"><span class="material-icons">water_drop</span></a> 
-                    <a href="https://brianmtz222.github.io/JobPath/companias/SaluS/SaluS_chat.html"
-                        class="icon-link"><span class="material-icons">spa</span></a> 
-                    <a href="#" class="icon-link"><span class="material-icons">recycling</span></a> 
-                </div>
-            
+            <a href="https://brianmtz222.github.io/JobPath/companias/companias.html" class="btn-volver">Volver Atrás</a>
+            <div class="sidebar-icons">
+                <a href="#" class="icon-link"><span class="material-icons">water_drop</span></a> 
+                <a href="https://brianmtz222.github.io/JobPath/companias/SaluS/SaluS_chat.html" class="icon-link"><span class="material-icons">spa</span></a> 
+                <a href="#" class="icon-link"><span class="material-icons">recycling</span></a> 
+            </div>
             <a href="https://www.salus.com.uy/" class="btn-locations">Fuente & Planta</a>
         </aside>
 
@@ -40,8 +39,7 @@
             <div class="hero-section">
                 <div class="image-gallery">
                     <img src="../../img/Salus.png" alt="Fuente Natural Salus" class="gallery-image">
-                    <img src="https://via.placeholder.com/350x200/F0F0F0/444444?text=Botellas+en+Línea" alt="Línea de Envasado"
-                        class="gallery-image">
+                    <img src="https://via.placeholder.com/350x200/F0F0F0/444444?text=Botellas+en+Línea" alt="Línea de Envasado" class="gallery-image">
                     <div class="logo-overlay">
                         <span class="overlay-text">S+</span>
                         <div class="logo-arrow"></div>
@@ -59,7 +57,7 @@
                     <h3 class="section-title">Acerca De</h3>
                     <div class="info-card">
                         <h4 class="card-title">SaluS (Agua Mineral Natural)</h4>
-                        <p>SaluS, con más de un siglo de historia, es sinónimo de **agua mineral natural** en Uruguay. Nuestra fuente se encuentra en un entorno natural protegido, garantizando un agua de pureza única y equilibrada. Nos dedicamos a embotellar la naturaleza, manteniendo un profundo respeto por el **medio ambiente** y promoviendo un estilo de vida saludable.</p>
+                        <p>SaluS, con más de un siglo de historia, es sinónimo de <strong>agua mineral natural</strong> en Uruguay. Nuestra fuente se encuentra en un entorno natural protegido, garantizando un agua de pureza única y equilibrada. Nos dedicamos a embotellar la naturaleza, manteniendo un profundo respeto por el <strong>medio ambiente</strong> y promoviendo un estilo de vida saludable.</p>
                     </div>
                 </div>
 
@@ -67,8 +65,15 @@
                     <h3 class="section-title">Pureza y Sostenibilidad</h3>
                     <div class="info-card">
                         <h4 class="card-title">Compromiso SaluS</h4>
-                        <p>La **sostenibilidad** es nuestro principal valor. Utilizamos tecnología avanzada para asegurar la máxima pureza del agua, desde la captación hasta el envasado. Trabajamos activamente en la reducción de plásticos, la eficiencia hídrica y la protección de nuestro entorno natural. El **control de calidad** constante asegura que cada botella sea tan pura como la primera.</p>
+                        <p>La <strong>sostenibilidad</strong> es nuestro principal valor. Utilizamos tecnología avanzada para asegurar la máxima pureza del agua, desde la captación hasta el envasado. Trabajamos activamente en la reducción de plásticos, la eficiencia hídrica y la protección de nuestro entorno natural. El <strong>control de calidad</strong> constante asegura que cada botella sea tan pura como la primera.</p>
                     </div>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Enviar Currículum</h4>
+                    <label for="cvInput" class="cv-label">📎 Seleccionar archivo</label>
+                    <input type="file" id="cvInput" accept=".pdf,.doc,.docx">
+                    <div id="cvMessage" class="cv-message">✅ Currículum enviado correctamente</div>
                 </div>
             </div>
 
@@ -76,9 +81,22 @@
                 <img src="../../img/SalusT.jpg" alt="Entorno Natural de la Fuente" class="img-large">
                 <img src="../../img/SalusT2.jpg" alt="Botella de agua Salus" class="img-small">
             </div>
-
         </main>
     </div>
+
+    <script>
+        const inputCV = document.getElementById("cvInput");
+        const msgCV = document.getElementById("cvMessage");
+
+        inputCV.addEventListener("change", function () {
+            if (inputCV.files.length > 0) {
+                msgCV.style.display = "none";
+                setTimeout(() => {
+                    msgCV.style.display = "block";
+                }, 500);
+            }
+        });
+    </script>
 
 </body>
 

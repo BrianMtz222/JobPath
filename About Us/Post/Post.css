@@ -1,0 +1,255 @@
+:root {
+    --primary-color: #3c8efc;      /* azul botones/acento */
+    --highlight-color: #6a4bd0;    /* morado para bordes destacados */
+    --text-color: #2d2d3f;         /* texto oscuro */
+    --secondary-text: #555;        /* texto secundario */
+    --background-color: #ffffff;   /* fondo interno de cards */
+    --border-color: #e0e0e0;       /* bordes suaves */
+    --card-shadow: rgba(0, 0, 0, 0.05);
+}
+
+/* --- Reset y base --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+    color: var(--text-color);
+}
+
+/* --- Barra de Navegación --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px var(--card-shadow);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.navbar nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 16px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    margin-right: 15px;
+}
+
+.email-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--highlight-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 5px;
+    color: white;
+}
+
+/* --- Contenido Principal y Feed --- */
+.content-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.feed-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    flex-grow: 1;
+    position: relative;
+    padding-right: 20px;
+    border-right: 1px solid var(--border-color);
+}
+
+/* --- Botón Agregar Post --- */
+.add-post-btn {
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* --- Tarjetas de Post --- */
+.post-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px var(--card-shadow);
+    color: var(--text-color);
+}
+
+.highlighted {
+    border: 3px solid var(--highlight-color);
+    box-shadow: 0 4px 15px rgba(106, 75, 208, 0.2);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.user-img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid var(--highlight-color);
+}
+
+.options-icon {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.post-content {
+    flex-grow: 1;
+    padding-top: 10px;
+}
+
+.user-details {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: var(--secondary-text);
+}
+
+.post-text {
+    font-size: 14px;
+    color: var(--secondary-text);
+    margin-bottom: 10px;
+}
+
+.show-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding: 0;
+    display: block;
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+}
+
+.action-icon {
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 15px;
+    color: var(--primary-color);
+}
+
+.check-company-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* --- Aside (Explore People) --- */
+.explore-people {
+    width: 250px;
+    padding-left: 20px;
+}
+
+.explore-people h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.person {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.person img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.person-details {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.person-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.follow-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s ease;
+}
+
+.follow-btn:hover {
+    background-color: var(--highlight-color);
+}

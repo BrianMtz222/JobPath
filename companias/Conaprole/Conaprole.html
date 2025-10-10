@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="Conaprole.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
 </head>
 
 <body>
@@ -24,12 +26,10 @@
 
     <div class="main-content">
         <aside class="sidebar">
-            <a href="https://brianmtz222.github.io/JobPath/companias/companias.html" class="btn-volver">Volver
-                Atrás</a>
+            <a href="https://brianmtz222.github.io/JobPath/companias/companias.html" class="btn-volver">Volver Atrás</a>
             <div class="sidebar-icons">
                 <a href="#" class="icon-link"><span class="material-icons">local_florist</span></a>
-                <a href="https://brianmtz222.github.io/JobPath/companias/Conaprole/Conaprole_chat.html"
-                    class="icon-link"><span class="material-icons">inventory</span></a>
+                <a href="https://brianmtz222.github.io/JobPath/companias/Conaprole/Conaprole_chat.html" class="icon-link"><span class="material-icons">inventory</span></a>
                 <a href="#" class="icon-link"><span class="material-icons">factory</span></a>
             </div>
             <a href="https://conaprole.uy/contactenos/" class="btn-locations">Contacto y Plantas</a>
@@ -39,8 +39,7 @@
             <div class="hero-section">
                 <div class="image-gallery">
                     <img src="../../img/Conaprole.png" alt="Campo Uruguayo" class="gallery-image">
-                    <img src="https://via.placeholder.com/350x200/B2D8D6/212F3D?text=Procesamiento+Lácteo"
-                        alt="Línea de producción" class="gallery-image">
+                    <img src="https://via.placeholder.com/350x200/B2D8D6/212F3D?text=Procesamiento+Lácteo" alt="Línea de producción" class="gallery-image">
                     <div class="logo-overlay">
                         <span class="overlay-text">CPRL</span>
                         <div class="logo-arrow"></div>
@@ -58,11 +57,7 @@
                     <h3 class="section-title">Acerca De</h3>
                     <div class="info-card">
                         <h4 class="card-title">Conaprole (Cooperativa Nacional de Productores de Leche)</h4>
-                        <p>Conaprole es una cooperativa uruguaya fundada en 1936. Se dedica a la producción y
-                            comercialización de productos lácteos como leche, queso, manteca y yogures. Es una de las
-                            empresas más importantes del país y exporta a varios mercados internacionales. Su trabajo
-                            apoya a miles de productores rurales y garantiza la calidad de los alimentos elaborados en
-                            Uruguay.</p>
+                        <p>Conaprole es una cooperativa uruguaya fundada en 1936. Se dedica a la producción y comercialización de productos lácteos como leche, queso, manteca y yogures. Es una de las empresas más importantes del país y exporta a varios mercados internacionales. Su trabajo apoya a miles de productores rurales y garantiza la calidad de los alimentos elaborados en Uruguay.</p>
                     </div>
                 </div>
 
@@ -70,12 +65,16 @@
                     <h3 class="section-title">Cadena de Valor y Exportación</h3>
                     <div class="info-card">
                         <h4 class="card-title">De Uruguay al Mundo</h4>
-                        <p>Nuestra **logística** y tecnología nos permiten procesar más de 1.000 millones de litros de
-                            leche al año, cumpliendo con los estándares internacionales más rigurosos. La cooperativa
-                            exporta sus productos a más de 50 países, siendo un motor clave para la economía uruguaya.
-                            La **innovación** constante en derivados lácteos y la eficiencia de la cadena de frío son
-                            nuestra prioridad.</p>
+                        <p>Nuestra <strong>logística</strong> y tecnología nos permiten procesar más de 1.000 millones de litros de leche al año, cumpliendo con los estándares internacionales más rigurosos. La cooperativa exporta sus productos a más de 50 países, siendo un motor clave para la economía uruguaya. La <strong>innovación</strong> constante en derivados lácteos y la eficiencia de la cadena de frío son nuestra prioridad.</p>
                     </div>
+                </div>
+
+                <!-- NUEVA SECCIÓN PARA SUBIR CURRÍCULUM -->
+                <div class="cv-section">
+                    <h4>Enviar Currículum</h4>
+                    <label for="cvInput" class="cv-label">📎 Seleccionar archivo</label>
+                    <input type="file" id="cvInput" accept=".pdf,.doc,.docx">
+                    <div id="cvMessage" class="cv-message">✅ Currículum enviado correctamente</div>
                 </div>
             </div>
 
@@ -83,9 +82,23 @@
                 <img src="../../img/ConaproleSh.png" alt="Productos Lácteos Conaprole" class="img-large">
                 <img src="../../img/ConaproleT.png" alt="Tambo modernizado" class="img-small">
             </div>
-
         </main>
     </div>
+
+    <script>
+       
+        const inputCV = document.getElementById("cvInput");
+        const msgCV = document.getElementById("cvMessage");
+
+        inputCV.addEventListener("change", function () {
+            if (inputCV.files.length > 0) {
+                msgCV.style.display = "none";
+                setTimeout(() => {
+                    msgCV.style.display = "block";
+                }, 500);
+            }
+        });
+    </script>
 
 </body>
 

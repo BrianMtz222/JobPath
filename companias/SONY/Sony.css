@@ -1,13 +1,12 @@
-/* Importamos la fuente Open Sans */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 :root {
-    --sony-black-primary: #101010; /* Negro casi absoluto */
+    --sony-black-primary: #101010;
     --sony-white: #FFFFFF;
-    --sony-gray-accent: #6C757D; /* Gris plateado para acentos */
-    --sony-blue-accent: #007bff; /* Un azul tecnológico para contrastar */
+    --sony-gray-accent: #6C757D;
+    --sony-blue-accent: #007bff;
     --sony-text-dark: #212529;
-    --background-light: #f8f9fa; /* Fondo muy claro */
+    --background-light: #f8f9fa;
 }
 
 * {
@@ -22,13 +21,11 @@ body {
     min-height: 100vh;
 }
 
-/* --- Barra de Navegación (Header) --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Fondo negro, el color icónico de Sony */
-    background-color: var(--sony-black-primary); 
+    background-color: var(--sony-black-primary);
     color: var(--sony-white);
     padding: 10px 20px;
     height: 70px;
@@ -45,11 +42,11 @@ body {
 .logo-text {
     font-size: 24px;
     font-weight: 700;
-    color: var(--sony-white); 
+    color: var(--sony-white);
 }
 
 .nav-links a {
-    color: var(--sony-gray-accent); /* Enlaces secundarios en gris */
+    color: var(--sony-gray-accent);
     text-decoration: none;
     padding: 10px 15px;
     font-size: 16px;
@@ -61,7 +58,6 @@ body {
     color: var(--sony-blue-accent);
 }
 
-/* --- Contenido Principal --- */
 .main-content {
     display: flex;
     max-width: 1400px;
@@ -73,13 +69,12 @@ body {
     width: 150px;
     display: flex;
     flex-direction: column;
-    padding: 0 10px; /* Mantenemos un pequeño padding para que los elementos no se peguen al borde de la ventana */
+    padding: 0 10px;
     margin-right: 20px;
 }
 
-/* Botones de acción (Volver y Oficinas) */
 .btn-volver, .btn-locations {
-    background-color: var(--sony-blue-accent); /* Azul tecnológico */
+    background-color: var(--sony-blue-accent);
     color: white;
     border: none;
     padding: 10px 10px;
@@ -104,7 +99,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Enlaces de Íconos */
 .icon-link {
     background-color: var(--sony-white);
     border: 1px solid var(--sony-gray-accent);
@@ -121,7 +115,7 @@ body {
 }
 
 .icon-link:hover {
-    background-color: var(--sony-gray-accent); 
+    background-color: var(--sony-gray-accent);
     color: var(--sony-white);
 }
 
@@ -129,7 +123,6 @@ body {
     font-size: 24px;
 }
 
-/* --- Contenido de la Página (Main) --- */
 .page-content {
     flex-grow: 1;
     display: grid;
@@ -142,7 +135,6 @@ body {
     position: relative;
 }
 
-/* --- Sección Principal (Hero) --- */
 .hero-section {
     grid-area: hero;
     position: relative;
@@ -166,8 +158,8 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 30%; 
-    background-color: var(--sony-gray-accent); /* Acento gris/plateado */
+    width: 30%;
+    background-color: var(--sony-gray-accent);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -176,11 +168,11 @@ body {
 }
 
 .overlay-text {
-    color: var(--sony-white); 
+    color: var(--sony-white);
     font-size: 30px;
     font-weight: 700;
     z-index: 2;
-    margin-top: -20px; 
+    margin-top: -20px;
 }
 
 .logo-arrow {
@@ -188,9 +180,9 @@ body {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 20px; 
-    background-color: var(--sony-black-primary); /* Flecha en negro */
-    transform: skewX(-15deg); 
+    width: 20px;
+    background-color: var(--sony-black-primary);
+    transform: skewX(-15deg);
     transform-origin: 0 0;
     box-shadow: -2px 0 5px rgba(0,0,0,0.2);
 }
@@ -233,11 +225,9 @@ body {
 }
 
 .alert-icon .material-icons {
-    color: var(--sony-blue-accent); 
+    color: var(--sony-blue-accent);
 }
 
-
-/* --- Secciones de Detalles --- */
 .about-us-container {
     grid-area: about;
 }
@@ -259,11 +249,11 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     min-height: 200px;
-    border-left: 5px solid var(--sony-blue-accent); /* Detalle de color */
+    border-left: 5px solid var(--sony-blue-accent);
 }
 
 .card-title {
-    color: var(--sony-blue-accent); 
+    color: var(--sony-blue-accent);
     font-size: 16px;
     margin-bottom: 10px;
 }
@@ -275,7 +265,6 @@ body {
     margin-bottom: 5px;
 }
 
-/* --- Imágenes Derecha --- */
 .images-right {
     grid-area: images;
     display: flex;
@@ -287,7 +276,6 @@ body {
     overflow: hidden;
 }
 
-/* Simulación de líneas/ondas tecnológicas */
 .images-right::before {
     content: '';
     position: absolute;
@@ -295,7 +283,6 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Líneas o patrón de circuito en gris claro */
     background-image: url("data:image/svg+xml,%3Csvg width='100%' height='100%' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='10' x2='100' y2='10' stroke='%23D3D3D3' stroke-width='0.5' /%3E%3Cline x1='0' y1='50' x2='100' y2='50' stroke='%23E8E8E8' stroke-width='0.5' /%3E%3Cline x1='0' y1='90' x2='100' y2='90' stroke='%23D3D3D3' stroke-width='0.5' /%3E%3C/svg%3E");
     background-repeat: repeat-y;
     background-size: 100% 100px;
@@ -320,5 +307,5 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     z-index: 1;
-    margin-right: 50px; 
+    margin-right: 50px;
 }

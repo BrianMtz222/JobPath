@@ -7,6 +7,8 @@
     <title>Globant - Perfil</title>
     <link rel="stylesheet" href="Globant.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
 </head>
 
 <body>
@@ -17,23 +19,19 @@
         </div>
         <nav class="nav-links">
             <a href="../../JobPath/index.html">Principal</a> |
-
             <a href="../../companias/companias.html">Compañías</a>
-
         </nav>
     </header>
 
     <div class="main-content">
         <aside class="sidebar">
-            <a href="https://brianmtz222.github.io/JobPath/companias/companias.html" class="btn-volver">Volver
-                Atrás</button>
-                <div class="sidebar-icons">
-                    <a href="#" class="icon-link"><span class="material-icons">search</span></a>
-                    <a href="https://brianmtz222.github.io/JobPath/companias/Globant/Globant_chat.html"
-                        class="icon-link"><span class="material-icons">chat_bubble_outline</span></a>
-                    <a href="#" class="icon-link"><span class="material-icons">forum</span></a>
-                </div>
-                <button class="btn-locations">Locations</button>
+            <a href="https://brianmtz222.github.io/JobPath/companias/companias.html" class="btn-volver">Volver Atrás</a>
+            <div class="sidebar-icons">
+                <a href="#" class="icon-link"><span class="material-icons">search</span></a>
+                <a href="https://brianmtz222.github.io/JobPath/companias/Globant/Globant_chat.html" class="icon-link"><span class="material-icons">chat_bubble_outline</span></a>
+                <a href="#" class="icon-link"><span class="material-icons">forum</span></a>
+            </div>
+            <button class="btn-locations">Locations</button>
         </aside>
 
         <main class="page-content">
@@ -68,12 +66,16 @@
                     <div class="info-card">
                         <h4 class="card-title">Globant</h4>
                         <p>La programación es la base de Globant. Es el proceso clave donde nuestros Globers escriben
-                            código para crear las instrucciones que impulsan la transformación digital.
-
-                            Con la programación, construimos aplicaciones y software innovador, automatizamos procesos y
-                            diseñamos las experiencias digitales que nuestros clientes necesitan para reinventar sus
-                            negocios globalmente. La programación es nuestro motor.</p>
+                            código para crear las instrucciones que impulsan la transformación digital. Con la programación, construimos aplicaciones y software innovador, automatizamos procesos y diseñamos las experiencias digitales que nuestros clientes necesitan para reinventar sus negocios globalmente. La programación es nuestro motor.</p>
                     </div>
+                </div>
+
+                <!-- NUEVA SECCIÓN PARA SUBIR CURRÍCULUM -->
+                <div class="cv-section">
+                    <h4>Enviar Currículum</h4>
+                    <label for="cvInput" class="cv-label">📎 Seleccionar archivo</label>
+                    <input type="file" id="cvInput" accept=".pdf,.doc,.docx">
+                    <div id="cvMessage" class="cv-message">✅ Currículum enviado correctamente</div>
                 </div>
             </div>
 
@@ -81,9 +83,23 @@
                 <img src="../../img/globant.jpg" alt="Gente trabajando" class="img-large">
                 <img src="../../img/globant.jpg" alt="Reunión" class="img-small">
             </div>
-
         </main>
     </div>
+
+    <script>
+
+        const inputCV = document.getElementById("cvInput");
+        const msgCV = document.getElementById("cvMessage");
+
+        inputCV.addEventListener("change", function () {
+            if (inputCV.files.length > 0) {
+                msgCV.style.display = "none";
+                setTimeout(() => {
+                    msgCV.style.display = "block";
+                }, 500);
+            }
+        });
+    </script>
 
 </body>
 

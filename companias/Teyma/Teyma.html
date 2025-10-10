@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="Teyma.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -24,23 +26,21 @@
 
     <div class="main-content">
         <aside class="sidebar">
-            <a href="https://brianmtz222.github.io/JobPath/companias/companias.html" class="btn-volver">Volver
-                Atrás</a>
-                <div class="sidebar-icons">
-                    <a href="#" class="icon-link"><span class="material-icons">engineering</span></a> 
-                    <a href="https://brianmtz222.github.io/JobPath/companias/Teyma/Teyma_chat.html"
-                        class="icon-link"><span class="material-icons">handyman</span></a> 
-                    <a href="#" class="icon-link"><span class="material-icons">construction</span></a> 
-                </div>
-                <button class="btn-locations">Ubicaciones</button>
+            <a href="https://brianmtz222.github.io/JobPath/companias/companias.html" class="btn-volver">Volver Atrás</a>
+            <div class="sidebar-icons">
+                <a href="#" class="icon-link"><span class="material-icons">engineering</span></a> 
+                <a href="https://brianmtz222.github.io/JobPath/companias/Teyma/Teyma_chat.html"
+                    class="icon-link"><span class="material-icons">handyman</span></a> 
+                <a href="#" class="icon-link"><span class="material-icons">construction</span></a> 
+            </div>
+            <button class="btn-locations">Ubicaciones</button>
         </aside>
 
         <main class="page-content">
             <div class="hero-section">
                 <div class="image-gallery">
                     <img src="../../img/teyma.jpg" alt="Proyecto de Infraestructura" class="gallery-image">
-                    <img src="../../img/" alt="Obra de Construcción"
-                        class="gallery-image">
+                    <img src="../../img/" alt="Obra de Construcción" class="gallery-image">
                     <div class="logo-overlay">
                         <span class="overlay-text">TYM</span>
                         <div class="logo-arrow"></div>
@@ -58,7 +58,7 @@
                     <h3 class="section-title">Acerca De</h3>
                     <div class="info-card">
                         <h4 class="card-title">Teyma</h4>
-                        <p>Teyma es una empresa líder en **ingeniería, construcción y servicios**, parte del grupo Abengoa. Nos especializamos en proyectos de alta complejidad en sectores clave como energía, agua y edificación industrial. Nuestro compromiso es el desarrollo sostenible y la innovación tecnológica para crear infraestructuras que impulsan el progreso.</p>
+                        <p>Teyma es una empresa líder en <strong>ingeniería, construcción y servicios</strong>, parte del grupo Abengoa. Nos especializamos en proyectos de alta complejidad en sectores clave como energía, agua y edificación industrial. Nuestro compromiso es el desarrollo sostenible y la innovación tecnológica para crear infraestructuras que impulsan el progreso.</p>
                     </div>
                 </div>
 
@@ -66,8 +66,15 @@
                     <h3 class="section-title">Ingeniería y Desarrollo</h3>
                     <div class="info-card">
                         <h4 class="card-title">Tecnología Teyma</h4>
-                        <p>La **ingeniería de proyectos** y la **gestión de activos** son nuestro núcleo. Utilizamos tecnologías BIM (Building Information Modeling) y sistemas avanzados para optimizar el ciclo de vida de las infraestructuras, desde el diseño hasta la operación. Nuestros equipos aplican la **innovación** para garantizar la eficiencia, seguridad y calidad en cada proyecto.</p>
+                        <p>La <strong>ingeniería de proyectos</strong> y la <strong>gestión de activos</strong> son nuestro núcleo. Utilizamos tecnologías BIM (Building Information Modeling) y sistemas avanzados para optimizar el ciclo de vida de las infraestructuras, desde el diseño hasta la operación. Nuestros equipos aplican la <strong>innovación</strong> para garantizar la eficiencia, seguridad y calidad en cada proyecto.</p>
                     </div>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Enviar Currículum</h4>
+                    <label for="cvInput" class="cv-label">📎 Seleccionar archivo</label>
+                    <input type="file" id="cvInput" accept=".pdf,.doc,.docx">
+                    <div id="cvMessage" class="cv-message">✅ Currículum enviado correctamente</div>
                 </div>
             </div>
 
@@ -75,9 +82,22 @@
                 <img src="../../img/teymaP2.jpg" alt="Gente trabajando en Teyma" class="img-large">
                 <img src="../../img/teymaP.jpg" alt="Reunión de proyecto" class="img-small">
             </div>
-
         </main>
     </div>
+
+    <script>
+        const inputCV = document.getElementById("cvInput");
+        const msgCV = document.getElementById("cvMessage");
+
+        inputCV.addEventListener("change", function () {
+            if (inputCV.files.length > 0) {
+                msgCV.style.display = "none";
+                setTimeout(() => {
+                    msgCV.style.display = "block";
+                }, 500);
+            }
+        });
+    </script>
 
 </body>
 
