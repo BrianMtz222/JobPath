@@ -27,6 +27,17 @@ body {
   background: #fff;
   color: #4b29d0;
 }
+.btn-back {
+  background: none;
+  border: 2px solid #fff;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+}
 
 &.active {
   border-bottom: 2px solid #fff;
